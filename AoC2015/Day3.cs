@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace advent.AoC2015
+namespace Advent.AoC2015
 {
     class Day3
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace advent.AoC2020
+namespace Advent.AoC2020
 {
     class Day5
     {

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace advent
+namespace Advent
 {
     public static class Input
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace advent.AoC2020
+namespace Advent.AoC2020
 {
     class Day8
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace advent.AoC2020
+namespace Advent.AoC2020
 {
     class Day2
     {

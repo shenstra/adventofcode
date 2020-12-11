@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace advent.AoC2015
+namespace Advent.AoC2015
 {
     class Day4
     {
