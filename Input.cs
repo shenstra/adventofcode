@@ -8,7 +8,7 @@ namespace advent
     {
         public static IEnumerable<string> GetLines(int year, int day)
         {
-            string filePath = $"C:/Development/advent/input/{year}/day{day}.txt";
+            string filePath = $"input/{year}/day{day}.txt";
             return File.ReadLines(filePath);
         }
 
