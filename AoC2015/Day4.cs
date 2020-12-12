@@ -6,7 +6,7 @@ namespace Advent.AoC2015
 {
     class Day4
     {
-        public static void Problem1()
+        public void Problem1()
         {
             string input = Input.GetLine(2015, 4);
             for (int i = 1; true; i++)
@@ -20,7 +20,7 @@ namespace Advent.AoC2015
             }
         }
 
-        public static void Problem2()
+        public void Problem2()
         {
             string input = Input.GetLine(2015, 4);
             for (int i = 1; true; i++)

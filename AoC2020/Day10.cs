@@ -8,7 +8,7 @@ namespace Advent.AoC2020
     {
         static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
 
-        public static void Problem1()
+        public void Problem1()
         {
             List<int> sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
             int jump1 = 0, jump3 = 0;

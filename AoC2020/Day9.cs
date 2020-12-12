@@ -6,13 +6,13 @@ namespace Advent.AoC2020
 {
     class Day9
     {
-        public static void Problem1()
+        public void Problem1()
         {
             var numbers = Input.GetLongs(2020, 9).ToList();
             var invalidNumber = FindInvalidNumber(numbers, 25);
             Console.WriteLine(invalidNumber);
         }
-        public static void Problem2()
+        public void Problem2()
         {
             var numbers = Input.GetLongs(2020, 9).ToList();
             var invalidNumber = FindInvalidNumber(numbers, 25);

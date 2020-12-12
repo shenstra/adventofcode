@@ -1,4 +1,4 @@
-﻿using Advent.AoC2020;
+﻿using Advent.AoC2015;
 using System;
 using System.Diagnostics;
 
@@ -6,7 +6,8 @@ Console.WriteLine("Starting...");
 var sw = Stopwatch.StartNew();
 try
 {
-    new Day11().Problem2();
+    new Day6().Problem1();
+    new Day6().Problem2();
 }
 catch (Exception ex)
 {

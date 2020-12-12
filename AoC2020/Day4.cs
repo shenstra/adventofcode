@@ -7,13 +7,13 @@ namespace Advent.AoC2020
 {
     class Day4
     {
-        public static void Problem1()
+        public void Problem1()
         {
             var entries = GetEntries(Input.GetLines(2020, 4));
             var validEntries = entries.Where(e => e.HasRequiredFields());
             Console.WriteLine(validEntries.Count());
         }
-        public static void Problem2()
+        public void Problem2()
         {
             var entries = GetEntries(Input.GetLines(2020, 4));
             var validEntries = entries.Where(e => e.HasRequiredFields() && e.HasValidFields());
