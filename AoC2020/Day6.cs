@@ -22,7 +22,7 @@ namespace Advent.AoC2020
 
         private int CountUnanimousAnswers(List<string> group)
         {
-            return group.Select(s => s.ToList()).Aggregate((a, b) => a.Intersect(b).ToList()).Count();
+            return group.Select(s => s.ToList()).Aggregate((a, b) => a.Intersect(b).ToList()).Count;
         }
 
         private int CountAnswersPresent(List<string> group)
@@ -30,7 +30,7 @@ namespace Advent.AoC2020
             return group.SelectMany(s => s.ToList()).Distinct().Count();
         }
 
-        private IEnumerable<List<string>> GetGroups(IEnumerable<string> lines)
+        private static IEnumerable<List<string>> GetGroups(IEnumerable<string> lines)
         {
             List<string> group = new();
             foreach (var line in lines)

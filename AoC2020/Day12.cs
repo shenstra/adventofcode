@@ -40,7 +40,7 @@ namespace Advent.AoC2020
             return position;
         }
 
-        private (int, int) FollowWaypointInstructions(IEnumerable<(char, int)> instructions)
+        private static (int, int) FollowWaypointInstructions(IEnumerable<(char, int)> instructions)
         {
             (int x, int y) position = (0, 0);
             (int x, int y) waypoint = (10, 1);
@@ -78,12 +78,12 @@ namespace Advent.AoC2020
             return headings[(index + 4) % 4];
         }
 
-        private (int, int) MoveTowardWaypoint(int value, (int x, int y) waypoint, (int x, int y) position)
+        private static (int, int) MoveTowardWaypoint(int value, (int x, int y) waypoint, (int x, int y) position)
         {
             return (position.x + value * waypoint.x, position.y + value * waypoint.y);
         }
 
-        private (int, int) TurnWaypoint(char instruction, int value, (int x, int y) waypoint)
+        private static (int, int) TurnWaypoint(char instruction, int value, (int x, int y) waypoint)
         {
             return instruction switch
             {

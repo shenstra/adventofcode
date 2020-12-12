@@ -6,7 +6,7 @@ namespace Advent.AoC2020
 {
     class Day2
     {
-        private Regex regex = new Regex(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
+        private readonly Regex passwordRegex = new Regex(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
 
         public void Problem1()
         {
@@ -22,7 +22,7 @@ namespace Advent.AoC2020
 
         private PasswordEntry MapToPasswordEntry(string input)
         {
-            var match = regex.Match(input);
+            var match = passwordRegex.Match(input);
             return new PasswordEntry
             {
                 Number1 = int.Parse(match.Groups[1].Value),

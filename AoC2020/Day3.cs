@@ -6,14 +6,14 @@ namespace Advent.AoC2020
 {
     class Day3
     {
-        public void Problem1()
+        public static void Problem1()
         {
             var map = Input.GetLines(2020, 3).ToList();
             int trees = CountArborealProximityEvents(map, 3, 1);
             Console.WriteLine(trees);
         }
 
-        public void Problem2()
+        public static void Problem2()
         {
             var map = Input.GetLines(2020, 3).ToList();
             var result = CountArborealProximityEvents(map, 1, 1)

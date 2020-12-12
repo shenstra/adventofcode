@@ -7,20 +7,20 @@ namespace Advent.AoC2020
 {
     class Day4
     {
-        public void Problem1()
+        public static void Problem1()
         {
             var entries = GetEntries(Input.GetLines(2020, 4));
             var validEntries = entries.Where(e => e.HasRequiredFields());
             Console.WriteLine(validEntries.Count());
         }
-        public void Problem2()
+        public static void Problem2()
         {
             var entries = GetEntries(Input.GetLines(2020, 4));
             var validEntries = entries.Where(e => e.HasRequiredFields() && e.HasValidFields());
             Console.WriteLine(validEntries.Count());
         }
 
-        private IEnumerable<Entry> GetEntries(IEnumerable<string> lines)
+        private static IEnumerable<Entry> GetEntries(IEnumerable<string> lines)
         {
             var current = new Entry();
             foreach (var line in lines)
@@ -40,11 +40,11 @@ namespace Advent.AoC2020
 
         private class Entry
         {
-            private Dictionary<string, string> fields = new Dictionary<string, string>();
-            private Regex hgtRegex = new Regex(@"^(\d+)(cm|in)$");
-            private Regex hclRegex = new Regex(@"^#([0-9a-f]{6})$");
-            private Regex eclRegex = new Regex(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
-            private Regex pidRegex = new Regex(@"^([0-9]{9})$");
+            private readonly Dictionary<string, string> fields = new Dictionary<string, string>();
+            private readonly Regex hgtRegex = new Regex(@"^(\d+)(cm|in)$");
+            private readonly Regex hclRegex = new Regex(@"^#([0-9a-f]{6})$");
+            private readonly Regex eclRegex = new Regex(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
+            private readonly Regex pidRegex = new Regex(@"^([0-9]{9})$");
 
             public void AddFields(string line)
             {

@@ -6,7 +6,7 @@ namespace Advent.AoC2015
 {
     class Day4
     {
-        public void Problem1()
+        public static void Problem1()
         {
             string input = Input.GetLine(2015, 4);
             for (int i = 1; true; i++)
@@ -20,7 +20,7 @@ namespace Advent.AoC2015
             }
         }
 
-        public void Problem2()
+        public static void Problem2()
         {
             string input = Input.GetLine(2015, 4);
             for (int i = 1; true; i++)
@@ -34,7 +34,7 @@ namespace Advent.AoC2015
             }
         }
 
-        private string CalculateMd5Hash(string input)
+        private static string CalculateMd5Hash(string input)
         {
             byte[] hash = MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(input));
             string hashString = BitConverter.ToString(hash).Replace("-", "").ToLower();

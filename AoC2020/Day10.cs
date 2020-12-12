@@ -6,13 +6,13 @@ namespace Advent.AoC2020
 {
     class Day10
     {
-        static Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
+        static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
 
-        public void Problem1()
+        public static void Problem1()
         {
             List<int> sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
             int jump1 = 0, jump3 = 0;
-            for (var i = 0; i < sortedAdapters.Count() - 1; i++)
+            for (var i = 0; i < sortedAdapters.Count - 1; i++)
             {
                 if (sortedAdapters[i] == sortedAdapters[i + 1] - 1)
                     jump1++;
@@ -29,7 +29,7 @@ namespace Advent.AoC2020
             Console.WriteLine(combinations);
         }
 
-        private List<int> GetSortedAdapters(IEnumerable<int> input)
+        private static List<int> GetSortedAdapters(IEnumerable<int> input)
         {
             var adapters = input.ToList();
             adapters.Add(0); // outlet
@@ -42,14 +42,14 @@ namespace Advent.AoC2020
             var key = string.Join("-", sortedAdapters);
             if (!memoizedCombinations.ContainsKey(key))
             {
-                if (sortedAdapters.Count() == 1)
+                if (sortedAdapters.Count == 1)
                 {
                     memoizedCombinations[key] = 1;
                 }
                 else
                 {
                     long combinations = 0;
-                    for (int i = 1; i < sortedAdapters.Count(); i++)
+                    for (int i = 1; i < sortedAdapters.Count; i++)
                     {
                         if (sortedAdapters[i] - sortedAdapters[0] <= 3)
                         {

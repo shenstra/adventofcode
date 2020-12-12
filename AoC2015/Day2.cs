@@ -24,7 +24,7 @@ namespace Advent.AoC2015
             return l.Split('x').Select(s => int.Parse(s)).ToList();
         }
 
-        private int NeededRibbon(List<int> dimensions)
+        private static int NeededRibbon(List<int> dimensions)
         {
             var orderedDimensions = dimensions.OrderBy(d => d).ToList();
             return 2 * orderedDimensions[0]
@@ -32,7 +32,7 @@ namespace Advent.AoC2015
                 + orderedDimensions[0] * orderedDimensions[1] * orderedDimensions[2];
         }
 
-        private int NeededPaper(List<int> dimensions)
+        private static int NeededPaper(List<int> dimensions)
         {
             var sides = new List<int> {
                 dimensions[0] * dimensions[1],

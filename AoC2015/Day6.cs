@@ -10,7 +10,7 @@ namespace Advent.AoC2015
     class Day6
     {
         private const int size = 1000;
-        private Regex instructionRegex = new Regex(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
+        private readonly Regex instructionRegex = new Regex(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
 
         public void Problem1()
         {

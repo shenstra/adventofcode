@@ -15,7 +15,7 @@ namespace Advent.AoC2020
         {
             var seatIds = Input.GetLines(2020, 5).Select(GetSeatId);
             var orderedSeatIds = seatIds.OrderBy(id => id).ToList();
-            for (var i = 1; i < orderedSeatIds.Count(); i++)
+            for (var i = 1; i < orderedSeatIds.Count; i++)
                 if (orderedSeatIds[i - 1] == orderedSeatIds[i] - 2)
                     Console.WriteLine(orderedSeatIds[i] - 1);
         }

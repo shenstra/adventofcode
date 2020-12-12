@@ -6,7 +6,7 @@ namespace Advent.AoC2015
 {
     class Day5
     {
-        private List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
+        private readonly List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
 
         public void Problem1()
         {
@@ -40,7 +40,7 @@ namespace Advent.AoC2015
             return name.Count(c => vowels.Contains(c)) >= 3;
         }
 
-        private bool HasDoubleLetter(string name)
+        private static bool HasDoubleLetter(string name)
         {
             for (var i = 0; i < name.Length - 1; i++)
                 if (name[i] == name[i + 1])
@@ -48,14 +48,14 @@ namespace Advent.AoC2015
             return false;
         }
 
-        private bool ContainsNaughtSequence(string name)
+        private static bool ContainsNaughtSequence(string name)
         {
             return name.Contains("ab")
                 || name.Contains("cd")
                 || name.Contains("pq")
                 || name.Contains("xy");
         }
-        private bool HasRepeatingPair(string name)
+        private static bool HasRepeatingPair(string name)
         {
             for (var i = 0; i < name.Length - 3; i++)
                 for (var j = i + 2; j < name.Length - 1; j++)
@@ -64,7 +64,7 @@ namespace Advent.AoC2015
             return false;
         }
 
-        private bool HasRepeatAfterOneLetter(string name)
+        private static bool HasRepeatAfterOneLetter(string name)
         {
             for (var i = 0; i < name.Length - 2; i++)
                 if (name[i] == name[i + 2])

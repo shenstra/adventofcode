@@ -6,19 +6,19 @@ namespace Advent.AoC2020
 {
     class Day1
     {
-        public void Problem1()
+        public static void Problem1()
         {
             List<int> numbers = Input.GetInts(2020, 1).ToList();
             Console.WriteLine(GetProductOfSum2020Pair(numbers));
         }
 
-        public void Problem2()
+        public static void Problem2()
         {
             List<int> numbers = Input.GetInts(2020, 1).ToList();
             Console.WriteLine(GetProductOfSum2020Triple(numbers));
         }
 
-        private int GetProductOfSum2020Pair(List<int> numbers)
+        private static int GetProductOfSum2020Pair(List<int> numbers)
         {
             for (var i = 0; i < numbers.Count - 1; i++)
                 for (var j = i + 1; j < numbers.Count; j++)
@@ -27,7 +27,7 @@ namespace Advent.AoC2020
             return 0;
         }
 
-        private int GetProductOfSum2020Triple(List<int> numbers)
+        private static int GetProductOfSum2020Triple(List<int> numbers)
         {
             for (var i = 0; i < numbers.Count - 1; i++)
                 for (var j = i + 1; j < numbers.Count; j++)
