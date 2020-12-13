@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day11
+    internal class Day11
     {
         public void Problem1()
         {
@@ -71,11 +71,11 @@ namespace Advent.AoC2020
                     if (!(rowDirection == 0 && colDirection == 0))
                     {
                         int stepSize = 1;
-                        var nextSeatKey = (row + stepSize * rowDirection, col + stepSize * colDirection);
+                        var nextSeatKey = (row + (stepSize * rowDirection), col + (stepSize * colDirection));
                         while (seats.ContainsKey(nextSeatKey) && seats[nextSeatKey] == SeatState.Floor)
                         {
                             stepSize++;
-                            nextSeatKey = (row + stepSize * rowDirection, col + stepSize * colDirection);
+                            nextSeatKey = (row + (stepSize * rowDirection), col + (stepSize * colDirection));
                         }
                         if (seats.ContainsKey(nextSeatKey))
                             yield return seats[nextSeatKey];

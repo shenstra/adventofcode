@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    class Day5
+    internal class Day5
     {
         private readonly List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
 
@@ -42,7 +42,7 @@ namespace Advent.AoC2015
 
         private static bool HasDoubleLetter(string name)
         {
-            for (var i = 0; i < name.Length - 1; i++)
+            for (int i = 0; i < name.Length - 1; i++)
                 if (name[i] == name[i + 1])
                     return true;
             return false;
@@ -57,8 +57,8 @@ namespace Advent.AoC2015
         }
         private static bool HasRepeatingPair(string name)
         {
-            for (var i = 0; i < name.Length - 3; i++)
-                for (var j = i + 2; j < name.Length - 1; j++)
+            for (int i = 0; i < name.Length - 3; i++)
+                for (int j = i + 2; j < name.Length - 1; j++)
                     if (name[i] == name[j] && name[i + 1] == name[j + 1])
                         return true;
             return false;
@@ -66,7 +66,7 @@ namespace Advent.AoC2015
 
         private static bool HasRepeatAfterOneLetter(string name)
         {
-            for (var i = 0; i < name.Length - 2; i++)
+            for (int i = 0; i < name.Length - 2; i++)
                 if (name[i] == name[i + 2])
                     return true;
             return false;

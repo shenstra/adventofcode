@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    class Day7
+    internal class Day7
     {
         public void Problem1()
         {
@@ -21,7 +21,7 @@ namespace Advent.AoC2015
             var wireValues = new Dictionary<string, ushort>();
             ApplyRules(rules, wireValues);
             ushort intermediateResult = wireValues["a"];
-            
+
             rules = new Queue<string>(lines.Select(l => l.EndsWith("-> b") ? $"{intermediateResult} -> b" : l));
             wireValues.Clear();
             ApplyRules(rules, wireValues);
@@ -32,10 +32,10 @@ namespace Advent.AoC2015
         {
             while (rules.Any())
             {
-                var rule = rules.Dequeue();
-                var parts = rule.Split(" -> ");
-                var left = parts[0];
-                var right = parts[1];
+                string rule = rules.Dequeue();
+                string[] parts = rule.Split(" -> ");
+                string left = parts[0];
+                string right = parts[1];
                 if (TryComputeValue(left, wireValues, out ushort value))
                     wireValues[right] = value;
                 else
@@ -47,7 +47,7 @@ namespace Advent.AoC2015
         {
             if (left.Contains("AND"))
             {
-                var inputs = left.Split(" AND ");
+                string[] inputs = left.Split(" AND ");
                 if (TryLookupValue(inputs[0], wireValues, out ushort input1)
                     && TryLookupValue(inputs[1], wireValues, out ushort input2))
                 {
@@ -57,7 +57,7 @@ namespace Advent.AoC2015
             }
             else if (left.Contains("OR"))
             {
-                var inputs = left.Split(" OR ");
+                string[] inputs = left.Split(" OR ");
                 if (TryLookupValue(inputs[0], wireValues, out ushort input1)
                     && TryLookupValue(inputs[1], wireValues, out ushort input2))
                 {
@@ -67,7 +67,7 @@ namespace Advent.AoC2015
             }
             else if (left.Contains("LSHIFT"))
             {
-                var inputs = left.Split(" LSHIFT ");
+                string[] inputs = left.Split(" LSHIFT ");
                 if (TryLookupValue(inputs[0], wireValues, out ushort input1)
                     && TryLookupValue(inputs[1], wireValues, out ushort input2))
                 {
@@ -77,7 +77,7 @@ namespace Advent.AoC2015
             }
             else if (left.Contains("RSHIFT"))
             {
-                var inputs = left.Split(" RSHIFT ");
+                string[] inputs = left.Split(" RSHIFT ");
                 if (TryLookupValue(inputs[0], wireValues, out ushort input1)
                     && TryLookupValue(inputs[1], wireValues, out ushort input2))
                 {
@@ -89,7 +89,7 @@ namespace Advent.AoC2015
             {
                 if (TryLookupValue(left[4..], wireValues, out ushort input))
                 {
-                    value = (ushort)(~input);
+                    value = (ushort)~input;
                     return true;
                 }
             }

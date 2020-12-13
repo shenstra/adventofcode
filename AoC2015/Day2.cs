@@ -4,18 +4,18 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    class Day2
+    internal class Day2
     {
         public void Problem1()
         {
-            var dimensions = Input.GetLines(2015, 2).Select(this.ConvertToDimensions);
-            var neededPaper = dimensions.Select(d => NeededPaper(d)).Sum();
+            var dimensions = Input.GetLines(2015, 2).Select(ConvertToDimensions);
+            int neededPaper = dimensions.Select(d => NeededPaper(d)).Sum();
             Console.WriteLine(neededPaper);
         }
         public void Problem2()
         {
-            var dimensions = Input.GetLines(2015, 2).Select(this.ConvertToDimensions);
-            var neededRibbon = dimensions.Select(d => NeededRibbon(d)).Sum();
+            var dimensions = Input.GetLines(2015, 2).Select(ConvertToDimensions);
+            int neededRibbon = dimensions.Select(d => NeededRibbon(d)).Sum();
             Console.WriteLine(neededRibbon);
         }
 
@@ -27,9 +27,9 @@ namespace Advent.AoC2015
         private static int NeededRibbon(List<int> dimensions)
         {
             var orderedDimensions = dimensions.OrderBy(d => d).ToList();
-            return 2 * orderedDimensions[0]
-                + 2 * orderedDimensions[1]
-                + orderedDimensions[0] * orderedDimensions[1] * orderedDimensions[2];
+            return (2 * orderedDimensions[0])
+                + (2 * orderedDimensions[1])
+                + (orderedDimensions[0] * orderedDimensions[1] * orderedDimensions[2]);
         }
 
         private static int NeededPaper(List<int> dimensions)
@@ -39,9 +39,9 @@ namespace Advent.AoC2015
                 dimensions[0] * dimensions[2],
                 dimensions[1] * dimensions[2]
             };
-            return 2 * sides[0]
-                + 2 * sides[1]
-                + 2 * sides[2] 
+            return (2 * sides[0])
+                + (2 * sides[1])
+                + (2 * sides[2])
                 + sides.Min();
 
         }

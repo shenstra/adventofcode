@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day5
+    internal class Day5
     {
         public void Problem1()
         {
@@ -15,7 +15,7 @@ namespace Advent.AoC2020
         {
             var seatIds = Input.GetLines(2020, 5).Select(GetSeatId);
             var orderedSeatIds = seatIds.OrderBy(id => id).ToList();
-            for (var i = 1; i < orderedSeatIds.Count; i++)
+            for (int i = 1; i < orderedSeatIds.Count; i++)
                 if (orderedSeatIds[i - 1] == orderedSeatIds[i] - 2)
                     Console.WriteLine(orderedSeatIds[i] - 1);
         }
@@ -33,7 +33,7 @@ namespace Advent.AoC2020
             if (code[7] == 'R') col += 4;
             if (code[8] == 'R') col += 2;
             if (code[9] == 'R') col += 1;
-            return row * 8 + col;
+            return (row * 8) + col;
         }
     }
 }

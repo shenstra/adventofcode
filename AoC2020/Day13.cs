@@ -4,15 +4,15 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day13
+    internal class Day13
     {
         public void Problem1()
         {
             var lines = Input.GetLines(2020, 13).ToList();
-            var timeNow = ulong.Parse(lines[0]);
+            ulong timeNow = ulong.Parse(lines[0]);
             (_, var busIds) = GetBusEntriesAndIds(lines[1]);
-            var waitingTimes = busIds.ToDictionary(id => id, id => id - timeNow % id);
-            var firstBusId = waitingTimes.OrderBy(wt => wt.Value).First().Key;
+            var waitingTimes = busIds.ToDictionary(id => id, id => id - (timeNow % id));
+            ulong firstBusId = waitingTimes.OrderBy(wt => wt.Value).First().Key;
             Console.WriteLine(firstBusId * waitingTimes[firstBusId]);
         }
 
@@ -35,14 +35,14 @@ namespace Advent.AoC2020
         {
             ulong firstTime = 1;
             ulong interval = 1;
-            foreach (var busId in expectedDepartures.Keys)
+            foreach (ulong busId in expectedDepartures.Keys)
             {
                 for (ulong time = firstTime; time < ulong.MaxValue; time += interval)
                 {
                     if ((time + expectedDepartures[busId]) % busId == 0)
                     {
                         firstTime = time;
-                        interval = (interval * busId) / GreatestCommonDivisor(interval, busId);
+                        interval = interval * busId / GreatestCommonDivisor(interval, busId);
                         break;
                     }
                 }

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2020
 {
-    class Day4
+    internal class Day4
     {
         public void Problem1()
         {
@@ -23,7 +23,7 @@ namespace Advent.AoC2020
         private static IEnumerable<Entry> GetEntries(IEnumerable<string> lines)
         {
             var current = new Entry();
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
                 if (line.Length == 0)
                 {
@@ -48,9 +48,9 @@ namespace Advent.AoC2020
 
             public void AddFields(string line)
             {
-                foreach (var fieldData in line.Split(' '))
+                foreach (string fieldData in line.Split(' '))
                 {
-                    var fieldParts = fieldData.Split(':');
+                    string[] fieldParts = fieldData.Split(':');
                     fields[fieldParts[0]] = fieldParts[1];
                 }
             }

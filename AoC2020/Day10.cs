@@ -4,15 +4,15 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day10
+    internal class Day10
     {
-        static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
+        private static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
 
         public void Problem1()
         {
-            List<int> sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
+            var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
             int jump1 = 0, jump3 = 0;
-            for (var i = 0; i < sortedAdapters.Count - 1; i++)
+            for (int i = 0; i < sortedAdapters.Count - 1; i++)
             {
                 if (sortedAdapters[i] == sortedAdapters[i + 1] - 1)
                     jump1++;
@@ -24,8 +24,8 @@ namespace Advent.AoC2020
 
         public void Problem2()
         {
-            List<int> sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
-            var combinations = FindCombinations(sortedAdapters);
+            var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
+            long combinations = FindCombinations(sortedAdapters);
             Console.WriteLine(combinations);
         }
 
@@ -39,7 +39,7 @@ namespace Advent.AoC2020
 
         private long FindCombinations(List<int> sortedAdapters)
         {
-            var key = string.Join("-", sortedAdapters);
+            string key = string.Join("-", sortedAdapters);
             if (!memoizedCombinations.ContainsKey(key))
             {
                 if (sortedAdapters.Count == 1)

@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day6
+    internal class Day6
     {
         public void Problem1()
         {
             var groups = GetGroups(Input.GetLines(2020, 6));
-            var counts = groups.Select(CountAnswersPresent).Sum();
+            int counts = groups.Select(CountAnswersPresent).Sum();
             Console.WriteLine(counts);
         }
 
         public void Problem2()
         {
             var groups = GetGroups(Input.GetLines(2020, 6));
-            var counts = groups.Select(CountUnanimousAnswers).Sum();
+            int counts = groups.Select(CountUnanimousAnswers).Sum();
             Console.WriteLine(counts);
         }
 
@@ -33,7 +33,7 @@ namespace Advent.AoC2020
         private static IEnumerable<List<string>> GetGroups(IEnumerable<string> lines)
         {
             List<string> group = new();
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
                 if (line.Length == 0)
                 {

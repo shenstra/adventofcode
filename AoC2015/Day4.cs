@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Advent.AoC2015
 {
-    class Day4
+    internal class Day4
     {
         public void Problem1()
         {

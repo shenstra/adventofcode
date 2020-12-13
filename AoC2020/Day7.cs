@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2020
 {
-    class Day7
+    internal class Day7
     {
         public void Problem1()
         {
@@ -29,11 +29,11 @@ namespace Advent.AoC2020
             bagsToCheck.Enqueue("shiny gold");
             while (bagsToCheck.Any())
             {
-                var bag = bagsToCheck.Dequeue();
+                string bag = bagsToCheck.Dequeue();
                 requiredBags.Add(bag);
                 foreach (var neededBag in rules[bag])
                 {
-                    for (var i = 0; i < neededBag.Value; i++)
+                    for (int i = 0; i < neededBag.Value; i++)
                         bagsToCheck.Enqueue(neededBag.Key);
                 }
             }
@@ -53,7 +53,7 @@ namespace Advent.AoC2020
             var containerRegex = new Regex(@"^(?<container>[a-z ]*) bags contain (?<contents>.*).$");
             var contentsRegex = new Regex(@"^(?<count>\d+) (?<color>.+) bags?$");
 
-            foreach (var line in input)
+            foreach (string line in input)
             {
                 var containerResult = containerRegex.Match(line);
                 string container = containerResult.Groups["container"].Value;
@@ -62,7 +62,7 @@ namespace Advent.AoC2020
                 rules.Add(container, new Dictionary<string, int>());
                 if (contents != "no other bags")
                 {
-                    foreach (var content in contents.Split(", "))
+                    foreach (string content in contents.Split(", "))
                     {
                         var contentsMatch = contentsRegex.Match(content);
                         int count = int.Parse(contentsMatch.Groups["count"].Value);

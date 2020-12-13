@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day8
+    internal class Day8
     {
         public void Problem1()
         {
@@ -17,7 +17,7 @@ namespace Advent.AoC2020
         {
             var instructions = Input.GetLines(2020, 8).Select(l => new Instruction(l)).ToList();
 
-            for (var i = 0; i < instructions.Count; i++)
+            for (int i = 0; i < instructions.Count; i++)
             {
                 if (instructions[i].SwapType())
                 {
@@ -35,7 +35,7 @@ namespace Advent.AoC2020
 
         private static bool RunProgram(List<Instruction> instructions, out int accumulator)
         {
-            List<int> history = new List<int>();
+            var history = new List<int>();
             int current = 0;
             accumulator = 0;
             while (current < instructions.Count)
@@ -57,6 +57,8 @@ namespace Advent.AoC2020
                         accumulator += instructions[current].Value;
                         current++;
                         break;
+                    default:
+                        throw new ApplicationException($"Unknown instruction type {instructions[current].Type}");
                 }
             }
             return true;
@@ -66,7 +68,7 @@ namespace Advent.AoC2020
         {
             public Instruction(string line)
             {
-                var parts = line.Split(" ");
+                string[] parts = line.Split(" ");
                 Type = ParseInstructionType(parts[0]);
                 Value = int.Parse(parts[1]);
             }

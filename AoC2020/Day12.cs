@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day12
+    internal class Day12
     {
         private readonly List<char> headings = new List<char> { 'N', 'E', 'S', 'W' };
 
@@ -30,12 +30,10 @@ namespace Advent.AoC2020
             char heading = 'E';
             foreach ((char instruction, int value) in instructions)
             {
-                if (instruction == 'L' || instruction == 'R')
+                if (instruction is 'L' or 'R')
                     heading = MakeTurn(instruction, value, heading);
-                else if (instruction == 'F')
-                    position = Move(heading, value, position);
                 else
-                    position = Move(instruction, value, position);
+                    position = Move(instruction == 'F' ? heading : instruction, value, position);
             }
             return position;
         }
@@ -46,7 +44,7 @@ namespace Advent.AoC2020
             (int x, int y) waypoint = (10, 1);
             foreach ((char instruction, int value) in instructions)
             {
-                if (instruction == 'L' || instruction == 'R')
+                if (instruction is 'L' or 'R')
                     waypoint = TurnWaypoint(instruction, value, waypoint);
                 else if (instruction == 'F')
                     position = MoveTowardWaypoint(value, waypoint, position);
@@ -58,7 +56,7 @@ namespace Advent.AoC2020
 
         private static (int, int) Move(char heading, int value, (int x, int y) position)
         {
-            return (heading) switch
+            return heading switch
             {
                 'N' => (position.x, position.y + value),
                 'S' => (position.x, position.y - value),
@@ -80,7 +78,7 @@ namespace Advent.AoC2020
 
         private static (int, int) MoveTowardWaypoint(int value, (int x, int y) waypoint, (int x, int y) position)
         {
-            return (position.x + value * waypoint.x, position.y + value * waypoint.y);
+            return (position.x + (value * waypoint.x), position.y + (value * waypoint.y));
         }
 
         private static (int, int) TurnWaypoint(char instruction, int value, (int x, int y) waypoint)

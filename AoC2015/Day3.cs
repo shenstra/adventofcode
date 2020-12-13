@@ -4,14 +4,14 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    class Day3
+    internal class Day3
     {
         public void Problem1()
         {
-            var input = Input.GetLine(2015, 3);
+            string input = Input.GetLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };
             int x = 0, y = 0;
-            foreach (var c in input)
+            foreach (char c in input)
             {
                 switch (c)
                 {
@@ -28,10 +28,10 @@ namespace Advent.AoC2015
 
         public void Problem2()
         {
-            var input = Input.GetLine(2015, 3);
+            string input = Input.GetLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };
             int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
-            for (var i = 0; i < input.Length; i += 2)
+            for (int i = 0; i < input.Length; i += 2)
             {
                 switch (input[i])
                 {

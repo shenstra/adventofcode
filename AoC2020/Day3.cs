@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    class Day3
+    internal class Day3
     {
         public void Problem1()
         {
@@ -16,7 +16,7 @@ namespace Advent.AoC2020
         public void Problem2()
         {
             var map = Input.GetLines(2020, 3).ToList();
-            var result = CountArborealProximityEvents(map, 1, 1)
+            int result = CountArborealProximityEvents(map, 1, 1)
                 * CountArborealProximityEvents(map, 3, 1)
                 * CountArborealProximityEvents(map, 5, 1)
                 * CountArborealProximityEvents(map, 7, 1)
@@ -27,7 +27,7 @@ namespace Advent.AoC2020
         private static int CountArborealProximityEvents(List<string> map, int slopeX, int slopeY)
         {
             int trees = 0;
-            var width = map[0].Length;
+            int width = map[0].Length;
             int xPos = 0;
             for (int yPos = 0; yPos < map.Count; yPos += slopeY)
             {
