@@ -1,17 +1,25 @@
-﻿using Advent.AoC2020;
-using System;
+﻿using System;
 using System.Diagnostics;
 
-Console.WriteLine("Starting...");
-var sw = Stopwatch.StartNew();
-try
+namespace Advent
 {
-    new Day14().Problem1();
-    new Day14().Problem2();
+    internal class Program
+    {
+        private static void Main()
+        {
+            Console.WriteLine("Starting...");
+            var sw = Stopwatch.StartNew();
+            try
+            {
+                new AoC2020.Day14().Problem1();
+                new AoC2020.Day14().Problem2();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Oops, exception thrown:\n{ex}");
+            }
+            sw.Stop();
+            Console.WriteLine($"Took {sw.ElapsedMilliseconds} ms");
+        }
+    }
 }
-catch (Exception ex)
-{
-    Console.WriteLine($"Oops, exception thrown:\n{ex}");
-}
-sw.Stop();
-Console.WriteLine($"Took {sw.ElapsedMilliseconds} ms");
