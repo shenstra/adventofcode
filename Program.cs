@@ -6,8 +6,8 @@ Console.WriteLine("Starting...");
 var sw = Stopwatch.StartNew();
 try
 {
-    new Day13().Problem1();
-    new Day13().Problem2();
+    new Day14().Problem1();
+    new Day14().Problem2();
 }
 catch (Exception ex)
 {
