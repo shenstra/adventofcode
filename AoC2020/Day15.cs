@@ -20,14 +20,14 @@ namespace Advent.AoC2020
 
         private static int GetNthNumber(List<int> numbers, int limit)
         {
-            var lastIndex = new Dictionary<int, int>();
+            int[] lastIndex = Enumerable.Repeat(-1, limit).ToArray();
             for (int round = 0; round < numbers.Count - 1; round++)
                 lastIndex[numbers[round]] = round;
             int prevNumber = numbers.Last();
             int newNumber;
             for (int round = numbers.Count; round < limit; round++)
             {
-                newNumber = lastIndex.ContainsKey(prevNumber) ? round - 1 - lastIndex[prevNumber] : 0;
+                newNumber = lastIndex[prevNumber] == -1 ? 0 : round - 1 - lastIndex[prevNumber];
                 lastIndex[prevNumber] = round - 1;
                 prevNumber = newNumber;
             }
