@@ -11,8 +11,8 @@ namespace Advent
             var sw = Stopwatch.StartNew();
             try
             {
-                new AoC2020.Day14().Problem1();
-                new AoC2020.Day14().Problem2();
+                new AoC2020.Day15().Problem1();
+                new AoC2020.Day15().Problem2();
             }
             catch (Exception ex)
             {
