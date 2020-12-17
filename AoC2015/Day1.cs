@@ -7,13 +7,13 @@ namespace Advent.AoC2015
     {
         public void Part1()
         {
-            string input = Input.GetLine(2015, 1);
+            string input = Input.GetSingleLine(2015, 1);
             Console.WriteLine(input.Count(c => c == '(') - input.Count(c => c == ')'));
         }
 
         public void Part2()
         {
-            string input = Input.GetLine(2015, 1);
+            string input = Input.GetSingleLine(2015, 1);
             int floor = 0;
             for (int i = 0; i < input.Length; i++)
             {

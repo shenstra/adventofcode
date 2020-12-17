@@ -8,7 +8,7 @@ namespace Advent.AoC2015
     {
         public void Part1()
         {
-            string input = Input.GetLine(2015, 3);
+            string input = Input.GetSingleLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };
             int x = 0, y = 0;
             foreach (char c in input)
@@ -28,7 +28,7 @@ namespace Advent.AoC2015
 
         public void Part2()
         {
-            string input = Input.GetLine(2015, 3);
+            string input = Input.GetSingleLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };
             int x1 = 0, y1 = 0, x2 = 0, y2 = 0;
             for (int i = 0; i < input.Length; i += 2)

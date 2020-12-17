@@ -8,13 +8,13 @@ namespace Advent.AoC2020
     {
         public void Part1()
         {
-            var numbers = GetNumbers(Input.GetLine(2020, 15));
+            var numbers = GetNumbers(Input.GetSingleLine(2020, 15));
             Console.WriteLine(GetNthNumber(numbers, 2020));
         }
 
         public void Part2()
         {
-            var numbers = GetNumbers(Input.GetLine(2020, 15));
+            var numbers = GetNumbers(Input.GetSingleLine(2020, 15));
             Console.WriteLine(GetNthNumber(numbers, 30000000));
         }
 

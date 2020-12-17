@@ -12,7 +12,7 @@ namespace Advent
             return File.ReadLines(filePath);
         }
 
-        public static string GetLine(int year, int day)
+        public static string GetSingleLine(int year, int day)
         {
             return GetLines(year, day).Single();
         }

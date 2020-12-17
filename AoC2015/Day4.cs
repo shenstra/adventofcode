@@ -8,7 +8,7 @@ namespace Advent.AoC2015
     {
         public void Part1()
         {
-            string input = Input.GetLine(2015, 4);
+            string input = Input.GetSingleLine(2015, 4);
             for (int i = 1; true; i++)
             {
                 string hashString = CalculateMd5Hash($"{input}{i}");
@@ -22,7 +22,7 @@ namespace Advent.AoC2015
 
         public void Part2()
         {
-            string input = Input.GetLine(2015, 4);
+            string input = Input.GetSingleLine(2015, 4);
             for (int i = 1; true; i++)
             {
                 string hashString = CalculateMd5Hash($"{input}{i}");
