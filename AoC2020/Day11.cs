@@ -6,14 +6,14 @@ namespace Advent.AoC2020
 {
     internal class Day11
     {
-        public void Problem1()
+        public void Part1()
         {
             var seats = GetSeats(Input.GetLines(2020, 11));
             while (ApplyRound(seats, out seats, Algorithm.Neighbours)) ; // NoOp
             int occupiedSeats = seats.Count(seat => seat.Value == SeatState.Occupied);
             Console.WriteLine(occupiedSeats);
         }
-        public void Problem2()
+        public void Part2()
         {
             var seats = GetSeats(Input.GetLines(2020, 11));
             while (ApplyRound(seats, out seats, Algorithm.Vision)) ; // NoOp

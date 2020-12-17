@@ -10,7 +10,7 @@ namespace Advent.AoC2020
         private readonly Regex maskRegex = new Regex(@"mask = ([X01]{36})");
         private readonly Regex memRegex = new Regex(@"mem\[(\d+)\] = (\d+)");
 
-        public void Problem1()
+        public void Part1()
         {
             var lines = Input.GetLines(2020, 14);
             var registers = new Dictionary<ulong, ulong>();
@@ -34,7 +34,7 @@ namespace Advent.AoC2020
             Console.WriteLine(registers.Sum(r => (decimal)r.Value));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var lines = Input.GetLines(2020, 14);
             var registers = new Dictionary<ulong, ulong>();

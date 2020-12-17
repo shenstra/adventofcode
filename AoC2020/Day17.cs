@@ -6,7 +6,7 @@ namespace Advent.AoC2020
 {
     internal class Day17
     {
-        public void Problem1()
+        public void Part1()
         {
             var activeCubes = GetActiveCubes(Input.GetLines(2020, 17).ToList());
             for (int cycle = 0; cycle < 6; cycle++)
@@ -14,7 +14,7 @@ namespace Advent.AoC2020
             Console.WriteLine(activeCubes.Count);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var activeHypercubes = GetActiveHyperCubes(Input.GetLines(2020, 17).ToList());
             for (int cycle = 0; cycle < 6; cycle++)

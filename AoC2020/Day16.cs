@@ -7,7 +7,7 @@ namespace Advent.AoC2020
 {
     internal class Day16
     {
-        public void Problem1()
+        public void Part1()
         {
             var document = Document.Parse(Input.GetLines(2020, 16).ToList());
             var possibleValues = document.FieldRules.Values.SelectMany(i => i).ToList();
@@ -15,7 +15,7 @@ namespace Advent.AoC2020
             Console.WriteLine(invalidValues.Sum());
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var document = Document.Parse(Input.GetLines(2020, 16).ToList());
             var possibleValues = document.FieldRules.Values.SelectMany(i => i).ToList();

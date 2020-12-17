@@ -6,14 +6,14 @@ namespace Advent.AoC2020
 {
     internal class Day8
     {
-        public void Problem1()
+        public void Part1()
         {
             var instructions = Input.GetLines(2020, 8).Select(l => new Instruction(l)).ToList();
             RunProgram(instructions, out int accumulator);
             Console.WriteLine($"Accumulator value: {accumulator}");
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var instructions = Input.GetLines(2020, 8).Select(l => new Instruction(l)).ToList();
 

@@ -7,7 +7,7 @@ namespace Advent.AoC2020
 {
     internal class Day7
     {
-        public void Problem1()
+        public void Part1()
         {
             var rules = BuildBagRules(Input.GetLines(2020, 7));
             var bagOptions = FindBagsThatCanHoldCertainBags(rules, new List<string> { "shiny gold" }).ToList();
@@ -21,7 +21,7 @@ namespace Advent.AoC2020
             Console.WriteLine(bagOptions.Count);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var rules = BuildBagRules(Input.GetLines(2020, 7));
             var bagsToCheck = new Queue<string>();

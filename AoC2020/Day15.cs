@@ -6,13 +6,13 @@ namespace Advent.AoC2020
 {
     internal class Day15
     {
-        public void Problem1()
+        public void Part1()
         {
             var numbers = GetNumbers(Input.GetLine(2020, 15));
             Console.WriteLine(GetNthNumber(numbers, 2020));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var numbers = GetNumbers(Input.GetLine(2020, 15));
             Console.WriteLine(GetNthNumber(numbers, 30000000));

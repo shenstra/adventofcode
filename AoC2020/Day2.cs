@@ -8,13 +8,13 @@ namespace Advent.AoC2020
     {
         private readonly Regex passwordRegex = new Regex(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
 
-        public void Problem1()
+        public void Part1()
         {
             var entries = Input.GetLines(2020, 2).Select(MapToPasswordEntry);
             Console.WriteLine(entries.Count(e => e.PassesPolicy1()));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var entries = Input.GetLines(2020, 2).Select(MapToPasswordEntry);
             Console.WriteLine(entries.Count(e => e.PassesPolicy2()));

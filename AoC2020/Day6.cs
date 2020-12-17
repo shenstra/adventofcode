@@ -6,14 +6,14 @@ namespace Advent.AoC2020
 {
     internal class Day6
     {
-        public void Problem1()
+        public void Part1()
         {
             var groups = GetGroups(Input.GetLines(2020, 6));
             int counts = groups.Select(CountAnswersPresent).Sum();
             Console.WriteLine(counts);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var groups = GetGroups(Input.GetLines(2020, 6));
             int counts = groups.Select(CountUnanimousAnswers).Sum();

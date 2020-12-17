@@ -6,7 +6,7 @@ namespace Advent.AoC2015
 {
     internal class Day7
     {
-        public void Problem1()
+        public void Part1()
         {
             var rules = new Queue<string>(Input.GetLines(2015, 7));
             var wireValues = new Dictionary<string, ushort>();
@@ -14,7 +14,7 @@ namespace Advent.AoC2015
             Console.WriteLine(wireValues["a"]);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var lines = Input.GetLines(2015, 7);
             var rules = new Queue<string>(lines);

@@ -6,13 +6,13 @@ namespace Advent.AoC2020
 {
     internal class Day1
     {
-        public void Problem1()
+        public void Part1()
         {
             var numbers = Input.GetInts(2020, 1).ToList();
             Console.WriteLine(GetProductOfSum2020Pair(numbers));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var numbers = Input.GetInts(2020, 1).ToList();
             Console.WriteLine(GetProductOfSum2020Triple(numbers));

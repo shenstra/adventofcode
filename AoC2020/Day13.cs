@@ -6,7 +6,7 @@ namespace Advent.AoC2020
 {
     internal class Day13
     {
-        public void Problem1()
+        public void Part1()
         {
             var lines = Input.GetLines(2020, 13).ToList();
             ulong timeNow = ulong.Parse(lines[0]);
@@ -16,7 +16,7 @@ namespace Advent.AoC2020
             Console.WriteLine(firstBusId * waitingTimes[firstBusId]);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var lines = Input.GetLines(2020, 13);
             (var entries, var busIds) = GetBusEntriesAndIds(lines.Skip(1).Single());

@@ -8,7 +8,7 @@ namespace Advent.AoC2020
     {
         private static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
 
-        public void Problem1()
+        public void Part1()
         {
             var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
             int jump1 = 0, jump3 = 0;
@@ -22,7 +22,7 @@ namespace Advent.AoC2020
             Console.WriteLine(jump1 * jump3);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
             long combinations = FindCombinations(sortedAdapters);

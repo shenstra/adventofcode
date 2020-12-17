@@ -5,13 +5,13 @@ namespace Advent.AoC2015
 {
     internal class Day1
     {
-        public void Problem1()
+        public void Part1()
         {
             string input = Input.GetLine(2015, 1);
             Console.WriteLine(input.Count(c => c == '(') - input.Count(c => c == ')'));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             string input = Input.GetLine(2015, 1);
             int floor = 0;

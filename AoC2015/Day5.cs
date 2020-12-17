@@ -8,14 +8,14 @@ namespace Advent.AoC2015
     {
         private readonly List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
 
-        public void Problem1()
+        public void Part1()
         {
             var names = Input.GetLines(2015, 5);
             var niceNames = names.Where(IsNice);
             Console.WriteLine(niceNames.Count());
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var names = Input.GetLines(2015, 5);
             var niceNames = names.Where(IsNicer);

@@ -10,7 +10,7 @@ namespace Advent.AoC2015
         private const int size = 1000;
         private readonly Regex instructionRegex = new Regex(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
 
-        public void Problem1()
+        public void Part1()
         {
             var lines = Input.GetLines(2015, 6);
             bool[] lights = new bool[size * size];
@@ -18,7 +18,7 @@ namespace Advent.AoC2015
             Console.WriteLine(lights.Count(l => l));
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var lines = Input.GetLines(2015, 6);
             int[] lights = new int[size * size];

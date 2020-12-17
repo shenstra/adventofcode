@@ -6,7 +6,7 @@ namespace Advent.AoC2015
 {
     internal class Day3
     {
-        public void Problem1()
+        public void Part1()
         {
             string input = Input.GetLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };
@@ -26,7 +26,7 @@ namespace Advent.AoC2015
             Console.WriteLine(history.Distinct().Count());
         }
 
-        public void Problem2()
+        public void Part2()
         {
             string input = Input.GetLine(2015, 3);
             var history = new List<(int, int)> { (0, 0) };

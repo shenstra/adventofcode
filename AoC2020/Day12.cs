@@ -8,7 +8,7 @@ namespace Advent.AoC2020
     {
         private readonly List<char> headings = new List<char> { 'N', 'E', 'S', 'W' };
 
-        public void Problem1()
+        public void Part1()
         {
             var instructions = Input.GetLines(2020, 12).Select(GetInstruction);
             (int x, int y) = FollowSimpleInstructions(instructions);
@@ -16,7 +16,7 @@ namespace Advent.AoC2020
             Console.WriteLine(manhattanDistance);
         }
 
-        public void Problem2()
+        public void Part2()
         {
             var instructions = Input.GetLines(2020, 12).Select(GetInstruction);
             (int x, int y) = FollowWaypointInstructions(instructions);
