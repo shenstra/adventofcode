@@ -9,14 +9,22 @@ namespace Advent.AoC2020
         public void Part1()
         {
             var seats = GetSeats(Input.GetLines(2020, 11));
-            while (ApplyRound(seats, out seats, Algorithm.Neighbours)) ; // NoOp
+            while (ApplyRound(seats, out seats, Algorithm.Neighbours))
+            {
+                // NoOp
+            }
+
             int occupiedSeats = seats.Count(seat => seat.Value == SeatState.Occupied);
             Console.WriteLine(occupiedSeats);
         }
         public void Part2()
         {
             var seats = GetSeats(Input.GetLines(2020, 11));
-            while (ApplyRound(seats, out seats, Algorithm.Vision)) ; // NoOp
+            while (ApplyRound(seats, out seats, Algorithm.Vision))
+            {
+                // NoOp
+            }
+
             int occupiedSeats = seats.Count(seat => seat.Value == SeatState.Occupied);
             Console.WriteLine(occupiedSeats);
         }
@@ -33,13 +41,16 @@ namespace Advent.AoC2020
                     newSeatState = SeatState.Occupied;
                     changed = true;
                 }
+
                 if (seat.Value == SeatState.Occupied && ShouldBeVacated(seats, algorithm, seat.Key.row, seat.Key.col))
                 {
                     newSeatState = SeatState.Empty;
                     changed = true;
                 }
+
                 newSeats[seat.Key] = newSeatState;
             }
+
             return changed;
         }
 
@@ -58,16 +69,26 @@ namespace Advent.AoC2020
         private static IEnumerable<SeatState> GetAdjacentSeatStates(Dictionary<(int, int), SeatState> seats, int row, int col)
         {
             for (int rowOffset = -1; rowOffset <= 1; rowOffset++)
+            {
                 for (int colOffset = -1; colOffset <= 1; colOffset++)
+                {
                     if (!(rowOffset == 0 && colOffset == 0))
+                    {
                         if (seats.ContainsKey((row + rowOffset, col + colOffset)))
+                        {
                             yield return seats[(row + rowOffset, col + colOffset)];
+                        }
+                    }
+                }
+            }
         }
 
         private static IEnumerable<SeatState> GetVisibleSeatStates(Dictionary<(int, int), SeatState> seats, int row, int col)
         {
             for (int rowDirection = -1; rowDirection <= 1; rowDirection++)
+            {
                 for (int colDirection = -1; colDirection <= 1; colDirection++)
+                {
                     if (!(rowDirection == 0 && colDirection == 0))
                     {
                         int stepSize = 1;
@@ -77,9 +98,14 @@ namespace Advent.AoC2020
                             stepSize++;
                             nextSeatKey = (row + (stepSize * rowDirection), col + (stepSize * colDirection));
                         }
+
                         if (seats.ContainsKey(nextSeatKey))
+                        {
                             yield return seats[nextSeatKey];
+                        }
                     }
+                }
+            }
         }
 
         private static Dictionary<(int, int), SeatState> GetSeats(IEnumerable<string> lines)

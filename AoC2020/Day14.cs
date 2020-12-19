@@ -20,14 +20,19 @@ namespace Advent.AoC2020
             {
                 var result = maskRegex.Match(line);
                 if (result.Success)
+                {
                     (zeroMask, oneMask) = GetBitMasks(result.Groups[1].Value);
+                }
                 else
                 {
                     result = memRegex.Match(line);
                     ulong index = ulong.Parse(result.Groups[1].Value);
                     ulong value = ulong.Parse(result.Groups[2].Value);
                     if (!registers.ContainsKey(index))
+                    {
                         registers[index] = 0;
+                    }
+
                     registers[index] = (value & ~zeroMask) | oneMask;
                 }
             }
@@ -43,16 +48,21 @@ namespace Advent.AoC2020
             {
                 var result = maskRegex.Match(line);
                 if (result.Success)
+                {
                     mask = result.Groups[1].Value;
+                }
                 else
                 {
                     result = memRegex.Match(line);
                     ulong baseIndex = uint.Parse(result.Groups[1].Value);
                     ulong value = ulong.Parse(result.Groups[2].Value);
                     foreach (ulong index in GetMaskedIndexes(baseIndex, mask))
+                    {
                         registers[index] = value;
+                    }
                 }
             }
+
             Console.WriteLine(registers.Sum(r => (decimal)r.Value));
         }
 
@@ -61,10 +71,17 @@ namespace Advent.AoC2020
             ulong zeroMask = 0;
             ulong oneMask = 0;
             for (int i = 0; i < 36; i++)
+            {
                 if (mask[35 - i] == '1')
+                {
                     oneMask |= 1UL << i;
+                }
                 else if (mask[35 - i] == '0')
+                {
                     zeroMask |= 1UL << i;
+                }
+            }
+
             return (zeroMask, oneMask);
         }
 
@@ -78,14 +95,20 @@ namespace Advent.AoC2020
         private static IEnumerable<ulong> GetFloatedIndexes(ulong baseIndex, string mask, int bit)
         {
             if (bit == 36)
+            {
                 yield return baseIndex;
+            }
             else
+            {
                 foreach (ulong index in GetFloatedIndexes(baseIndex, mask, bit + 1))
                 {
                     yield return index;
                     if (mask[bit] == 'X')
+                    {
                         yield return index ^ (1UL << (35 - bit));
+                    }
                 }
+            }
         }
     }
 }

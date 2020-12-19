@@ -43,8 +43,13 @@ namespace Advent.AoC2015
         private static bool HasDoubleLetter(string name)
         {
             for (int i = 0; i < name.Length - 1; i++)
+            {
                 if (name[i] == name[i + 1])
+                {
                     return true;
+                }
+            }
+
             return false;
         }
 
@@ -55,22 +60,34 @@ namespace Advent.AoC2015
                 || name.Contains("pq")
                 || name.Contains("xy");
         }
+
         private static bool HasRepeatingPair(string name)
         {
             for (int i = 0; i < name.Length - 3; i++)
+            {
                 for (int j = i + 2; j < name.Length - 1; j++)
+                {
                     if (name[i] == name[j] && name[i + 1] == name[j + 1])
+                    {
                         return true;
+                    }
+                }
+            }
+
             return false;
         }
 
         private static bool HasRepeatAfterOneLetter(string name)
         {
             for (int i = 0; i < name.Length - 2; i++)
+            {
                 if (name[i] == name[i + 2])
+                {
                     return true;
+                }
+            }
+
             return false;
         }
-
     }
 }

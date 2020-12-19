@@ -35,6 +35,7 @@ namespace Advent.AoC2020
                     current.AddFields(line);
                 }
             }
+
             yield return current;
         }
 
@@ -78,22 +79,34 @@ namespace Advent.AoC2020
             }
 
             private bool HasValidByr() => int.TryParse(fields["byr"], out int byr) && byr >= 1920 && byr <= 2002;
+
             private bool HasValidIyr() => int.TryParse(fields["iyr"], out int iyr) && iyr >= 2010 && iyr <= 2020;
+
             private bool HasValidEyr() => int.TryParse(fields["eyr"], out int eyr) && eyr >= 2020 && eyr <= 2030;
+
             private bool HasValidHgt()
             {
                 var match = hgtRegex.Match(fields["hgt"]);
                 if (match.Success)
                 {
                     if (match.Groups[2].Value == "cm")
+                    {
                         return int.TryParse(match.Groups[1].Value, out int cm) && cm >= 150 && cm <= 193;
+                    }
+
                     if (match.Groups[2].Value == "in")
+                    {
                         return int.TryParse(match.Groups[1].Value, out int inches) && inches >= 59 && inches <= 76;
+                    }
                 }
+
                 return false;
             }
+
             private bool HasValidHcl() => hclRegex.Match(fields["hcl"]).Success;
+
             private bool HasValidEcl() => eclRegex.Match(fields["ecl"]).Success;
+
             private bool HasValidPid() => pidRegex.Match(fields["pid"]).Success;
         }
     }

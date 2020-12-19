@@ -45,6 +45,7 @@ namespace Advent.AoC2020
                     group.Add(line);
                 }
             }
+
             yield return group;
         }
     }

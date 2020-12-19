@@ -15,10 +15,16 @@ namespace Advent.AoC2020
             for (int i = 0; i < sortedAdapters.Count - 1; i++)
             {
                 if (sortedAdapters[i] == sortedAdapters[i + 1] - 1)
+                {
                     jump1++;
+                }
+
                 if (sortedAdapters[i] == sortedAdapters[i + 1] - 3)
+                {
                     jump3++;
+                }
             }
+
             Console.WriteLine(jump1 * jump3);
         }
 
@@ -56,9 +62,11 @@ namespace Advent.AoC2020
                             combinations += FindCombinations(sortedAdapters.Skip(i).ToList());
                         }
                     }
+
                     memoizedCombinations[key] = combinations;
                 }
             }
+
             return memoizedCombinations[key];
         }
     }

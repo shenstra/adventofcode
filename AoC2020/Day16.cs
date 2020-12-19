@@ -35,11 +35,12 @@ namespace Advent.AoC2020
             {
                 possibleIndexesForField[field] = new List<int>();
                 for (int fieldIndex = 0; fieldIndex < validTickets.First().Count; fieldIndex++)
-                    if (validTickets.All(t =>
+                {
+                    if (validTickets.All(t => fieldRules[field].Contains(t[fieldIndex])))
                     {
-                        return fieldRules[field].Contains(t[fieldIndex]);
-                    }))
                         possibleIndexesForField[field].Add(fieldIndex);
+                    }
+                }
             }
 
             return possibleIndexesForField;
@@ -51,14 +52,20 @@ namespace Advent.AoC2020
             while (possibleIndexesForField.Any())
             {
                 foreach (string field in possibleIndexesForField.Keys)
+                {
                     if (possibleIndexesForField[field].Count == 1)
                     {
                         int index = possibleIndexesForField[field].Single();
                         fieldIndexes[field] = index;
                         foreach (var p in possibleIndexesForField)
+                        {
                             p.Value.Remove(index);
+                        }
+
                         possibleIndexesForField.Remove(field);
                     }
+                }
+
                 var distinctIndexes = possibleIndexesForField.SelectMany(p => p.Value).Distinct().Except(fieldIndexes.Values);
                 foreach (int index in distinctIndexes)
                 {
@@ -91,6 +98,7 @@ namespace Advent.AoC2020
                     OtherTickets = lines.Skip(break2 + 2).Select(ParseTicket).ToList()
                 };
             }
+
             private static Dictionary<string, List<int>> GetFieldRules(IEnumerable<string> lines)
             {
                 var fieldRegex = new Regex(@"^(?<field>.+): (?:(?<range>\d+-\d+)(?: or |$))+");

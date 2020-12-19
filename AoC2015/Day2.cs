@@ -43,7 +43,6 @@ namespace Advent.AoC2015
                 + (2 * sides[1])
                 + (2 * sides[2])
                 + sides.Min();
-
         }
     }
 }

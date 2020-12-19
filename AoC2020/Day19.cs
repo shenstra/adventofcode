@@ -25,19 +25,30 @@ namespace Advent.AoC2020
         private bool MatchesRules(List<int> toMatch, string input, Dictionary<int, string> rules)
         {
             if (!toMatch.Any())
+            {
                 return input == string.Empty;
+            }
             else if (input == string.Empty)
+            {
                 return false;
+            }
+
             string rule = rules[toMatch[0]];
             if (rule.StartsWith('"'))
+            {
                 return input.StartsWith(rule.Trim('"'))
                     && MatchesRules(toMatch.Skip(1).ToList(), input[rule.Trim('"').Length..], rules);
+            }
+
             foreach (string option in rule.Split(" | "))
             {
                 var newToMatch = option.Split().Select(s => int.Parse(s)).Concat(toMatch.Skip(1)).ToList();
                 if (MatchesRules(newToMatch, input, rules))
+                {
                     return true;
+                }
             }
+
             return false;
         }
 

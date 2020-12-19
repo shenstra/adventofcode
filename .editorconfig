@@ -11,9 +11,6 @@ csharp_style_var_elsewhere = true:suggestion
 csharp_style_var_for_built_in_types = false:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
 
-# IDE0011: Add braces
-csharp_prefer_braces = false:suggestion
-
 # IDE0022: Use expression body for methods
 dotnet_diagnostic.IDE0022.severity = none
 

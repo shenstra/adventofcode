@@ -11,13 +11,18 @@ namespace Advent.AoC2020
         {
             var rules = BuildBagRules(Input.GetLines(2020, 7));
             var bagOptions = FindBagsThatCanHoldCertainBags(rules, new List<string> { "shiny gold" }).ToList();
+
             while (true)
             {
                 var extraBagOptions = FindBagsThatCanHoldCertainBags(rules, bagOptions).Except(bagOptions);
                 if (!extraBagOptions.Any())
+                {
                     break;
+                }
+
                 bagOptions.AddRange(extraBagOptions);
             }
+
             Console.WriteLine(bagOptions.Count);
         }
 
@@ -27,6 +32,7 @@ namespace Advent.AoC2020
             var bagsToCheck = new Queue<string>();
             var requiredBags = new List<string>();
             bagsToCheck.Enqueue("shiny gold");
+
             while (bagsToCheck.Any())
             {
                 string bag = bagsToCheck.Dequeue();
@@ -34,9 +40,12 @@ namespace Advent.AoC2020
                 foreach (var neededBag in rules[bag])
                 {
                     for (int i = 0; i < neededBag.Value; i++)
+                    {
                         bagsToCheck.Enqueue(neededBag.Key);
+                    }
                 }
             }
+
             Console.WriteLine(requiredBags.Count - 1);
         }
 

@@ -36,7 +36,9 @@ namespace Advent.AoC2015
                 int x2 = int.Parse(match.Groups[4].Value);
                 int y2 = int.Parse(match.Groups[5].Value);
                 for (int x = x1; x <= x2; x++)
+                {
                     for (int y = y1; y <= y2; y++)
+                    {
                         lights[x + (y * size)] = match.Groups[1].Value switch
                         {
                             "turn on" => true,
@@ -44,6 +46,8 @@ namespace Advent.AoC2015
                             "toggle" => !lights[x + (y * size)],
                             _ => throw new ApplicationException($"Unknown instruction {match.Groups[1].Value}"),
                         };
+                    }
+                }
             }
         }
 
@@ -57,7 +61,9 @@ namespace Advent.AoC2015
                 int x2 = int.Parse(match.Groups[4].Value);
                 int y2 = int.Parse(match.Groups[5].Value);
                 for (int x = x1; x <= x2; x++)
+                {
                     for (int y = y1; y <= y2; y++)
+                    {
                         switch (match.Groups[1].Value)
                         {
                             case "turn on":
@@ -65,7 +71,10 @@ namespace Advent.AoC2015
                                 break;
                             case "turn off":
                                 if (lights[x + (y * size)] > 0)
+                                {
                                     lights[x + (y * size)] -= 1;
+                                }
+
                                 break;
                             case "toggle":
                                 lights[x + (y * size)] += 2;
@@ -73,6 +82,8 @@ namespace Advent.AoC2015
                             default:
                                 throw new ApplicationException($"Unknown instruction {match.Groups[1].Value}");
                         }
+                    }
+                }
             }
         }
     }

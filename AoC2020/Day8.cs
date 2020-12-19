@@ -61,6 +61,7 @@ namespace Advent.AoC2020
                         throw new ApplicationException($"Unknown instruction type {instructions[current].Type}");
                 }
             }
+
             return true;
         }
 

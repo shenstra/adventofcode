@@ -52,6 +52,5 @@ namespace Advent.AoC2020
                 return match1 != match2;
             }
         }
-
     }
 }

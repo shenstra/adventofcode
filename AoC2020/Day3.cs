@@ -32,7 +32,10 @@ namespace Advent.AoC2020
             for (int yPos = 0; yPos < map.Count; yPos += slopeY)
             {
                 if (map[yPos][xPos] == '#')
+                {
                     trees++;
+                }
+
                 xPos = (xPos + slopeX) % width;
             }
 

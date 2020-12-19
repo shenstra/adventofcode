@@ -22,7 +22,10 @@ namespace Advent.AoC2020
         {
             int[] lastIndex = Enumerable.Repeat(-1, limit).ToArray();
             for (int round = 0; round < numbers.Count - 1; round++)
+            {
                 lastIndex[numbers[round]] = round;
+            }
+
             int prevNumber = numbers.Last();
             int newNumber;
             for (int round = numbers.Count; round < limit; round++)
@@ -31,6 +34,7 @@ namespace Advent.AoC2020
                 lastIndex[prevNumber] = round - 1;
                 prevNumber = newNumber;
             }
+
             return prevNumber;
         }
 

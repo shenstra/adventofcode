@@ -27,6 +27,7 @@ namespace Advent.AoC2020
                 long subResult = Solve(input[(openParen + 1)..(closeParen - 1)], addFirst);
                 input = $"{input[..openParen]}{subResult}{input[closeParen..]}";
             }
+
             return addFirst ? SolveReducedAddingFirst(input) : SolveReducedLeftToRight(input);
         }
 
@@ -35,11 +36,20 @@ namespace Advent.AoC2020
             int openIndex = input.IndexOf('(');
             int openParens = 1;
             for (int index = openIndex + 1; index < input.Length; index++)
+            {
                 if (input[index] == '(')
+                {
                     openParens++;
+                }
                 else if (input[index] == ')')
+                {
                     if (--openParens == 0)
+                    {
                         return (openIndex, index + 1);
+                    }
+                }
+            }
+
             throw new ApplicationException("Couldn't match parentheses");
         }
 
@@ -50,10 +60,15 @@ namespace Advent.AoC2020
             for (int index = 1; index < parts.Length; index += 2)
             {
                 if (parts[index] == "+")
+                {
                     result += long.Parse(parts[index + 1]);
+                }
                 else if (parts[index] == "*")
+                {
                     result *= long.Parse(parts[index + 1]);
+                }
             }
+
             return result;
         }
 

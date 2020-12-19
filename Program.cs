@@ -9,6 +9,7 @@ namespace Advent
         {
             Console.WriteLine("Starting...");
             var sw = Stopwatch.StartNew();
+
             try
             {
                 new AoC2020.Day19().Part1();
@@ -18,6 +19,7 @@ namespace Advent
             {
                 Console.WriteLine($"Oops, exception thrown:\n{ex}");
             }
+
             sw.Stop();
             Console.WriteLine($"Took {sw.ElapsedMilliseconds} ms");
         }

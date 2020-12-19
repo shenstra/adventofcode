@@ -37,9 +37,13 @@ namespace Advent.AoC2015
                 string left = parts[0];
                 string right = parts[1];
                 if (TryComputeValue(left, wireValues, out ushort value))
+                {
                     wireValues[right] = value;
+                }
                 else
+                {
                     rules.Enqueue(rule);
+                }
             }
         }
 
@@ -97,6 +101,7 @@ namespace Advent.AoC2015
             {
                 return TryLookupValue(left, wireValues, out value);
             }
+
             value = 0;
             return false;
         }
@@ -108,6 +113,7 @@ namespace Advent.AoC2015
                 output = wireValues[token];
                 return true;
             }
+
             return ushort.TryParse(token, out output);
         }
     }

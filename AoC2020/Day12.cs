@@ -31,10 +31,15 @@ namespace Advent.AoC2020
             foreach ((char instruction, int value) in instructions)
             {
                 if (instruction is 'L' or 'R')
+                {
                     heading = MakeTurn(instruction, value, heading);
+                }
                 else
+                {
                     position = Move(instruction == 'F' ? heading : instruction, value, position);
+                }
             }
+
             return position;
         }
 
@@ -45,12 +50,19 @@ namespace Advent.AoC2020
             foreach ((char instruction, int value) in instructions)
             {
                 if (instruction is 'L' or 'R')
+                {
                     waypoint = TurnWaypoint(instruction, value, waypoint);
+                }
                 else if (instruction == 'F')
+                {
                     position = MoveTowardWaypoint(value, waypoint, position);
+                }
                 else
+                {
                     waypoint = Move(instruction, value, waypoint);
+                }
             }
+
             return position;
         }
 
@@ -70,9 +82,14 @@ namespace Advent.AoC2020
         {
             int index = headings.IndexOf(heading);
             if (instruction == 'R')
+            {
                 index += value / 90;
+            }
             else
+            {
                 index -= value / 90;
+            }
+
             return headings[(index + 4) % 4];
         }
 

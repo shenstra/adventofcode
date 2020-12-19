@@ -21,8 +21,10 @@ namespace Advent.AoC2015
                     case '<': x--; break;
                     default: throw new ApplicationException($"Invalid input: {c}");
                 }
+
                 history.Add((x, y));
             }
+
             Console.WriteLine(history.Distinct().Count());
         }
 
@@ -41,7 +43,9 @@ namespace Advent.AoC2015
                     case '<': x1--; break;
                     default: throw new ApplicationException($"Invalid input: {input[i]}");
                 }
+
                 history.Add((x1, y1));
+
                 switch (input[i + 1])
                 {
                     case '^': y2--; break;
@@ -50,8 +54,10 @@ namespace Advent.AoC2015
                     case '<': x2--; break;
                     default: throw new ApplicationException($"Invalid input: {input[i + 1]}");
                 }
+
                 history.Add((x2, y2));
             }
+
             Console.WriteLine(history.Distinct().Count());
         }
     }
