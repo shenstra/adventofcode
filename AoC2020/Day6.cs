@@ -22,7 +22,7 @@ namespace Advent.AoC2020
 
         private int CountUnanimousAnswers(List<string> group)
         {
-            return group.Select(s => s.ToList()).Aggregate((a, b) => a.Intersect(b).ToList()).Count;
+            return group.Select(s => s.AsEnumerable()).Aggregate(Enumerable.Intersect).Count();
         }
 
         private int CountAnswersPresent(List<string> group)
