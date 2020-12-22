@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    internal class Day1
+    internal class Day01
     {
         public void Part1()
         {

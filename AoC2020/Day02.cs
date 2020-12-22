@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2020
 {
-    internal class Day2
+    internal class Day02
     {
         private readonly Regex passwordRegex = new Regex(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
 

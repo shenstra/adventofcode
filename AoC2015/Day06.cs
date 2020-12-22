@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2015
 {
-    internal class Day6
+    internal class Day06
     {
         private const int size = 1000;
         private readonly Regex instructionRegex = new Regex(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");

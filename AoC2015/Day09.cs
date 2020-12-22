@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2015
 {
-    internal class Day9
+    internal class Day09
     {
         private readonly Regex legRegex = new Regex(@"^(?<location1>.*) to (?<location2>.*) = (?<distance>\d+)$");
 

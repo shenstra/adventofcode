@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2020
 {
-    internal class Day4
+    internal class Day04
     {
         public void Part1()
         {

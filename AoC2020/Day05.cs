@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Advent.AoC2020
 {
-    internal class Day5
+    internal class Day05
     {
         public void Part1()
         {

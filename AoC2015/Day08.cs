@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Advent.AoC2015
 {
-    internal class Day8
+    internal class Day08
     {
         private readonly Regex escapeSequenceRegex = new Regex(@"(\\\\|\\""|\\x[0-9a-f]{2})");
         private readonly Regex escapableRegex = new Regex(@"(\\|"")");

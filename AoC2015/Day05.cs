@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Advent.AoC2015
 {
-    internal class Day5
+    internal class Day05
     {
         private readonly List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
 

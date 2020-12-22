@@ -6,7 +6,7 @@ namespace Advent
 {
     public static class Input
     {
-        public static IEnumerable<string> GetLines(int year, int day) => File.ReadLines($"input/{year}/day{day}.txt");
+        public static IEnumerable<string> GetLines(int year, int day) => File.ReadLines($"input/{year}/day{day:00}.txt");
 
         public static string GetSingleLine(int year, int day) => GetLines(year, day).Single();
 
