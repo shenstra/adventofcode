@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Advent.Aoc2020\Advent.Aoc2020.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="input\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
