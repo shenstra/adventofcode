@@ -22,6 +22,7 @@ namespace Advent.Aoc2015
                 long winningDistance = reindeer.Max(r => r.GetDistanceAfter(time));
                 reindeer.ForEach(r => r.ScoreIfWinning(time, winningDistance));
             }
+
             Console.WriteLine(reindeer.Max(r => r.Score));
         }
 
