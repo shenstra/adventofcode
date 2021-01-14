@@ -12,6 +12,8 @@ namespace Advent.Util
 
         public static IEnumerable<int> GetInts(int year, int day) => GetLines(year, day).Select(s => int.Parse(s));
 
+        public static int GetSingleInt(int year, int day) => GetInts(year, day).Single();
+
         public static IEnumerable<long> GetLongs(int year, int day) => GetLines(year, day).Select(s => long.Parse(s));
     }
 }
