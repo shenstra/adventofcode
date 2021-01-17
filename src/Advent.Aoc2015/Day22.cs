@@ -11,36 +11,42 @@ namespace Advent.Aoc2015
         {
             var boss = new Boss(Input.GetLines(2015, 22));
             var player = new Player { HitPoints = 50, Mana = 500 };
-            var endState = ApplyOptimalStrategy(player, boss);
-            Console.WriteLine(endState.player.ManaSpent);
+            Console.WriteLine(CalculateLowestManaToWin(player, boss));
         }
 
         public void Part2()
         {
             var boss = new Boss(Input.GetLines(2015, 22));
             var player = new Player { HitPoints = 50, Mana = 500, Hard = true };
-            var endState = ApplyOptimalStrategy(player, boss);
-            Console.WriteLine(endState.player.ManaSpent);
+            Console.WriteLine(CalculateLowestManaToWin(player, boss));
         }
 
-        private static (Player player, Boss boss) ApplyOptimalStrategy(Player player, Boss boss)
+        private static int CalculateLowestManaToWin(Player player, Boss boss)
         {
+            int lowestManaCostToWin = int.MaxValue;
             List<(Player player, Boss boss)> saveStates = new List<(Player, Boss)> { (player, boss) };
-            while (true)
+            while (saveStates.Any())
             {
-                var state = saveStates.OrderBy(s => s.player.ManaSpent).First();
+                var state = saveStates.OrderBy(s => s.boss.HitPoints).First();
                 saveStates.Remove(state);
 
-                var newSaveStates = PossiblePlayerTurns(state);
+                var newSaveStates = PossiblePlayerTurns(state).Where(s => s.player.ManaSpent < lowestManaCostToWin);
 
-                var winningSaveStates = newSaveStates.Where(s => s.boss.HitPoints <= 0);
-                if (winningSaveStates.Any())
+                var winningStates = newSaveStates.Where(s => s.boss.HitPoints <= 0);
+                if (winningStates.Any())
                 {
-                    return winningSaveStates.OrderBy(s => s.player.ManaSpent).FirstOrDefault();
+                    var winningState = winningStates.OrderBy(s => s.player.ManaSpent).First();
+                    if (winningState.player.ManaSpent < lowestManaCostToWin)
+                    {
+                        lowestManaCostToWin = winningState.player.ManaSpent;
+                    }
                 }
-
-                saveStates.AddRange(newSaveStates);
+                else
+                {
+                    saveStates.AddRange(newSaveStates);
+                }
             }
+            return lowestManaCostToWin;
         }
 
         private static IEnumerable<(Player player, Boss boss)> PossiblePlayerTurns((Player player, Boss boss) state)
