@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Advent.Aoc2015\Advent.Aoc2015.csproj" />
+    <ProjectReference Include="..\Advent.Aoc2016\Advent.Aoc2016.csproj" />
     <ProjectReference Include="..\Advent.Aoc2020\Advent.Aoc2020.csproj" />
   </ItemGroup>
 
