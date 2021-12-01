@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace Advent.Util
+﻿namespace Advent.Util
 {
     public static class Input
     {

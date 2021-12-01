@@ -1,5 +1,4 @@
-﻿using System;
-using Advent.Util;
+﻿using Advent.Util;
 
 namespace Advent.Aoc2015
 {

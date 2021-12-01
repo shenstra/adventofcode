@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Advent.Util;
+﻿using Advent.Util;
 
 namespace Advent.Aoc2016
 {
