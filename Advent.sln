@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E8129681-890B-4C27-AA6D-22FE32506A9F}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,15 +10,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB9880B7-D2A2-4235-8985-D80760FCFCDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent", "src\Advent\Advent.csproj", "{51C641E0-7C92-4739-B245-A2C946F0925F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent", "src\Advent\Advent.csproj", "{51C641E0-7C92-4739-B245-A2C946F0925F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent.Aoc2015", "src\Advent.Aoc2015\Advent.Aoc2015.csproj", "{3AA7ED6D-806E-46A5-8470-99CBA089EE24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Aoc2015", "src\Advent.Aoc2015\Advent.Aoc2015.csproj", "{3AA7ED6D-806E-46A5-8470-99CBA089EE24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent.Aoc2020", "src\Advent.Aoc2020\Advent.Aoc2020.csproj", "{72C8110D-C045-44B8-A75F-F2473199D34F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Aoc2020", "src\Advent.Aoc2020\Advent.Aoc2020.csproj", "{72C8110D-C045-44B8-A75F-F2473199D34F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent.Util", "src\Advent.Util\Advent.Util.csproj", "{131C5411-E653-4402-9E9E-6F59CF464756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Util", "src\Advent.Util\Advent.Util.csproj", "{131C5411-E653-4402-9E9E-6F59CF464756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent.Aoc2016", "src\Advent.Aoc2016\Advent.Aoc2016.csproj", "{EA17C714-817C-47DA-A8D0-CC4E35BF30F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Aoc2016", "src\Advent.Aoc2016\Advent.Aoc2016.csproj", "{EA17C714-817C-47DA-A8D0-CC4E35BF30F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Aoc2021", "src\Advent.Aoc2021\Advent.Aoc2021.csproj", "{A43DF5D1-DFFA-4790-935C-7633F0E366C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,12 +48,13 @@ Global
 		{EA17C714-817C-47DA-A8D0-CC4E35BF30F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA17C714-817C-47DA-A8D0-CC4E35BF30F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA17C714-817C-47DA-A8D0-CC4E35BF30F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43DF5D1-DFFA-4790-935C-7633F0E366C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43DF5D1-DFFA-4790-935C-7633F0E366C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43DF5D1-DFFA-4790-935C-7633F0E366C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43DF5D1-DFFA-4790-935C-7633F0E366C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3191228C-AA90-446E-844E-20A32197D27B}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{51C641E0-7C92-4739-B245-A2C946F0925F} = {CB9880B7-D2A2-4235-8985-D80760FCFCDD}
@@ -59,5 +62,9 @@ Global
 		{72C8110D-C045-44B8-A75F-F2473199D34F} = {CB9880B7-D2A2-4235-8985-D80760FCFCDD}
 		{131C5411-E653-4402-9E9E-6F59CF464756} = {CB9880B7-D2A2-4235-8985-D80760FCFCDD}
 		{EA17C714-817C-47DA-A8D0-CC4E35BF30F4} = {CB9880B7-D2A2-4235-8985-D80760FCFCDD}
+		{A43DF5D1-DFFA-4790-935C-7633F0E366C1} = {CB9880B7-D2A2-4235-8985-D80760FCFCDD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3191228C-AA90-446E-844E-20A32197D27B}
 	EndGlobalSection
 EndGlobal

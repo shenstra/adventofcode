@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Advent.Aoc2015\Advent.Aoc2015.csproj" />
     <ProjectReference Include="..\Advent.Aoc2016\Advent.Aoc2016.csproj" />
     <ProjectReference Include="..\Advent.Aoc2020\Advent.Aoc2020.csproj" />
+    <ProjectReference Include="..\Advent.Aoc2021\Advent.Aoc2021.csproj" />
   </ItemGroup>
 
   <ItemGroup>
