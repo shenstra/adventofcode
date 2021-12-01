@@ -5,7 +5,7 @@ namespace Advent.Aoc2015
 {
     public class Day09
     {
-        private readonly Regex legRegex = new Regex(@"^(?<location1>.*) to (?<location2>.*) = (?<distance>\d+)$");
+        private readonly Regex legRegex = new(@"^(?<location1>.*) to (?<location2>.*) = (?<distance>\d+)$");
 
         public void Part1()
         {

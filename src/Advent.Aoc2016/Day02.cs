@@ -61,14 +61,14 @@ namespace Advent.Aoc2016
         {
             foreach (char step in instruction)
             {
-                (row, col) = (step switch
+                (row, col) = step switch
                 {
                     'U' when IsValidCoordinate(row - 1, col, keypad) => (row - 1, col),
                     'D' when IsValidCoordinate(row + 1, col, keypad) => (row + 1, col),
                     'L' when IsValidCoordinate(row, col - 1, keypad) => (row, col - 1),
                     'R' when IsValidCoordinate(row, col + 1, keypad) => (row, col + 1),
                     _ => (row, col),
-                });
+                };
             }
 
             return (row, col);

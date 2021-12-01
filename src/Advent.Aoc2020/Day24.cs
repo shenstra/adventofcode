@@ -5,7 +5,7 @@ namespace Advent.Aoc2020
 {
     public class Day24
     {
-        private readonly Regex instructionRegex = new Regex(@"(ne|nw|se|sw|e|w)");
+        private readonly Regex instructionRegex = new(@"(ne|nw|se|sw|e|w)");
 
         public void Part1()
         {

@@ -4,7 +4,7 @@ namespace Advent.Aoc2020
 {
     public class Day10
     {
-        private static readonly Dictionary<string, long> memoizedCombinations = new Dictionary<string, long>();
+        private static readonly Dictionary<string, long> memoizedCombinations = new();
 
         public void Part1()
         {

@@ -55,7 +55,7 @@ namespace Advent.Aoc2015
 
         private class Ingredient
         {
-            private readonly Regex ingredientRegex = new Regex(@"^(.+): capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)");
+            private readonly Regex ingredientRegex = new(@"^(.+): capacity (-?\d+), durability (-?\d+), flavor (-?\d+), texture (-?\d+), calories (-?\d+)");
 
             public Ingredient(string input)
             {

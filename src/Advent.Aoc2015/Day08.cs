@@ -5,8 +5,8 @@ namespace Advent.Aoc2015
 {
     public class Day08
     {
-        private readonly Regex escapeSequenceRegex = new Regex(@"(\\\\|\\""|\\x[0-9a-f]{2})");
-        private readonly Regex escapableRegex = new Regex(@"(\\|"")");
+        private readonly Regex escapeSequenceRegex = new(@"(\\\\|\\""|\\x[0-9a-f]{2})");
+        private readonly Regex escapableRegex = new(@"(\\|"")");
 
         public void Part1()
         {

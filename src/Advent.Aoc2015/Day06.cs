@@ -6,7 +6,7 @@ namespace Advent.Aoc2015
     public class Day06
     {
         private const int size = 1000;
-        private readonly Regex instructionRegex = new Regex(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
+        private readonly Regex instructionRegex = new(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
 
         public void Part1()
         {

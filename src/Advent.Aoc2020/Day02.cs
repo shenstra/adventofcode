@@ -5,7 +5,7 @@ namespace Advent.Aoc2020
 {
     public class Day02
     {
-        private readonly Regex passwordRegex = new Regex(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
+        private readonly Regex passwordRegex = new(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
 
         public void Part1()
         {

@@ -26,7 +26,7 @@ namespace Advent.Aoc2015
 
         private class Reindeer
         {
-            private readonly Regex reindeerRegex = new Regex(@"^(.+) can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.");
+            private readonly Regex reindeerRegex = new(@"^(.+) can fly (\d+) km/s for (\d+) seconds, but then must rest for (\d+) seconds.");
 
             public Reindeer(string input)
             {

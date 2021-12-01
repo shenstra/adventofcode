@@ -4,7 +4,7 @@ namespace Advent.Aoc2020
 {
     public class Day22
     {
-        private readonly Dictionary<string, int> knownGameWinners = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> knownGameWinners = new();
 
         public void Part1()
         {

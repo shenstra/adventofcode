@@ -5,7 +5,7 @@ namespace Advent.Aoc2015
 {
     public class Day13
     {
-        private readonly Regex seatingRegex = new Regex(@"^(.+) would (gain|lose) (\d+) happiness units by sitting next to (.+)\.$");
+        private readonly Regex seatingRegex = new(@"^(.+) would (gain|lose) (\d+) happiness units by sitting next to (.+)\.$");
 
         public void Part1()
         {

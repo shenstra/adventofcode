@@ -5,7 +5,7 @@ namespace Advent.Aoc2016
 {
     public class Day04
     {
-        private readonly Regex roomRegex = new Regex(@"([a-z-]+)-(\d+)\[([a-z]+)\]");
+        private readonly Regex roomRegex = new(@"([a-z-]+)-(\d+)\[([a-z]+)\]");
 
         public void Part1()
         {

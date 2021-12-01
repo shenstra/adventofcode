@@ -39,11 +39,11 @@ namespace Advent.Aoc2020
 
         private class Entry
         {
-            private readonly Dictionary<string, string> fields = new Dictionary<string, string>();
-            private readonly Regex hgtRegex = new Regex(@"^(\d+)(cm|in)$");
-            private readonly Regex hclRegex = new Regex(@"^#([0-9a-f]{6})$");
-            private readonly Regex eclRegex = new Regex(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
-            private readonly Regex pidRegex = new Regex(@"^([0-9]{9})$");
+            private readonly Dictionary<string, string> fields = new();
+            private readonly Regex hgtRegex = new(@"^(\d+)(cm|in)$");
+            private readonly Regex hclRegex = new(@"^#([0-9a-f]{6})$");
+            private readonly Regex eclRegex = new(@"^(amb|blu|brn|gry|grn|hzl|oth)$");
+            private readonly Regex pidRegex = new(@"^([0-9]{9})$");
 
             public void AddFields(string line)
             {

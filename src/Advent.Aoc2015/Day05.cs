@@ -4,7 +4,7 @@ namespace Advent.Aoc2015
 {
     public class Day05
     {
-        private readonly List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
+        private readonly List<char> vowels = new() { 'a', 'e', 'i', 'o', 'u' };
 
         public void Part1()
         {

@@ -5,7 +5,7 @@ namespace Advent.Aoc2016
 {
     public class Day03
     {
-        private readonly Regex triangleRegex = new Regex(@"(\d+)\s+(\d+)\s+(\d+)");
+        private readonly Regex triangleRegex = new(@"(\d+)\s+(\d+)\s+(\d+)");
 
         public void Part1()
         {

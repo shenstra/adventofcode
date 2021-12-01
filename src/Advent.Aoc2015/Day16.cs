@@ -5,7 +5,7 @@ namespace Advent.Aoc2015
 {
     public class Day16
     {
-        private readonly Regex sueRegex = new Regex(@"^Sue (\d+): (.+)$");
+        private readonly Regex sueRegex = new(@"^Sue (\d+): (.+)$");
 
         public void Part1()
         {

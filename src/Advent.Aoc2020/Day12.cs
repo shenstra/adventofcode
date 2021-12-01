@@ -4,7 +4,7 @@ namespace Advent.Aoc2020
 {
     public class Day12
     {
-        private readonly List<char> headings = new List<char> { 'N', 'E', 'S', 'W' };
+        private readonly List<char> headings = new() { 'N', 'E', 'S', 'W' };
 
         public void Part1()
         {

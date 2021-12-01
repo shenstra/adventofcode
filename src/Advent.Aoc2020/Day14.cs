@@ -5,8 +5,8 @@ namespace Advent.Aoc2020
 {
     public class Day14
     {
-        private readonly Regex maskRegex = new Regex(@"mask = ([X01]{36})");
-        private readonly Regex memRegex = new Regex(@"mem\[(\d+)\] = (\d+)");
+        private readonly Regex maskRegex = new(@"mask = ([X01]{36})");
+        private readonly Regex memRegex = new(@"mem\[(\d+)\] = (\d+)");
 
         public void Part1()
         {
