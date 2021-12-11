@@ -6,27 +6,27 @@ namespace Advent.Aoc2020
     {
         public void Part1()
         {
-            var numbers = GetNumbers(Input.GetSingleLine(2020, 15));
+            int[] numbers = Input.GetSingleLine(2020, 15).SplitToInts();
             Console.WriteLine(GetNthNumber(numbers, 2020));
         }
 
         public void Part2()
         {
-            var numbers = GetNumbers(Input.GetSingleLine(2020, 15));
+            int[] numbers = Input.GetSingleLine(2020, 15).SplitToInts();
             Console.WriteLine(GetNthNumber(numbers, 30000000));
         }
 
-        private static int GetNthNumber(List<int> numbers, int limit)
+        private static int GetNthNumber(int[] numbers, int limit)
         {
             int[] lastIndex = Enumerable.Repeat(-1, limit).ToArray();
-            for (int round = 0; round < numbers.Count - 1; round++)
+            for (int round = 0; round < numbers.Length - 1; round++)
             {
                 lastIndex[numbers[round]] = round;
             }
 
             int prevNumber = numbers.Last();
             int newNumber;
-            for (int round = numbers.Count; round < limit; round++)
+            for (int round = numbers.Length; round < limit; round++)
             {
                 newNumber = lastIndex[prevNumber] == -1 ? 0 : round - 1 - lastIndex[prevNumber];
                 lastIndex[prevNumber] = round - 1;
@@ -34,11 +34,6 @@ namespace Advent.Aoc2020
             }
 
             return prevNumber;
-        }
-
-        private static List<int> GetNumbers(string line)
-        {
-            return line.Split(',').Select(s => int.Parse(s)).ToList();
         }
     }
 }

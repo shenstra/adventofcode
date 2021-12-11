@@ -24,7 +24,7 @@ namespace Advent.Aoc2021
 
         private static long[] InitializeTimerCounts(string input)
         {
-            int[] fishTimers = input.Split(',').Select(int.Parse).ToArray();
+            int[] fishTimers = input.SplitToInts();
             long[] fishWithTimer = new long[initialTimer + 1];
             foreach (int fishTimer in fishTimers)
             {

@@ -26,13 +26,13 @@ namespace Advent.Aoc2020
             Console.WriteLine(myTicketValues.Aggregate((a, b) => a * b));
         }
 
-        private static Dictionary<string, List<int>> GetPossibleIndexesPerField(Dictionary<string, List<int>> fieldRules, List<List<int>> validTickets)
+        private static Dictionary<string, List<int>> GetPossibleIndexesPerField(Dictionary<string, List<int>> fieldRules, List<int[]> validTickets)
         {
             var possibleIndexesForField = new Dictionary<string, List<int>>();
             foreach (string field in fieldRules.Keys)
             {
                 possibleIndexesForField[field] = new List<int>();
-                for (int fieldIndex = 0; fieldIndex < validTickets.First().Count; fieldIndex++)
+                for (int fieldIndex = 0; fieldIndex < validTickets.First().Length; fieldIndex++)
                 {
                     if (validTickets.All(t => fieldRules[field].Contains(t[fieldIndex])))
                     {
@@ -82,8 +82,8 @@ namespace Advent.Aoc2020
         private class Document
         {
             public Dictionary<string, List<int>> FieldRules { get; init; }
-            public List<int> MyTicket { get; init; }
-            public List<List<int>> OtherTickets { get; init; }
+            public int[] MyTicket { get; init; }
+            public List<int[]> OtherTickets { get; init; }
 
             public static Document Parse(List<string> lines)
             {
@@ -92,8 +92,8 @@ namespace Advent.Aoc2020
                 return new Document
                 {
                     FieldRules = GetFieldRules(lines.Take(break1)),
-                    MyTicket = ParseTicket(lines.Skip(break1 + 2).First()).ToList(),
-                    OtherTickets = lines.Skip(break2 + 2).Select(ParseTicket).ToList()
+                    MyTicket = lines.Skip(break1 + 2).First().SplitToInts(),
+                    OtherTickets = lines.Skip(break2 + 2).Select(s => s.SplitToInts()).ToList()
                 };
             }
 
@@ -110,11 +110,6 @@ namespace Advent.Aoc2020
                     var rangeEnds = range.Value.Split('-').Select(int.Parse).ToList();
                     return Enumerable.Range(rangeEnds[0], rangeEnds[1] - rangeEnds[0] + 1);
                 }).ToList();
-            }
-
-            private static List<int> ParseTicket(string line)
-            {
-                return line.Split(',').Select(int.Parse).ToList();
             }
         }
     }

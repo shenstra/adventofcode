@@ -21,12 +21,12 @@ namespace Advent.Aoc2021
 
         private class BingoGame
         {
-            private readonly List<int> randomNumbers;
+            private readonly int[] randomNumbers;
             private readonly List<BingoBoard> boards;
 
             public BingoGame(List<string> input)
             {
-                randomNumbers = input.First().Split(',').Select(int.Parse).ToList();
+                randomNumbers = input.First().SplitToInts();
                 boards = input.Skip(2).Chunk(6).Select(l => new BingoBoard(l.ToList())).ToList();
             }
 
