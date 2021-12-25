@@ -11,8 +11,8 @@ namespace Advent
 
             try
             {
-                new Aoc2021.Day20().Part1();
-                new Aoc2021.Day20().Part2();
+                new Aoc2021.Day21().Part1();
+                new Aoc2021.Day21().Part2();
             }
             catch (Exception ex)
             {
