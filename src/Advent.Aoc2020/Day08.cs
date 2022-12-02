@@ -94,10 +94,13 @@ namespace Advent.Aoc2020
 
             private static InstructionType ParseInstructionType(string input)
             {
-                return input == "nop" ? InstructionType.Nop
-                                                    : input == "jmp" ? InstructionType.Jmp
-                                                    : input == "acc" ? InstructionType.Acc
-                                                    : throw new ArgumentException($"Invalid instruction {input}");
+                return input switch
+                {
+                    "nop" => InstructionType.Nop,
+                    "jmp" => InstructionType.Jmp,
+                    "acc" => InstructionType.Acc,
+                    _ => throw new ArgumentException($"Invalid instruction {input}")
+                };
             }
         }
 

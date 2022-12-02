@@ -38,6 +38,7 @@ namespace Advent.Aoc2020
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3358:Ternary operators should not be nested", Justification = "Nested ternary operator is the cleanest solution in this case")]
         private int PlayRecursiveCombat(Queue<int> player1, Queue<int> player2)
         {
             string gameId = string.Join(",", player1) + "~" + string.Join(",", player2);

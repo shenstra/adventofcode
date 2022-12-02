@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
@@ -8,6 +8,7 @@ namespace Advent.Aoc2020
         private readonly Regex maskRegex = new(@"mask = ([X01]{36})");
         private readonly Regex memRegex = new(@"mem\[(\d+)\] = (\d+)");
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2437:Silly bit operations should not be performed", Justification = "False positive, this silly bit operation is crucial to the algorithm")]
         public void Part1()
         {
             var lines = Input.GetLines(2020, 14);

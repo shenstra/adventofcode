@@ -1,26 +1,18 @@
 ﻿using System.Diagnostics;
+using Day = Advent.Aoc2022.Day01;
 
-namespace Advent
+Console.WriteLine("Starting...");
+var sw = Stopwatch.StartNew();
+
+try
 {
-    internal class Program
-    {
-        private static void Main()
-        {
-            Console.WriteLine("Starting...");
-            var sw = Stopwatch.StartNew();
-
-            try
-            {
-                new Aoc2022.Day02().Part1();
-                new Aoc2022.Day02().Part2();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Oops, exception thrown:\n{ex}");
-            }
-
-            sw.Stop();
-            Console.WriteLine($"Took {sw.ElapsedMilliseconds} ms");
-        }
-    }
+    new Day().Part1();
+    new Day().Part2();
 }
+catch (Exception ex)
+{
+    Console.WriteLine($"Oops, exception thrown:\n{ex}");
+}
+
+sw.Stop();
+Console.WriteLine($"Took {sw.ElapsedMilliseconds} ms");

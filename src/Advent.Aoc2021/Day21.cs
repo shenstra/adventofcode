@@ -100,7 +100,7 @@ namespace Advent.Aoc2021
             }
         }
 
-        private class QuantumDie
+        private static class QuantumDie
         {
             public static IEnumerable<int> RollThreeTimes()
             {

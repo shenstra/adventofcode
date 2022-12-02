@@ -8,7 +8,7 @@ namespace Advent.Aoc2015
         {
             string input = Input.GetSingleLine(2015, 4);
             var md5 = new MD5Hasher();
-            for (int i = 1; true; i++)
+            for (int i = 1; ; i++)
             {
                 string hashString = md5.Hash($"{input}{i}");
                 if (hashString.StartsWith("00000"))
@@ -23,7 +23,7 @@ namespace Advent.Aoc2015
         {
             string input = Input.GetSingleLine(2015, 4);
             var md5 = new MD5Hasher();
-            for (int i = 1; true; i++)
+            for (int i = 1; ; i++)
             {
                 string hashString = md5.Hash($"{input}{i}");
                 if (hashString.StartsWith("000000"))

@@ -20,7 +20,7 @@ namespace Advent.Aoc2015
             Console.WriteLine(registers['b']);
         }
 
-        private static int RunProgram(Command[] commands, Dictionary<char, long> registers)
+        private static void RunProgram(Command[] commands, Dictionary<char, long> registers)
         {
             int iPtr = 0;
             while (iPtr < commands.Length)
@@ -53,8 +53,6 @@ namespace Advent.Aoc2015
                         throw new ApplicationException($"Invalid instruction {command.Instruction}");
                 }
             }
-
-            return iPtr;
         }
 
         private class Command

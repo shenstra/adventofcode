@@ -54,7 +54,6 @@ namespace Advent.Aoc2021
 
         private static (List<(int x, int y)> dots, List<(char axis, int degree)> instructions) ParseManual(List<string> input)
         {
-            var result = new List<(int x, int y)>();
             int whiteLineIndex = input.IndexOf(string.Empty);
             var dots = input.Take(whiteLineIndex).Select(ParseDot).ToList();
             var instructions = input.Skip(whiteLineIndex + 1).Select(ParseInstruction).ToList();

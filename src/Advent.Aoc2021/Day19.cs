@@ -20,6 +20,7 @@ namespace Advent.Aoc2021
             Console.WriteLine(distances.Max());
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "False positive, this loop can't be turned into a LINQ expression")]
         private static void CalculatePositions(List<Scanner> scanners)
         {
             scanners[0].PositionKnown = true;
