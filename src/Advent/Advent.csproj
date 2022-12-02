@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Advent.Aoc2016\Advent.Aoc2016.csproj" />
     <ProjectReference Include="..\Advent.Aoc2020\Advent.Aoc2020.csproj" />
     <ProjectReference Include="..\Advent.Aoc2021\Advent.Aoc2021.csproj" />
+    <ProjectReference Include="..\Advent.Aoc2022\Advent.Aoc2022.csproj" />
   </ItemGroup>
 
   <ItemGroup>
