@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Day = Advent.Aoc2022.Day01;
+using Day = Advent.Aoc2022.Day03;
 
 Console.WriteLine("Starting...");
 var sw = Stopwatch.StartNew();
