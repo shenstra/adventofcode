@@ -24,8 +24,8 @@ namespace Advent.Aoc2022
 
         private bool FullyOverlaps((int start1, int end1, int start2, int end2) ranges)
         {
-            return ranges.start1 >= ranges.start2 && ranges.end1 <= ranges.end2
-                || ranges.start1 <= ranges.start2 && ranges.end1 >= ranges.end2;
+            return (ranges.start1 >= ranges.start2 && ranges.end1 <= ranges.end2)
+                || (ranges.start1 <= ranges.start2 && ranges.end1 >= ranges.end2);
         }
 
         private bool PartiallyOverlaps((int start1, int end1, int start2, int end2) ranges)
