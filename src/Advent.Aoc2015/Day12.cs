@@ -1,5 +1,4 @@
-﻿using Advent.Util;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Advent.Aoc2015
 {

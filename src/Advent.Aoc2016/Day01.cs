@@ -1,6 +1,4 @@
-﻿using Advent.Util;
-
-namespace Advent.Aoc2016
+﻿namespace Advent.Aoc2016
 {
     public class Day01
     {

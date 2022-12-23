@@ -1,7 +1,4 @@
-﻿using Advent.Util;
-using System.Text.RegularExpressions;
-
-namespace Advent.Aoc2022
+﻿namespace Advent.Aoc2022
 {
     public class Day05
     {
