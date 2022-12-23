@@ -4,9 +4,16 @@ namespace Advent.Aoc2020
 {
     public class Day17
     {
+        private readonly IInput input;
+
+        public Day17(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var activeCubes = GetActiveCubes(Input.GetLines(2020, 17).ToList());
+            var activeCubes = GetActiveCubes(input.GetLines().ToList());
             for (int cycle = 0; cycle < 6; cycle++)
             {
                 activeCubes = RunCycle(activeCubes);
@@ -17,7 +24,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var activeHypercubes = GetActiveHyperCubes(Input.GetLines(2020, 17).ToList());
+            var activeHypercubes = GetActiveHyperCubes(input.GetLines().ToList());
             for (int cycle = 0; cycle < 6; cycle++)
             {
                 activeHypercubes = RunHyperCycle(activeHypercubes);

@@ -1,16 +1,22 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day06
     {
+        private readonly IInput input;
         private const int size = 1000;
         private readonly Regex instructionRegex = new(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
 
+        public Day06(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2015, 6);
+            var lines = input.GetLines();
             bool[] lights = new bool[size * size];
             ApplyToggleInstructions(lines, lights);
             Console.WriteLine(lights.Count(l => l));
@@ -18,7 +24,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            var lines = Input.GetLines(2015, 6);
+            var lines = input.GetLines();
             int[] lights = new int[size * size];
             ApplyDimmerInstructions(lines, lights);
             Console.WriteLine(lights.Sum());

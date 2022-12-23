@@ -2,18 +2,25 @@
 
 namespace Advent.Aoc2020
 {
-    public class Day3
+    public class Day03
     {
+        private readonly IInput input;
+
+        public Day03(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var map = Input.GetLines(2020, 3).ToList();
+            var map = input.GetLines().ToList();
             int trees = CountArborealProximityEvents(map, 3, 1);
             Console.WriteLine(trees);
         }
 
         public void Part2()
         {
-            var map = Input.GetLines(2020, 3).ToList();
+            var map = input.GetLines().ToList();
             int result = CountArborealProximityEvents(map, 1, 1)
                 * CountArborealProximityEvents(map, 3, 1)
                 * CountArborealProximityEvents(map, 5, 1)

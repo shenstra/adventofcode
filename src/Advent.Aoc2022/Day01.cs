@@ -4,19 +4,26 @@ namespace Advent.Aoc2022
 {
     public class Day01
     {
-        public void Part1()
+        private readonly IInput input;
+
+        public Day01(IInput input)
         {
-            var lines = Input.GetLines(2022, 1).ToList();
-            var inventories = ParseInventories(lines);
-            Console.WriteLine(inventories.Max());
+            this.input = input;
         }
 
-        public void Part2()
+        public int Part1()
         {
-            var lines = Input.GetLines(2022, 1).ToList();
+            var lines = input.GetLines().ToList();
+            var inventories = ParseInventories(lines);
+            return inventories.Max();
+        }
+
+        public int Part2()
+        {
+            var lines = input.GetLines().ToList();
             var inventories = ParseInventories(lines);
             var topThree = inventories.OrderByDescending(i => i).Take(3);
-            Console.WriteLine(topThree.Sum());
+            return topThree.Sum();
         }
 
         private IEnumerable<int> ParseInventories(List<string> lines)

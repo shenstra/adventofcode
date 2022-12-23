@@ -4,9 +4,16 @@ namespace Advent.Aoc2021
 {
     public class Day19
     {
+        private readonly IInput input;
+
+        public Day19(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var scanners = ParseScanners(Input.GetLines(2021, 19)).ToList();
+            var scanners = ParseScanners(input.GetLines()).ToList();
             CalculatePositions(scanners);
             var beacons = scanners.SelectMany(s => s.Signals).Distinct();
             Console.WriteLine(beacons.Count());
@@ -14,7 +21,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            var scanners = ParseScanners(Input.GetLines(2021, 19)).ToList();
+            var scanners = ParseScanners(input.GetLines()).ToList();
             CalculatePositions(scanners);
             var distances = scanners.SelectMany(s => scanners.Select(t => HamiltonDistance(s.Position, t.Position)));
             Console.WriteLine(distances.Max());

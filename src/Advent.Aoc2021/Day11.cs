@@ -4,11 +4,17 @@ namespace Advent.Aoc2021
 {
     public class Day11
     {
+        private readonly IInput input;
         private const int Size = 10;
+
+        public Day11(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var lines = Input.GetLines(2021, 11).ToList();
+            var lines = input.GetLines().ToList();
             int[,] energyLevels = ParseEnergyLevels(lines);
             int flashes = 0;
             for (int step = 0; step < 100; step++)
@@ -20,7 +26,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 11).ToList();
+            var lines = input.GetLines().ToList();
             int[,] energyLevels = ParseEnergyLevels(lines);
             int step = 1;
             while (ApplyChargeLevel(energyLevels) != 100)

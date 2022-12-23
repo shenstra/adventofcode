@@ -4,16 +4,23 @@ namespace Advent.Aoc2016
 {
     public class Day01
     {
+        private readonly IInput input;
+
+        public Day01(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string[] instructions = Input.GetSingleLine(2016, 1).Split(", ");
+            string[] instructions = input.GetSingleLine().Split(", ");
             var (x, y) = FollowInstructions(instructions, stopOnSecondVisit: false);
             Console.WriteLine(Math.Abs(x) + Math.Abs(y));
         }
 
         public void Part2()
         {
-            string[] instructions = Input.GetSingleLine(2016, 1).Split(", ");
+            string[] instructions = input.GetSingleLine().Split(", ");
             var (x, y) = FollowInstructions(instructions, stopOnSecondVisit: true);
             Console.WriteLine(Math.Abs(x) + Math.Abs(y));
         }

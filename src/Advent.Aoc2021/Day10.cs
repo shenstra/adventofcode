@@ -4,6 +4,7 @@ namespace Advent.Aoc2021
 {
     public class Day10
     {
+        private readonly IInput input;
         private readonly Dictionary<char, char> openingMatch =
             new()
             {
@@ -31,15 +32,20 @@ namespace Advent.Aoc2021
                 ['<'] = 4
             };
 
+        public Day10(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2021, 10);
+            var lines = input.GetLines();
             Console.WriteLine(lines.Sum(DetermineCorruptionScore));
         }
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 10);
+            var lines = input.GetLines();
             long[] scores = lines.Select(DetermineCompletionScore)
                 .Where(s => s >= 0)
                 .OrderBy(s => s)

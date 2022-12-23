@@ -4,16 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day08
     {
+        private readonly IInput input;
+
+        public Day08(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2021, 8).Select(ParseLine);
+            var lines = input.GetLines().Select(ParseLine);
             int matches = lines.Sum(line => line.digits.Count(digit => digit.Length is 2 or 3 or 4 or 7));
             Console.WriteLine(matches);
         }
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 8).Select(ParseLine);
+            var lines = input.GetLines().Select(ParseLine);
             int result = lines.Sum(line => Decode(line.patterns, line.digits));
             Console.WriteLine(result);
         }

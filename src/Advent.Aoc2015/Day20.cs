@@ -4,16 +4,23 @@ namespace Advent.Aoc2015
 {
     public class Day20
     {
+        private readonly IInput input;
+
+        public Day20(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int target = Input.GetSingleInt(2015, 20);
+            int target = input.GetSingleInt();
             int[] presents = VisitHouses(target / 10, lazy: false);
             Console.WriteLine(FindHouseWithPresents(target, presents));
         }
 
         public void Part2()
         {
-            int target = Input.GetSingleInt(2015, 20);
+            int target = input.GetSingleInt();
             int[] presents = VisitHouses(target / 11, lazy: true);
             Console.WriteLine(FindHouseWithPresents(target, presents));
         }

@@ -1,21 +1,27 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day13
     {
+        private readonly IInput input;
         private readonly Regex seatingRegex = new(@"^(.+) would (gain|lose) (\d+) happiness units by sitting next to (.+)\.$");
+
+        public Day13(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var happinessChanges = GetHappinessChanges(Input.GetLines(2015, 13));
+            var happinessChanges = GetHappinessChanges(input.GetLines());
             Console.WriteLine(CalculateMaximumHappiness(happinessChanges, isCircular: true));
         }
 
         public void Part2()
         {
-            var happinessChanges = GetHappinessChanges(Input.GetLines(2015, 13));
+            var happinessChanges = GetHappinessChanges(input.GetLines());
             Console.WriteLine(CalculateMaximumHappiness(happinessChanges, isCircular: false));
         }
 

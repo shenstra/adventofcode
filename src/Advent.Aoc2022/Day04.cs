@@ -4,16 +4,23 @@ namespace Advent.Aoc2022
 {
     public class Day04
     {
-        public void Part1()
+        private readonly IInput input;
+
+        public Day04(IInput input)
         {
-            var ranges = Input.GetLines(2022, 4).Select(MapRanges).ToList();
-            Console.WriteLine(ranges.Count(FullyOverlaps));
+            this.input = input;
         }
 
-        public void Part2()
+        public int Part1()
         {
-            var ranges = Input.GetLines(2022, 4).Select(MapRanges).ToList();
-            Console.WriteLine(ranges.Count(PartiallyOverlaps));
+            var ranges = input.GetLines().Select(MapRanges).ToList();
+            return ranges.Count(FullyOverlaps);
+        }
+
+        public int Part2()
+        {
+            var ranges = input.GetLines().Select(MapRanges).ToList();
+            return ranges.Count(PartiallyOverlaps);
         }
 
         private (int start1, int end1, int start2, int end2) MapRanges(string input)

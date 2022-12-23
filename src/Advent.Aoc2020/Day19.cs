@@ -4,19 +4,26 @@ namespace Advent.Aoc2020
 {
     public class Day19
     {
+        private readonly IInput input;
+
+        public Day19(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            (var rules, var input) = ParseInput(Input.GetLines(2020, 19).ToList());
-            var matches = input.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
+            (var rules, var lines) = ParseInput(input.GetLines().ToList());
+            var matches = lines.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
             Console.WriteLine(matches.Count());
         }
 
         public void Part2()
         {
-            (var rules, var input) = ParseInput(Input.GetLines(2020, 19).ToList());
+            (var rules, var lines) = ParseInput(input.GetLines().ToList());
             rules[8] = "42 | 42 8";
             rules[11] = "42 31 | 42 11 31";
-            var matches = input.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
+            var matches = lines.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
             Console.WriteLine(matches.Count());
         }
 

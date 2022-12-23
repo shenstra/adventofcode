@@ -4,15 +4,22 @@ namespace Advent.Aoc2016
 {
     public partial class Day05
     {
+        private readonly IInput input;
+
+        public Day05(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string doorCode = Input.GetSingleLine(2016, 5);
+            string doorCode = input.GetSingleLine();
             Console.WriteLine(ComputePassword(doorCode));
         }
 
         public void Part2()
         {
-            string doorCode = Input.GetSingleLine(2016, 5);
+            string doorCode = input.GetSingleLine();
             Console.WriteLine(ComputeBetterPassword(doorCode));
         }
 

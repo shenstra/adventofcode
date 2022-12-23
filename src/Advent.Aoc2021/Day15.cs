@@ -4,15 +4,22 @@ namespace Advent.Aoc2021
 {
     public class Day15
     {
+        private readonly IInput input;
+
+        public Day15(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int[,] riskLevels = ParseRiskLevels(Input.GetLines(2021, 15).ToList());
+            int[,] riskLevels = ParseRiskLevels(input.GetLines().ToList());
             Console.WriteLine(CalculateMinimumRisk(riskLevels));
         }
 
         public void Part2()
         {
-            int[,] riskLevels = ParseRiskLevels(Input.GetLines(2021, 15).ToList());
+            int[,] riskLevels = ParseRiskLevels(input.GetLines().ToList());
             Console.WriteLine(CalculateMinimumRisk(ScaleUp(riskLevels)));
         }
 

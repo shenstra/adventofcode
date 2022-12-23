@@ -4,18 +4,24 @@ namespace Advent.Aoc2020
 {
     public class Day22
     {
+        private readonly IInput input;
         private readonly Dictionary<string, int> knownGameWinners = new();
+
+        public Day22(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var (player1, player2) = GetHands(Input.GetLines(2020, 22));
+            var (player1, player2) = GetHands(input.GetLines());
             PlayCombat(player1, player2);
             Console.WriteLine(CalculateScore(player1.Any() ? player1 : player2));
         }
 
         public void Part2()
         {
-            var (player1, player2) = GetHands(Input.GetLines(2020, 22));
+            var (player1, player2) = GetHands(input.GetLines());
             PlayRecursiveCombat(player1, player2);
             Console.WriteLine(CalculateScore(player1.Any() ? player1 : player2));
         }

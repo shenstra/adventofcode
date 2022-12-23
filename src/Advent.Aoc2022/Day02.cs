@@ -4,16 +4,23 @@ namespace Advent.Aoc2022
 {
     public class Day02
     {
-        public void Part1()
+        private readonly IInput input;
+
+        public Day02(IInput input)
         {
-            var rounds = Input.GetLines(2022, 2).Select(MapRound).ToList();
-            Console.WriteLine(rounds.Sum(r => ScoreRound1(r)));
+            this.input = input;
         }
 
-        public void Part2()
+        public int Part1()
         {
-            var rounds = Input.GetLines(2022, 2).Select(MapRound).ToList();
-            Console.WriteLine(rounds.Sum(r => ScoreRound2(r)));
+            var rounds = input.GetLines().Select(MapRound).ToList();
+            return rounds.Sum(r => ScoreRound1(r));
+        }
+
+        public int Part2()
+        {
+            var rounds = input.GetLines().Select(MapRound).ToList();
+            return rounds.Sum(r => ScoreRound2(r));
         }
 
         private int ScoreRound1((char opponent, char player) round)

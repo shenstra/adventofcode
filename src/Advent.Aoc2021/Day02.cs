@@ -1,15 +1,21 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2021
 {
     public class Day02
     {
+        private readonly IInput input;
         private readonly Regex instructionRegex = new(@"^(forward|down|up) (\d+)$");
+
+        public Day02(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var instructions = Input.GetLines(2021, 2).Select(MapToInstruction).ToList();
+            var instructions = input.GetLines().Select(MapToInstruction).ToList();
             (int position, int depth) = (0, 0);
             foreach ((string command, int value) in instructions)
             {
@@ -32,7 +38,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            var instructions = Input.GetLines(2021, 2).Select(MapToInstruction).ToList();
+            var instructions = input.GetLines().Select(MapToInstruction).ToList();
             (int position, int depth, int aim) = (0, 0, 0);
             foreach ((string command, int value) in instructions)
             {

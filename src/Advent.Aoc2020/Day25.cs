@@ -4,12 +4,18 @@ namespace Advent.Aoc2020
 {
     public class Day25
     {
+        private readonly IInput input;
         private const int initialSubjectNumber = 7;
         private const int divisor = 20201227;
 
+        public Day25(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var loopSizes = Input.GetLongs(2020, 25).Select(FindLoopsSize).ToList();
+            var loopSizes = input.GetLongs().Select(FindLoopsSize).ToList();
             Console.WriteLine(Transform(Transform(initialSubjectNumber, loopSizes[0]), loopSizes[1]));
         }
 

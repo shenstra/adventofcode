@@ -5,17 +5,23 @@ namespace Advent.Aoc2015
     public class Day05
     {
         private readonly List<char> vowels = new() { 'a', 'e', 'i', 'o', 'u' };
+        private readonly IInput input;
+
+        public Day05(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var names = Input.GetLines(2015, 5);
+            var names = input.GetLines();
             var niceNames = names.Where(IsNice);
             Console.WriteLine(niceNames.Count());
         }
 
         public void Part2()
         {
-            var names = Input.GetLines(2015, 5);
+            var names = input.GetLines();
             var niceNames = names.Where(IsNicer);
             Console.WriteLine(niceNames.Count());
         }

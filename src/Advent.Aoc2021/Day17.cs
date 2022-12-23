@@ -1,22 +1,28 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2021
 {
     public class Day17
     {
+        private readonly IInput input;
         private readonly Regex targetRegex = new(@"target area: x=(-?\d+)..(-?\d+), y=(-?\d+)..(-?\d+)");
         private const int MaxDeltaY = 1000;
 
+        public Day17(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var target = ParseTarget(Input.GetSingleLine(2021, 17));
+            var target = ParseTarget(input.GetSingleLine());
             Console.WriteLine(FindHighPoints(target).Max());
         }
 
         public void Part2()
         {
-            var target = ParseTarget(Input.GetSingleLine(2021, 17));
+            var target = ParseTarget(input.GetSingleLine());
             Console.WriteLine(FindHighPoints(target).Count());
         }
 

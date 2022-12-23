@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day19
     {
+        private readonly IInput input;
+
+        public Day19(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2015, 19);
+            var lines = input.GetLines();
             var (rules, molecule) = ParseInput(lines);
             var mutations = GenerateMutations(molecule, rules);
             Console.WriteLine(mutations.Distinct().Count());
@@ -14,7 +21,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            var lines = Input.GetLines(2015, 19);
+            var lines = input.GetLines();
             var (rules, molecule) = ParseInput(lines);
             Console.WriteLine(FindShortestMutationPath("e", molecule, rules));
         }

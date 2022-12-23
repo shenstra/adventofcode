@@ -4,11 +4,18 @@ namespace Advent.Aoc2016
 {
     public class Day08
     {
+        private readonly IInput input;
+
+        public Day08(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var input = Input.GetLines(2016, 8);
+            var lines = input.GetLines();
             bool[,] pixels = new bool[50, 6];
-            foreach (string line in input)
+            foreach (string line in lines)
             {
                 FollowInstruction(pixels, line);
             }
@@ -18,9 +25,9 @@ namespace Advent.Aoc2016
 
         public void Part2()
         {
-            var input = Input.GetLines(2016, 8);
+            var lines = input.GetLines();
             bool[,] pixels = new bool[50, 6];
-            foreach (string line in input)
+            foreach (string line in lines)
             {
                 FollowInstruction(pixels, line);
             }

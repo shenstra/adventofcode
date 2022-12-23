@@ -4,9 +4,16 @@ namespace Advent.Aoc2020
 {
     public class Day13
     {
+        private readonly IInput input;
+
+        public Day13(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2020, 13).ToList();
+            var lines = input.GetLines().ToList();
             ulong timeNow = ulong.Parse(lines[0]);
             (_, var busIds) = GetBusEntriesAndIds(lines[1]);
             var waitingTimes = busIds.ToDictionary(id => id, id => id - (timeNow % id));
@@ -16,7 +23,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var lines = Input.GetLines(2020, 13);
+            var lines = input.GetLines();
             (var entries, var busIds) = GetBusEntriesAndIds(lines.Skip(1).Single());
             var expectedDepartures = busIds.ToDictionary(id => id, id => (ulong)entries.IndexOf(id.ToString()));
             Console.WriteLine(GetFirstTime(expectedDepartures));

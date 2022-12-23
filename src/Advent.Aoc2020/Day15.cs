@@ -4,15 +4,22 @@ namespace Advent.Aoc2020
 {
     public class Day15
     {
+        private readonly IInput input;
+
+        public Day15(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int[] numbers = Input.GetSingleLine(2020, 15).SplitToInts();
+            int[] numbers = input.GetSingleLine().SplitToInts();
             Console.WriteLine(GetNthNumber(numbers, 2020));
         }
 
         public void Part2()
         {
-            int[] numbers = Input.GetSingleLine(2020, 15).SplitToInts();
+            int[] numbers = input.GetSingleLine().SplitToInts();
             Console.WriteLine(GetNthNumber(numbers, 30000000));
         }
 

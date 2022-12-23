@@ -4,16 +4,23 @@ namespace Advent.Aoc2020
 {
     public class Day08
     {
+        private readonly IInput input;
+
+        public Day08(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var instructions = Input.GetLines(2020, 8).Select(l => new Instruction(l)).ToList();
+            var instructions = input.GetLines().Select(l => new Instruction(l)).ToList();
             RunProgram(instructions, out int accumulator);
             Console.WriteLine($"Accumulator value: {accumulator}");
         }
 
         public void Part2()
         {
-            var instructions = Input.GetLines(2020, 8).Select(l => new Instruction(l)).ToList();
+            var instructions = input.GetLines().Select(l => new Instruction(l)).ToList();
 
             for (int i = 0; i < instructions.Count; i++)
             {

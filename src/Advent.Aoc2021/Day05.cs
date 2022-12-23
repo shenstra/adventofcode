@@ -1,23 +1,29 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2021
 {
     public class Day05
     {
+        private readonly IInput input;
         private const int mapSize = 1000;
         private readonly Regex lineRegex = new(@"^(\d+),(\d+) -> (\d+),(\d+)$");
 
+        public Day05(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var ventLines = Input.GetLines(2021, 5).Select(ParseVentLine);
+            var ventLines = input.GetLines().Select(ParseVentLine);
             int[,] ventLinesMap = PlotVents(ventLines, plotDiagonals: false);
             Console.WriteLine(CountOverlaps(ventLinesMap));
         }
 
         public void Part2()
         {
-            var ventLines = Input.GetLines(2021, 5).Select(ParseVentLine);
+            var ventLines = input.GetLines().Select(ParseVentLine);
             int[,] vents = PlotVents(ventLines, plotDiagonals: true);
             Console.WriteLine(CountOverlaps(vents));
         }

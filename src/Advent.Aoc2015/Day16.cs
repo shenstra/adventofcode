@@ -1,22 +1,28 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day16
     {
+        private readonly IInput input;
         private readonly Regex sueRegex = new(@"^Sue (\d+): (.+)$");
+
+        public Day16(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var sues = GetSues(Input.GetLines(2015, 16));
+            var sues = GetSues(input.GetLines());
             var isMatchingSue = GetSueMatcher(GetAnalysis(), false);
             Console.WriteLine(sues.First(isMatchingSue).num);
         }
 
         public void Part2()
         {
-            var sues = GetSues(Input.GetLines(2015, 16));
+            var sues = GetSues(input.GetLines());
             var isMatchingSue = GetSueMatcher(GetAnalysis(), true);
             Console.WriteLine(sues.First(isMatchingSue).num);
         }

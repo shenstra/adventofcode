@@ -1,13 +1,20 @@
-﻿using System.Text;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text;
 
 namespace Advent.Aoc2015
 {
     public class Day10
     {
+        private readonly IInput input;
+
+        public Day10(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string line = Input.GetSingleLine(2015, 10);
+            string line = input.GetSingleLine();
             for (int i = 0; i < 40; i++)
             {
                 line = LookAndSay(line);
@@ -18,7 +25,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            string line = Input.GetSingleLine(2015, 10);
+            string line = input.GetSingleLine();
             for (int i = 0; i < 50; i++)
             {
                 line = LookAndSay(line);

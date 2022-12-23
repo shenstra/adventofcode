@@ -4,16 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day16
     {
+        private readonly IInput input;
+
+        public Day16(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int[] bits = ConvertToBits(Input.GetSingleLine(2021, 16)).ToArray();
+            int[] bits = ConvertToBits(input.GetSingleLine()).ToArray();
             var rootPacket = ParsePacket(bits, out _);
             Console.WriteLine(rootPacket.VersionSum);
         }
 
         public void Part2()
         {
-            int[] bits = ConvertToBits(Input.GetSingleLine(2021, 16)).ToArray();
+            int[] bits = ConvertToBits(input.GetSingleLine()).ToArray();
             var rootPacket = ParsePacket(bits, out _);
             Console.WriteLine(rootPacket.Value);
         }

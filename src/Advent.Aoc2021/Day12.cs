@@ -4,16 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day12
     {
+        private readonly IInput input;
+
+        public Day12(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var connections = Input.GetLines(2021, 12).SelectMany(ParseMap).ToList();
+            var connections = input.GetLines().SelectMany(ParseMap).ToList();
             int pathCount = CountPossiblePaths(connections, "start", visited: Array.Empty<string>());
             Console.WriteLine(pathCount);
         }
 
         public void Part2()
         {
-            var connections = Input.GetLines(2021, 12).SelectMany(ParseMap).ToList();
+            var connections = input.GetLines().SelectMany(ParseMap).ToList();
             int pathCount = CountPossiblePaths(connections, "start", visited: Array.Empty<string>(), extraTime: true);
             Console.WriteLine(pathCount);
         }

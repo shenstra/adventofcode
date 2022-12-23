@@ -1,20 +1,26 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day14
     {
+        private readonly IInput input;
+
+        public Day14(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var reindeer = Input.GetLines(2015, 14).Select(line => new Reindeer(line));
+            var reindeer = input.GetLines().Select(line => new Reindeer(line));
             Console.WriteLine(reindeer.Max(r => r.GetDistanceAfter(2503)));
         }
 
         public void Part2()
         {
-            var reindeer = Input.GetLines(2015, 14).Select(line => new Reindeer(line)).ToList();
+            var reindeer = input.GetLines().Select(line => new Reindeer(line)).ToList();
             for (int time = 1; time <= 2503; time++)
             {
                 long winningDistance = reindeer.Max(r => r.GetDistanceAfter(time));

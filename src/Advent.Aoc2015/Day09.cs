@@ -1,21 +1,27 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day09
     {
+        private readonly IInput input;
         private readonly Regex legRegex = new(@"^(?<location1>.*) to (?<location2>.*) = (?<distance>\d+)$");
+
+        public Day09(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var routes = EnumerateRoutes(GetDistances(Input.GetLines(2015, 9)));
+            var routes = EnumerateRoutes(GetDistances(input.GetLines()));
             Console.WriteLine(routes.Min(route => route.Distance));
         }
 
         public void Part2()
         {
-            var routes = EnumerateRoutes(GetDistances(Input.GetLines(2015, 9)));
+            var routes = EnumerateRoutes(GetDistances(input.GetLines()));
             Console.WriteLine(routes.Max(route => route.Distance));
         }
 

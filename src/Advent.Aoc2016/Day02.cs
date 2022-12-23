@@ -4,9 +4,16 @@ namespace Advent.Aoc2016
 {
     public class Day02
     {
+        private readonly IInput input;
+
+        public Day02(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var instructions = Input.GetLines(2016, 2);
+            var instructions = input.GetLines();
             char[,] keypad = new char[,] {
                 { '1', '2', '3' },
                 { '4', '5', '6' },
@@ -17,7 +24,7 @@ namespace Advent.Aoc2016
 
         public void Part2()
         {
-            var instructions = Input.GetLines(2016, 2);
+            var instructions = input.GetLines();
             char[,] keypad = new char[,] {
                 { ' ', ' ', '1', ' ', ' ' },
                 { ' ', '2', '3', '4', ' ' },

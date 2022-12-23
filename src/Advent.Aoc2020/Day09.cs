@@ -4,16 +4,23 @@ namespace Advent.Aoc2020
 {
     public class Day09
     {
+        private readonly IInput input;
+
+        public Day09(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var numbers = Input.GetLongs(2020, 9).ToList();
+            var numbers = input.GetLongs().ToList();
             long invalidNumber = FindInvalidNumber(numbers, 25);
             Console.WriteLine(invalidNumber);
         }
 
         public void Part2()
         {
-            var numbers = Input.GetLongs(2020, 9).ToList();
+            var numbers = input.GetLongs().ToList();
             long invalidNumber = FindInvalidNumber(numbers, 25);
             var secretSequence = FindSequenceWithSum(numbers, invalidNumber);
             long secretNumber = secretSequence.Min() + secretSequence.Max();

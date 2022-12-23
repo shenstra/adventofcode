@@ -4,15 +4,22 @@ namespace Advent.Aoc2016
 {
     public class Day09
     {
+        private readonly IInput input;
+
+        public Day09(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            long decompressedSizes = Input.GetLines(2016, 9).Sum(s => DecompressedSize(s, recurse: false));
+            long decompressedSizes = input.GetLines().Sum(s => DecompressedSize(s, recurse: false));
             Console.WriteLine(decompressedSizes);
         }
 
         public void Part2()
         {
-            long decompressedSizes = Input.GetLines(2016, 9).Sum(s => DecompressedSize(s, recurse: true));
+            long decompressedSizes = input.GetLines().Sum(s => DecompressedSize(s, recurse: true));
             Console.WriteLine(decompressedSizes);
         }
 

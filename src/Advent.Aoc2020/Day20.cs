@@ -4,9 +4,16 @@ namespace Advent.Aoc2020
 {
     public class Day20
     {
+        private readonly IInput input;
+
+        public Day20(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var tiles = GetTiles(Input.GetLines(2020, 20).ToList());
+            var tiles = GetTiles(input.GetLines().ToList());
             int size = (int)Math.Round(Math.Sqrt(tiles.Count));
             var arrangement = new Tile[size, size];
             ArrangeTiles(tiles, arrangement, size, 0, 0);
@@ -15,7 +22,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var tiles = GetTiles(Input.GetLines(2020, 20).ToList());
+            var tiles = GetTiles(input.GetLines().ToList());
             int size = (int)Math.Round(Math.Sqrt(tiles.Count));
             var arrangement = new Tile[size, size];
             ArrangeTiles(tiles, arrangement, size, 0, 0);

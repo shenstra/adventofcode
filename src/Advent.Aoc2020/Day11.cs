@@ -4,9 +4,16 @@ namespace Advent.Aoc2020
 {
     public class Day11
     {
+        private readonly IInput input;
+
+        public Day11(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var seats = GetSeats(Input.GetLines(2020, 11));
+            var seats = GetSeats(input.GetLines());
             while (ApplyRound(seats, out seats, Algorithm.Neighbours))
             {
                 // NoOp
@@ -17,7 +24,7 @@ namespace Advent.Aoc2020
         }
         public void Part2()
         {
-            var seats = GetSeats(Input.GetLines(2020, 11));
+            var seats = GetSeats(input.GetLines());
             while (ApplyRound(seats, out seats, Algorithm.Vision))
             {
                 // NoOp

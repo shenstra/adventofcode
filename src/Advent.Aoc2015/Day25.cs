@@ -1,13 +1,20 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2015
 {
     public class Day25
     {
+        private readonly IInput input;
+
+        public Day25(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var (row, col) = ParseInput(Input.GetSingleLine(2015, 25));
+            var (row, col) = ParseInput(input.GetSingleLine());
             int position = SumOfRange(1, col) + SumOfRange(col, row - 1);
             Console.WriteLine(CodeAtPosition(position));
         }

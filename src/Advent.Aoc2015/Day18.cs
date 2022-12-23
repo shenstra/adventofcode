@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day18
     {
+        private readonly IInput input;
+
+        public Day18(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            bool[,] lights = GetLights(Input.GetLines(2015, 18).ToList());
+            bool[,] lights = GetLights(input.GetLines().ToList());
             for (int round = 0; round < 100; round++)
             {
                 lights = ApplyRound(lights);
@@ -17,7 +24,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            bool[,] lights = GetLights(Input.GetLines(2015, 18).ToList());
+            bool[,] lights = GetLights(input.GetLines().ToList());
             lights[0, 0] = true;
             lights[0, lights.GetLength(1) - 1] = true;
             lights[lights.GetLength(0) - 1, 0] = true;

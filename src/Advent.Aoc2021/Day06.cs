@@ -4,11 +4,17 @@ namespace Advent.Aoc2021
 {
     public class Day06
     {
+        private readonly IInput input;
         private const int initialTimer = 8;
+
+        public Day06(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            string line = Input.GetSingleLine(2021, 6);
+            string line = input.GetSingleLine();
             long[] fishWithTimer = InitializeTimerCounts(line);
             RunSimulation(fishWithTimer, 80);
             Console.WriteLine(fishWithTimer.Sum());
@@ -16,7 +22,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            string line = Input.GetSingleLine(2021, 6);
+            string line = input.GetSingleLine();
             long[] fishWithTimer = InitializeTimerCounts(line);
             RunSimulation(fishWithTimer, 256);
             Console.WriteLine(fishWithTimer.Sum());

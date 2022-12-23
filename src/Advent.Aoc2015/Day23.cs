@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day23
     {
+        private readonly IInput input;
+
+        public Day23(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var commands = Input.GetLines(2015, 23).Select(l => new Command(l)).ToArray();
+            var commands = input.GetLines().Select(l => new Command(l)).ToArray();
             var registers = new Dictionary<char, long> { { 'a', 0 }, { 'b', 0 } };
             RunProgram(commands, registers);
             Console.WriteLine(registers['b']);
@@ -14,7 +21,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            var commands = Input.GetLines(2015, 23).Select(l => new Command(l)).ToArray();
+            var commands = input.GetLines().Select(l => new Command(l)).ToArray();
             var registers = new Dictionary<char, long> { { 'a', 1 }, { 'b', 0 } };
             RunProgram(commands, registers);
             Console.WriteLine(registers['b']);

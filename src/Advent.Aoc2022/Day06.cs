@@ -4,16 +4,23 @@ namespace Advent.Aoc2022
 {
     public class Day06
     {
-        public void Part1()
+        private readonly IInput input;
+
+        public Day06(IInput input)
         {
-            string input = Input.GetSingleLine(2022, 6);
-            Console.WriteLine(GetMarkerEnd(input, 4));
+            this.input = input;
         }
 
-        public void Part2()
+        public int Part1()
         {
-            string input = Input.GetSingleLine(2022, 6);
-            Console.WriteLine(GetMarkerEnd(input, 14));
+            string line = input.GetSingleLine();
+            return GetMarkerEnd(line, 4);
+        }
+
+        public int Part2()
+        {
+            string line = input.GetSingleLine();
+            return GetMarkerEnd(line, 14);
         }
 
         private int GetMarkerEnd(string input, int markerLength)

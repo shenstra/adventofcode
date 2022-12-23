@@ -1,13 +1,20 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
     public class Day16
     {
+        private readonly IInput input;
+
+        public Day16(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var document = Document.Parse(Input.GetLines(2020, 16).ToList());
+            var document = Document.Parse(input.GetLines().ToList());
             var possibleValues = document.FieldRules.Values.SelectMany(i => i).ToList();
             var invalidValues = document.OtherTickets.SelectMany(ticket => ticket.Where(value => !possibleValues.Contains(value)));
             Console.WriteLine(invalidValues.Sum());
@@ -15,7 +22,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var document = Document.Parse(Input.GetLines(2020, 16).ToList());
+            var document = Document.Parse(input.GetLines().ToList());
             var possibleValues = document.FieldRules.Values.SelectMany(i => i).ToList();
             var validTickets = document.OtherTickets.Where(ticket => ticket.All(value => possibleValues.Contains(value))).ToList();
 

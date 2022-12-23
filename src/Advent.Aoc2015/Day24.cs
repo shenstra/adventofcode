@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day24
     {
+        private readonly IInput input;
+
+        public Day24(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            long[] packages = Input.GetLongs(2015, 24).ToArray();
+            long[] packages = input.GetLongs().ToArray();
             var groups = EnumerateThirdGroups(packages, packages.Sum() / 3).ToList();
             int minSize = groups.Min(g => g.Length);
             long solution = groups.Where(g => g.Length == minSize).Min(g => QuantumEntanglement(g));
@@ -15,7 +22,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            long[] packages = Input.GetLongs(2015, 24).ToArray();
+            long[] packages = input.GetLongs().ToArray();
             var groups = EnumerateQuarterGroups(packages, packages.Sum() / 4).ToList();
             int minSize = groups.Min(g => g.Length);
             long solution = groups.Where(g => g.Length == minSize).Min(g => QuantumEntanglement(g));
@@ -44,7 +51,7 @@ namespace Advent.Aoc2015
                 }
                 else if (packages[i] < target)
                 {
-                    foreach (var group in EnumerateGroups(packages[(i + 1)..], target - packages[i]))
+                    foreach (long[] group in EnumerateGroups(packages[(i + 1)..], target - packages[i]))
                     {
                         yield return group.Append(packages[i]).ToArray();
                     }

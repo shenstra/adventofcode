@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day11
     {
+        private readonly IInput input;
+
+        public Day11(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            char[] currentPassword = Input.GetSingleLine(2015, 11).ToCharArray();
+            char[] currentPassword = input.GetSingleLine().ToCharArray();
             while (!IsValidPassword(currentPassword))
             {
                 IncrementPassword(currentPassword);
@@ -17,7 +24,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            char[] currentPassword = Input.GetSingleLine(2015, 11).ToCharArray();
+            char[] currentPassword = input.GetSingleLine().ToCharArray();
             while (!IsValidPassword(currentPassword))
             {
                 IncrementPassword(currentPassword);

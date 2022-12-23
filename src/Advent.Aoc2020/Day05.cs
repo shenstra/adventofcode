@@ -4,15 +4,22 @@ namespace Advent.Aoc2020
 {
     public class Day05
     {
+        private readonly IInput input;
+
+        public Day05(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var seatIds = Input.GetLines(2020, 5).Select(GetSeatId);
+            var seatIds = input.GetLines().Select(GetSeatId);
             Console.WriteLine(seatIds.Max());
         }
 
         public void Part2()
         {
-            var seatIds = Input.GetLines(2020, 5).Select(GetSeatId);
+            var seatIds = input.GetLines().Select(GetSeatId);
             var orderedSeatIds = seatIds.OrderBy(id => id).ToList();
             for (int i = 1; i < orderedSeatIds.Count; i++)
             {

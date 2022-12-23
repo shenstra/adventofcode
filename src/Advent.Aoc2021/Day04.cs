@@ -1,20 +1,27 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2021
 {
     public class Day04
     {
+        private readonly IInput input;
+
+        public Day04(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2021, 4).ToList();
+            var lines = input.GetLines().ToList();
             var winner = new BingoGame(lines).Play();
             Console.WriteLine(winner.Score);
         }
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 4).ToList();
+            var lines = input.GetLines().ToList();
             var loser = new BingoGame(lines).PlayToTheEnd();
             Console.WriteLine(loser.Score);
         }

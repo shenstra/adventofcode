@@ -1,22 +1,28 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
     public class Day24
     {
+        private readonly IInput input;
         private readonly Regex instructionRegex = new(@"(ne|nw|se|sw|e|w)");
+
+        public Day24(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var tilesToFlip = Input.GetLines(2020, 24).Select(FindTile);
+            var tilesToFlip = input.GetLines().Select(FindTile);
             var blackTiles = GetBlackTiles(tilesToFlip);
             Console.WriteLine(blackTiles.Count);
         }
 
         public void Part2()
         {
-            var tilesToFlip = Input.GetLines(2020, 24).Select(FindTile);
+            var tilesToFlip = input.GetLines().Select(FindTile);
             var blackTiles = GetBlackTiles(tilesToFlip);
             for (int i = 0; i < 100; i++)
             {

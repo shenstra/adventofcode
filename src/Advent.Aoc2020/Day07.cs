@@ -1,13 +1,20 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
     public class Day07
     {
+        private readonly IInput input;
+
+        public Day07(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var rules = BuildBagRules(Input.GetLines(2020, 7));
+            var rules = BuildBagRules(input.GetLines());
             var bagOptions = FindBagsThatCanHoldCertainBags(rules, new List<string> { "shiny gold" }).ToList();
 
             while (true)
@@ -26,7 +33,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var rules = BuildBagRules(Input.GetLines(2020, 7));
+            var rules = BuildBagRules(input.GetLines());
             var bagsToCheck = new Queue<string>();
             var requiredBags = new List<string>();
             bagsToCheck.Enqueue("shiny gold");

@@ -1,21 +1,27 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2016
 {
     public class Day03
     {
+        private readonly IInput input;
         private readonly Regex triangleRegex = new(@"(\d+)\s+(\d+)\s+(\d+)");
+
+        public Day03(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var triples = GetTriples(Input.GetLines(2016, 3));
+            var triples = GetTriples(input.GetLines());
             Console.WriteLine(triples.Count(IsValidTriangle));
         }
 
         public void Part2()
         {
-            var triples = GetTriplesVertically(Input.GetLines(2016, 3).ToArray());
+            var triples = GetTriplesVertically(input.GetLines().ToArray());
             Console.WriteLine(triples.Count(IsValidTriangle));
         }
 

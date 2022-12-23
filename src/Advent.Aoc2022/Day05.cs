@@ -5,20 +5,26 @@ namespace Advent.Aoc2022
 {
     public class Day05
     {
-        public void Part1()
+        private readonly IInput input;
+
+        public Day05(IInput input)
         {
-            var lines = Input.GetLines(2022, 5).ToList();
+            this.input = input;
+        }
+        public string Part1()
+        {
+            var lines = input.GetLines().ToList();
             var crateGame = new CrateGame(lines);
             crateGame.ExecuteInstructions1();
-            Console.WriteLine(crateGame.GetTopCrates());
+            return crateGame.GetTopCrates();
         }
 
-        public void Part2()
+        public string Part2()
         {
-            var lines = Input.GetLines(2022, 5).ToList();
+            var lines = input.GetLines().ToList();
             var crateGame = new CrateGame(lines);
             crateGame.ExecuteInstructions2();
-            Console.WriteLine(crateGame.GetTopCrates());
+            return crateGame.GetTopCrates();
         }
 
         private class CrateGame

@@ -1,13 +1,15 @@
-﻿using System.Diagnostics;
-using Day = Advent.Aoc2022.Day06;
+﻿using Advent.Aoc2022;
+using Advent.Util;
+using System.Diagnostics;
 
 Console.WriteLine("Starting...");
 var sw = Stopwatch.StartNew();
 
 try
 {
-    new Day().Part1();
-    new Day().Part2();
+    var day = new Day06(new Input(2022, 6));
+    Console.WriteLine($"Part 1: {day.Part1()}");
+    Console.WriteLine($"Part 2: {day.Part2()}");
 }
 catch (Exception ex)
 {

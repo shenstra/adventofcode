@@ -5,13 +5,19 @@ namespace Advent.Aoc2020
 {
     public class Day14
     {
+        private readonly IInput input;
         private readonly Regex maskRegex = new(@"mask = ([X01]{36})");
         private readonly Regex memRegex = new(@"mem\[(\d+)\] = (\d+)");
+
+        public Day14(IInput input)
+        {
+            this.input = input;
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2437:Silly bit operations should not be performed", Justification = "False positive, this silly bit operation is crucial to the algorithm")]
         public void Part1()
         {
-            var lines = Input.GetLines(2020, 14);
+            var lines = input.GetLines();
             var registers = new Dictionary<ulong, ulong>();
             ulong zeroMask = 0;
             ulong oneMask = 0;
@@ -40,7 +46,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var lines = Input.GetLines(2020, 14);
+            var lines = input.GetLines();
             var registers = new Dictionary<ulong, ulong>();
             string mask = "";
             foreach (string line in lines)

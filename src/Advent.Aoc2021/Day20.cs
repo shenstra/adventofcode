@@ -4,9 +4,16 @@ namespace Advent.Aoc2021
 {
     public class Day20
     {
+        private readonly IInput input;
+
+        public Day20(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var (enhancement, image) = ParseInput(Input.GetLines(2021, 20).ToList());
+            var (enhancement, image) = ParseInput(input.GetLines().ToList());
             for (int i = 0; i < 2; i++)
             {
                 image = EnhanceImage(image, enhancement, i);
@@ -16,7 +23,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            var (enhancement, image) = ParseInput(Input.GetLines(2021, 20).ToList());
+            var (enhancement, image) = ParseInput(input.GetLines().ToList());
             for (int i = 0; i < 50; i++)
             {
                 image = EnhanceImage(image, enhancement, i);

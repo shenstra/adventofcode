@@ -4,18 +4,24 @@ namespace Advent.Aoc2021
 {
     public class Day14
     {
+        private readonly IInput input;
         private readonly Dictionary<(string, int), Dictionary<char, long>> cache = new();
+
+        public Day14(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            (string polymer, var insertionRules) = ParseInput(Input.GetLines(2021, 14).ToList());
+            (string polymer, var insertionRules) = ParseInput(input.GetLines().ToList());
             var characterCounts = CharacterCountsAfterSteps(polymer, insertionRules, steps: 10);
             Console.WriteLine(characterCounts.Values.Max() - characterCounts.Values.Min());
         }
 
         public void Part2()
         {
-            (string polymer, var insertionRules) = ParseInput(Input.GetLines(2021, 14).ToList());
+            (string polymer, var insertionRules) = ParseInput(input.GetLines().ToList());
             var characterCounts = CharacterCountsAfterSteps(polymer, insertionRules, steps: 40);
             Console.WriteLine(characterCounts.Values.Max() - characterCounts.Values.Min());
         }

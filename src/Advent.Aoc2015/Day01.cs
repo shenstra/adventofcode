@@ -4,23 +4,30 @@ namespace Advent.Aoc2015
 {
     public class Day01
     {
+        private readonly IInput input;
+
+        public Day01(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string input = Input.GetSingleLine(2015, 1);
-            Console.WriteLine(input.Count(c => c == '(') - input.Count(c => c == ')'));
+            string line = input.GetSingleLine();
+            Console.WriteLine(line.Count(c => c == '(') - line.Count(c => c == ')'));
         }
 
         public void Part2()
         {
-            string input = Input.GetSingleLine(2015, 1);
+            string line = input.GetSingleLine();
             int floor = 0;
-            for (int i = 0; i < input.Length; i++)
+            for (int i = 0; i < line.Length; i++)
             {
-                if (input[i] == '(')
+                if (line[i] == '(')
                 {
                     floor++;
                 }
-                else if (input[i] == ')')
+                else if (line[i] == ')')
                 {
                     floor--;
                 }

@@ -4,16 +4,23 @@ namespace Advent.Aoc2020
 {
     public class Day21
     {
+        private readonly IInput input;
+
+        public Day21(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var entries = Input.GetLines(2020, 21).Select(ToEntry).ToList();
+            var entries = input.GetLines().Select(ToEntry).ToList();
             FindAndRemoveIngredientAllergenes(entries);
             Console.WriteLine(entries.Sum(e => e.Ingredients.Count));
         }
 
         public void Part2()
         {
-            var entries = Input.GetLines(2020, 21).Select(ToEntry).ToList();
+            var entries = input.GetLines().Select(ToEntry).ToList();
             var ingredientAllergenes = FindAndRemoveIngredientAllergenes(entries);
             Console.WriteLine(string.Join(",", ingredientAllergenes.OrderBy(kvp => kvp.Value).Select(kvp => kvp.Key)));
         }

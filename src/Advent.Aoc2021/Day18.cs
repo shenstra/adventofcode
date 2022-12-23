@@ -4,16 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day18
     {
+        private readonly IInput input;
+
+        public Day18(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var snailfishNumbers = Input.GetLines(2021, 18).Select(ParseElements);
+            var snailfishNumbers = input.GetLines().Select(ParseElements);
             var result = snailfishNumbers.Aggregate(Add);
             Console.WriteLine(Magnitude(result));
         }
 
         public void Part2()
         {
-            var snailfishNumbers = Input.GetLines(2021, 18).Select(ParseElements).ToList();
+            var snailfishNumbers = input.GetLines().Select(ParseElements).ToList();
             int highestMagnitude = 0;
             for (int i = 0; i < snailfishNumbers.Count; i++)
             {

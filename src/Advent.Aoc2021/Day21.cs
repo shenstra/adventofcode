@@ -4,17 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day21
     {
+        private readonly IInput input;
         private readonly Dictionary<(int, int, int, int), (long, long)> cachedSimulations = new();
+
+        public Day21(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            (int position1, int position2) = ParsePositions(Input.GetLines(2021, 21));
+            (int position1, int position2) = ParsePositions(input.GetLines());
             Console.WriteLine(PlaySampleGame(position1, position2));
         }
 
         public void Part2()
         {
-            (int position1, int position2) = ParsePositions(Input.GetLines(2021, 21));
+            (int position1, int position2) = ParsePositions(input.GetLines());
             (long wins1, long wins2) = SimulateQuantumGame(position1, position2);
             Console.WriteLine(Math.Max(wins1, wins2));
         }

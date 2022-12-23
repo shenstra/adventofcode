@@ -4,16 +4,23 @@ namespace Advent.Aoc2020
 {
     public class Day18
     {
+        private readonly IInput input;
+
+        public Day18(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2020, 18);
+            var lines = input.GetLines();
             var solutions = lines.Select(l => Solve(l, addFirst: false));
             Console.WriteLine(solutions.Sum());
         }
 
         public void Part2()
         {
-            var lines = Input.GetLines(2020, 18);
+            var lines = input.GetLines();
             var solutions = lines.Select(l => Solve(l, addFirst: true));
             Console.WriteLine(solutions.Sum());
         }

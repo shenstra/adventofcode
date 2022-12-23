@@ -4,11 +4,17 @@ namespace Advent.Aoc2020
 {
     public class Day10
     {
+        private readonly IInput input;
         private static readonly Dictionary<string, long> memoizedCombinations = new();
+
+        public Day10(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
+            var sortedAdapters = GetSortedAdapters(input.GetInts());
             int jump1 = 0, jump3 = 0;
             for (int i = 0; i < sortedAdapters.Count - 1; i++)
             {
@@ -28,7 +34,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var sortedAdapters = GetSortedAdapters(Input.GetInts(2020, 10));
+            var sortedAdapters = GetSortedAdapters(input.GetInts());
             long combinations = FindCombinations(sortedAdapters);
             Console.WriteLine(combinations);
         }

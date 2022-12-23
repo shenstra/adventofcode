@@ -4,16 +4,23 @@ namespace Advent.Aoc2021
 {
     public class Day01
     {
+        private readonly IInput input;
+
+        public Day01(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var numbers = Input.GetInts(2021, 1).ToList();
+            var numbers = input.GetInts().ToList();
             int increases = CountSlidingWindowDecreases(numbers, windowSize: 1);
             Console.WriteLine(increases);
         }
 
         public void Part2()
         {
-            var numbers = Input.GetInts(2021, 1).ToList();
+            var numbers = input.GetInts().ToList();
             Console.WriteLine(CountSlidingWindowDecreases(numbers, windowSize: 3));
         }
 

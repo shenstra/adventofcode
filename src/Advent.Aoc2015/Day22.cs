@@ -4,16 +4,23 @@ namespace Advent.Aoc2015
 {
     public class Day22
     {
+        private readonly IInput input;
+
+        public Day22(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var boss = new Boss(Input.GetLines(2015, 22));
+            var boss = new Boss(input.GetLines());
             var player = new Player { HitPoints = 50, Mana = 500 };
             Console.WriteLine(CalculateLowestManaToWin(player, boss));
         }
 
         public void Part2()
         {
-            var boss = new Boss(Input.GetLines(2015, 22));
+            var boss = new Boss(input.GetLines());
             var player = new Player { HitPoints = 50, Mana = 500, Hard = true };
             Console.WriteLine(CalculateLowestManaToWin(player, boss));
         }

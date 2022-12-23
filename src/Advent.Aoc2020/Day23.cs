@@ -4,9 +4,16 @@ namespace Advent.Aoc2020
 {
     public class Day23
     {
+        private readonly IInput input;
+
+        public Day23(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int[] numbers = Input.GetInts(2020, 23).ToArray();
+            int[] numbers = input.GetInts().ToArray();
             int cupCount = numbers.Length;
             var lookup = CreateLookup(numbers, cupCount);
             var current = lookup[numbers.First()];
@@ -21,9 +28,9 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var input = Input.GetInts(2020, 23);
+            int[] numbers = input.GetInts().ToArray();
             int cupCount = 1_000_000;
-            int[] numbers = input.Concat(Enumerable.Range(input.Max() + 1, cupCount - input.Count())).ToArray();
+            numbers = numbers.Concat(Enumerable.Range(numbers.Max() + 1, cupCount - numbers.Length)).ToArray();
             var lookup = CreateLookup(numbers, cupCount);
             var current = lookup[numbers.First()];
 

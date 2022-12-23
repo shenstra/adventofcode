@@ -4,9 +4,16 @@ namespace Advent.Aoc2021
 {
     public class Day13
     {
+        private readonly IInput input;
+
+        public Day13(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            (var dots, var instructions) = ParseManual(Input.GetLines(2021, 13).ToList());
+            (var dots, var instructions) = ParseManual(input.GetLines().ToList());
             (char axis, int degree) = instructions[0];
             dots = ApplyFold(dots, axis, degree);
             Console.WriteLine(dots.Count);
@@ -14,7 +21,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            (var dots, var instructions) = ParseManual(Input.GetLines(2021, 13).ToList());
+            (var dots, var instructions) = ParseManual(input.GetLines().ToList());
             foreach (var (axis, degree) in instructions)
             {
                 dots = ApplyFold(dots, axis, degree);

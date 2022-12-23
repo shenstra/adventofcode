@@ -4,13 +4,20 @@ namespace Advent.Aoc2015
 {
     public class Day04
     {
+        private readonly IInput input;
+
+        public Day04(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string input = Input.GetSingleLine(2015, 4);
+            string line = input.GetSingleLine();
             var md5 = new MD5Hasher();
             for (int i = 1; ; i++)
             {
-                string hashString = md5.Hash($"{input}{i}");
+                string hashString = md5.Hash($"{line}{i}");
                 if (hashString.StartsWith("00000"))
                 {
                     Console.WriteLine(i);
@@ -21,11 +28,11 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            string input = Input.GetSingleLine(2015, 4);
+            string line = input.GetSingleLine();
             var md5 = new MD5Hasher();
             for (int i = 1; ; i++)
             {
-                string hashString = md5.Hash($"{input}{i}");
+                string hashString = md5.Hash($"{line}{i}");
                 if (hashString.StartsWith("000000"))
                 {
                     Console.WriteLine(i);

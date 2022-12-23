@@ -4,15 +4,22 @@ namespace Advent.Aoc2021
 {
     public class Day03
     {
+        private readonly IInput input;
+
+        public Day03(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var numbers = Input.GetLines(2021, 3).Select(ParseBinaryNumber).ToList();
+            var numbers = input.GetLines().Select(ParseBinaryNumber).ToList();
             Console.WriteLine(CalculatePowerConsumption(numbers));
         }
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 3).ToList();
+            var lines = input.GetLines().ToList();
             Console.WriteLine(CalculateRating(lines, OxygenFilter) * CalculateRating(lines, CO2Filter));
         }
 

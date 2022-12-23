@@ -4,16 +4,23 @@ namespace Advent.Aoc2016
 {
     public class Day06
     {
+        private readonly IInput input;
+
+        public Day06(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string[] input = Input.GetLines(2016, 6).ToArray();
-            Console.WriteLine(ErrorCorrectMessage(input, modifiedRepetition: false));
+            string[] lines = input.GetLines().ToArray();
+            Console.WriteLine(ErrorCorrectMessage(lines, modifiedRepetition: false));
         }
 
         public void Part2()
         {
-            string[] input = Input.GetLines(2016, 6).ToArray();
-            Console.WriteLine(ErrorCorrectMessage(input, modifiedRepetition: true));
+            string[] lines = input.GetLines().ToArray();
+            Console.WriteLine(ErrorCorrectMessage(lines, modifiedRepetition: true));
         }
 
         private static string ErrorCorrectMessage(string[] input, bool modifiedRepetition)

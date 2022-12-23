@@ -4,9 +4,16 @@ namespace Advent.Aoc2021
 {
     public class Day09
     {
+        private readonly IInput input;
+
+        public Day09(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var lines = Input.GetLines(2021, 9).ToList();
+            var lines = input.GetLines().ToList();
             int[,] heightMap = ParseHeightMap(lines);
             var lowPoints = EnumerateLowPoints(heightMap);
             int sumRisk = lowPoints.Sum(pos => heightMap[pos.x, pos.y] + 1);
@@ -15,7 +22,7 @@ namespace Advent.Aoc2021
 
         public void Part2()
         {
-            var lines = Input.GetLines(2021, 9).ToList();
+            var lines = input.GetLines().ToList();
             int[,] heightMap = ParseHeightMap(lines);
             var lowPoints = EnumerateLowPoints(heightMap);
             var basinSizes = lowPoints.Select(pos => FindBasinSize(heightMap, pos.x, pos.y));

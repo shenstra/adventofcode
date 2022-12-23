@@ -1,20 +1,27 @@
-﻿using System.Text.Json;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.Json;
 
 namespace Advent.Aoc2015
 {
     public class Day12
     {
+        private readonly IInput input;
+
+        public Day12(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            string line = Input.GetSingleLine(2015, 12);
+            string line = input.GetSingleLine();
             var doc = JsonDocument.Parse(line);
             Console.WriteLine(SumNumbers(doc.RootElement, (e) => false));
         }
 
         public void Part2()
         {
-            string line = Input.GetSingleLine(2015, 12);
+            string line = input.GetSingleLine();
             var doc = JsonDocument.Parse(line);
             Console.WriteLine(SumNumbers(doc.RootElement, HasRedProperty));
         }

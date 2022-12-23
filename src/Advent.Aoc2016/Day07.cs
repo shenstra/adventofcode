@@ -4,15 +4,22 @@ namespace Advent.Aoc2016
 {
     public class Day07
     {
+        private readonly IInput input;
+
+        public Day07(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var ips = Input.GetLines(2016, 7);
+            var ips = input.GetLines();
             Console.WriteLine(ips.Count(l => SupportsTls(l)));
         }
 
         public void Part2()
         {
-            var ips = Input.GetLines(2016, 7);
+            var ips = input.GetLines();
             Console.WriteLine(ips.Count(l => SupportsSsl(l)));
         }
 

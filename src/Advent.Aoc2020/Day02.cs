@@ -1,21 +1,27 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
     public class Day02
     {
+        private readonly IInput input;
         private readonly Regex passwordRegex = new(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
+
+        public Day02(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var entries = Input.GetLines(2020, 2).Select(MapToPasswordEntry);
+            var entries = input.GetLines().Select(MapToPasswordEntry);
             Console.WriteLine(entries.Count(e => e.PassesPolicy1()));
         }
 
         public void Part2()
         {
-            var entries = Input.GetLines(2020, 2).Select(MapToPasswordEntry);
+            var entries = input.GetLines().Select(MapToPasswordEntry);
             Console.WriteLine(entries.Count(e => e.PassesPolicy2()));
         }
 

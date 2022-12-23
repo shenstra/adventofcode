@@ -4,10 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day21
     {
+        private readonly IInput input;
+
+        public Day21(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var boss = new Character("boss", GetBossStats(Input.GetLines(2015, 21)));
+            var boss = new Character("boss", GetBossStats(input.GetLines()));
             var player = new Character("player", (100, 0, 0));
 
             int lowestCost = int.MaxValue;
@@ -25,7 +31,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            var boss = new Character("boss", GetBossStats(Input.GetLines(2015, 21)));
+            var boss = new Character("boss", GetBossStats(input.GetLines()));
             var player = new Character("player", (100, 0, 0));
 
             int highestCost = 0;

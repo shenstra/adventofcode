@@ -1,22 +1,28 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2016
 {
     public class Day04
     {
+        private readonly IInput input;
         private readonly Regex roomRegex = new(@"([a-z-]+)-(\d+)\[([a-z]+)\]");
+
+        public Day04(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var rooms = Input.GetLines(2016, 4).Select(ParseRoomCode);
+            var rooms = input.GetLines().Select(ParseRoomCode);
             var realRooms = rooms.Where(r => GetChecksum(r.name) == r.checksum);
             Console.WriteLine(realRooms.Sum(r => r.sectorId));
         }
 
         public void Part2()
         {
-            var rooms = Input.GetLines(2016, 4).Select(ParseRoomCode);
+            var rooms = input.GetLines().Select(ParseRoomCode);
             var realRooms = rooms.Where(r => GetChecksum(r.name) == r.checksum);
             var northyRooms = realRooms.Where(r => DecryptRoomName(r.name, r.sectorId).Contains("north"));
             foreach (var (name, sectorId, checksum) in northyRooms)

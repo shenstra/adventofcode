@@ -1,19 +1,26 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2020
 {
     public class Day04
     {
+        private readonly IInput input;
+
+        public Day04(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var entries = GetEntries(Input.GetLines(2020, 4));
+            var entries = GetEntries(input.GetLines());
             var validEntries = entries.Where(e => e.HasRequiredFields());
             Console.WriteLine(validEntries.Count());
         }
         public void Part2()
         {
-            var entries = GetEntries(Input.GetLines(2020, 4));
+            var entries = GetEntries(input.GetLines());
             var validEntries = entries.Where(e => e.HasRequiredFields() && e.HasValidFields());
             Console.WriteLine(validEntries.Count());
         }

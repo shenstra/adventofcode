@@ -4,17 +4,23 @@ namespace Advent.Aoc2015
 {
     public class Day17
     {
+        private readonly IInput input;
+
+        public Day17(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            int[] containers = Input.GetInts(2015, 17).OrderByDescending(i => i).ToArray();
+            int[] containers = input.GetInts().OrderByDescending(i => i).ToArray();
             var combinations = FindContainerCombinations(containers, 150, Array.Empty<int>());
             Console.WriteLine(combinations.Count());
         }
 
         public void Part2()
         {
-            int[] containers = Input.GetInts(2015, 17).OrderByDescending(i => i).ToArray();
+            int[] containers = input.GetInts().OrderByDescending(i => i).ToArray();
             var combinations = FindContainerCombinations(containers, 150, Array.Empty<int>()).ToList();
             int minContainerCount = combinations.Min(c => c.Length);
             Console.WriteLine(combinations.Count(c => c.Length == minContainerCount));

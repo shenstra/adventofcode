@@ -4,9 +4,16 @@ namespace Advent.Aoc2015
 {
     public class Day07
     {
+        private readonly IInput input;
+
+        public Day07(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            var rules = new Queue<string>(Input.GetLines(2015, 7));
+            var rules = new Queue<string>(input.GetLines());
             var wireValues = new Dictionary<string, ushort>();
             ApplyRules(rules, wireValues);
             Console.WriteLine(wireValues["a"]);
@@ -14,7 +21,7 @@ namespace Advent.Aoc2015
 
         public void Part2()
         {
-            var lines = Input.GetLines(2015, 7);
+            var lines = input.GetLines();
             var rules = new Queue<string>(lines);
             var wireValues = new Dictionary<string, ushort>();
             ApplyRules(rules, wireValues);
@@ -89,9 +96,9 @@ namespace Advent.Aoc2015
             }
             else if (left.Contains("NOT"))
             {
-                if (TryLookupValue(left[4..], wireValues, out ushort input))
+                if (TryLookupValue(left[4..], wireValues, out ushort input1))
                 {
-                    value = (ushort)~input;
+                    value = (ushort)~input1;
                     return true;
                 }
             }

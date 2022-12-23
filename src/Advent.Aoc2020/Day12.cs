@@ -5,10 +5,16 @@ namespace Advent.Aoc2020
     public class Day12
     {
         private readonly List<char> headings = new() { 'N', 'E', 'S', 'W' };
+        private readonly IInput input;
+
+        public Day12(IInput input)
+        {
+            this.input = input;
+        }
 
         public void Part1()
         {
-            var instructions = Input.GetLines(2020, 12).Select(GetInstruction);
+            var instructions = input.GetLines().Select(GetInstruction);
             (int x, int y) = FollowSimpleInstructions(instructions);
             int manhattanDistance = Math.Abs(x) + Math.Abs(y);
             Console.WriteLine(manhattanDistance);
@@ -16,7 +22,7 @@ namespace Advent.Aoc2020
 
         public void Part2()
         {
-            var instructions = Input.GetLines(2020, 12).Select(GetInstruction);
+            var instructions = input.GetLines().Select(GetInstruction);
             (int x, int y) = FollowWaypointInstructions(instructions);
             int manhattanDistance = Math.Abs(x) + Math.Abs(y);
             Console.WriteLine(manhattanDistance);

@@ -1,15 +1,22 @@
-﻿using System.Text.RegularExpressions;
-using Advent.Util;
+﻿using Advent.Util;
+using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2016
 {
     public class Day10
     {
+        private readonly IInput input;
+
+        public Day10(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1And2()
         {
-            var input = Input.GetLines(2016, 10);
-            var actors = CreateActors(input);
-            ActivateInputs(input, actors);
+            var lines = input.GetLines();
+            var actors = CreateActors(lines);
+            ActivateInputs(lines, actors);
             int out0 = actors.Single(a => a.Type == "output" && a.Id == 0).Values.Single();
             int out1 = actors.Single(a => a.Type == "output" && a.Id == 1).Values.Single();
             int out2 = actors.Single(a => a.Type == "output" && a.Id == 2).Values.Single();

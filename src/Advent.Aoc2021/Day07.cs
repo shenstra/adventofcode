@@ -4,15 +4,22 @@ namespace Advent.Aoc2021
 {
     public class Day07
     {
+        private readonly IInput input;
+
+        public Day07(IInput input)
+        {
+            this.input = input;
+        }
+
         public void Part1()
         {
-            int[] crabPositions = Input.GetSingleLine(2021, 7).SplitToInts();
+            int[] crabPositions = input.GetSingleLine().SplitToInts();
             Console.WriteLine(FindLowestFuelCost(crabPositions, LinearFuelCost));
         }
 
         public void Part2()
         {
-            int[] crabPositions = Input.GetSingleLine(2021, 7).SplitToInts();
+            int[] crabPositions = input.GetSingleLine().SplitToInts();
             Console.WriteLine(FindLowestFuelCost(crabPositions, TriangularFuelCost));
 
         }
