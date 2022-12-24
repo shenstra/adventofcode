@@ -7,9 +7,9 @@ var sw = Stopwatch.StartNew();
 
 try
 {
-    var day = new Day09(new Input(2022, 9));
+    var day = new Day10(new Input(2022, 10));
     Console.WriteLine($"Part 1: {day.Part1()}");
-    Console.WriteLine($"Part 2: {day.Part2()}");
+    Console.WriteLine($"Part 2:\n{string.Join('\n', day.Part2())}");
 }
 catch (Exception ex)
 {
