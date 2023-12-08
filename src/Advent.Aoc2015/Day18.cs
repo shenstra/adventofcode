@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day18
+    public class Day18(IInput input)
     {
-        private readonly IInput input;
-
-        public Day18(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             bool[,] lights = GetLights(input.GetLines().ToList());

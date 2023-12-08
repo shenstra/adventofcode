@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day04
+    public class Day04(IInput input)
     {
-        private readonly IInput input;
-
-        public Day04(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             var ranges = input.GetLines().Select(MapRanges).ToList();
@@ -23,7 +16,7 @@
 
         private (int start1, int end1, int start2, int end2) MapRanges(string input)
         {
-            var numbers = input.Split(new[] { '-', ',' }).Select(int.Parse).ToList();
+            var numbers = input.Split(['-', ',']).Select(int.Parse).ToList();
             return (numbers[0], numbers[1], numbers[2], numbers[3]);
         }
 

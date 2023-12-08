@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day12
+    public class Day12(IInput input)
     {
-        private readonly List<char> headings = new() { 'N', 'E', 'S', 'W' };
-        private readonly IInput input;
-
-        public Day12(IInput input)
-        {
-            this.input = input;
-        }
+        private readonly List<char> headings = ['N', 'E', 'S', 'W'];
 
         public void Part1()
         {

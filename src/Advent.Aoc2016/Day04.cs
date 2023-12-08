@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2016
 {
-    public class Day04
+    public class Day04(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex roomRegex = new(@"([a-z-]+)-(\d+)\[([a-z]+)\]");
-
-        public Day04(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

@@ -1,25 +1,18 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day12
+    public class Day12(IInput input)
     {
-        private readonly IInput input;
-
-        public Day12(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var connections = input.GetLines().SelectMany(ParseMap).ToList();
-            int pathCount = CountPossiblePaths(connections, "start", visited: Array.Empty<string>());
+            int pathCount = CountPossiblePaths(connections, "start", visited: []);
             Console.WriteLine(pathCount);
         }
 
         public void Part2()
         {
             var connections = input.GetLines().SelectMany(ParseMap).ToList();
-            int pathCount = CountPossiblePaths(connections, "start", visited: Array.Empty<string>(), extraTime: true);
+            int pathCount = CountPossiblePaths(connections, "start", visited: [], extraTime: true);
             Console.WriteLine(pathCount);
         }
 
@@ -30,7 +23,7 @@
                 return 1;
             }
 
-            visited = visited.Append(current).ToArray();
+            visited = [.. visited, current];
             var candidates = connections.Where(c => c.from == current)
                 .Where(c => char.IsUpper(c.to[0]) || !visited.Contains(c.to) || (extraTime && c.to is not "start" or "end"));
 

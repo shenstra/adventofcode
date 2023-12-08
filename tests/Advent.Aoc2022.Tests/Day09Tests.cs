@@ -36,8 +36,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(36, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "R 4",
             "U 4",
             "L 3",
@@ -46,10 +46,10 @@ namespace Advent.Aoc2022.Tests
             "D 1",
             "L 5",
             "R 2",
-        };
+        ];
 
-        private readonly string[] bigTestInput = new string[]
-        {
+        private readonly string[] bigTestInput =
+        [
             "R 5",
             "U 8",
             "L 8",
@@ -58,6 +58,6 @@ namespace Advent.Aoc2022.Tests
             "D 10",
             "L 25",
             "U 20",
-        };
+        ];
     }
 }

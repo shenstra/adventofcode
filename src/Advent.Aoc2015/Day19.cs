@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day19
+    public class Day19(IInput input)
     {
-        private readonly IInput input;
-
-        public Day19(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var lines = input.GetLines();

@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day03
+    public class Day03(IInput input)
     {
-        private readonly IInput input;
-
-        public Day03(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             var rucksacks = input.GetLines().Select(SplitCompartments);

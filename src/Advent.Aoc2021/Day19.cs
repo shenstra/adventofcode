@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day19
+    public class Day19(IInput input)
     {
-        private readonly IInput input;
-
-        public Day19(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var scanners = ParseScanners(input.GetLines()).ToList();
@@ -25,7 +18,6 @@
             Console.WriteLine(distances.Max());
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "False positive, this loop can't be turned into a LINQ expression")]
         private static void CalculatePositions(List<Scanner> scanners)
         {
             scanners[0].PositionKnown = true;
@@ -145,7 +137,7 @@
             public int Id { get; set; }
             public bool PositionKnown { get; set; }
             public RelativePosition Position { get; set; }
-            public List<RelativePosition> Signals { get; set; } = new();
+            public List<RelativePosition> Signals { get; set; } = [];
         }
         private record struct RelativePosition(int X, int Y, int Z);
     }

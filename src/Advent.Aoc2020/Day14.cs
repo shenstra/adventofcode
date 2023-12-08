@@ -1,17 +1,10 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day14
+    public class Day14(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex maskRegex = new(@"mask = ([X01]{36})");
         private readonly Regex memRegex = new(@"mem\[(\d+)\] = (\d+)");
 
-        public Day14(IInput input)
-        {
-            this.input = input;
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2437:Silly bit operations should not be performed", Justification = "False positive, this silly bit operation is crucial to the algorithm")]
         public void Part1()
         {
             var lines = input.GetLines();

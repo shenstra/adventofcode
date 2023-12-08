@@ -25,8 +25,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(45000, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "1000",
             "2000",
             "3000",
@@ -41,6 +41,6 @@ namespace Advent.Aoc2022.Tests
             "9000",
             "",
             "10000",
-        };
+        ];
     }
 }

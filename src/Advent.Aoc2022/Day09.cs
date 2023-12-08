@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day09
+    public class Day09(IInput input)
     {
-        private readonly IInput input;
-
-        public Day09(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             var instructions = input.GetLines().Select(MapInstruction).ToList();

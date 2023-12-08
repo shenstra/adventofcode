@@ -1,13 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day05
+    public class Day05(IInput input)
     {
-        private readonly IInput input;
-
-        public Day05(IInput input)
-        {
-            this.input = input;
-        }
         public string Part1()
         {
             var lines = input.GetLines().ToList();
@@ -38,7 +32,7 @@
                 string axis = input[blankIndex - 1];
                 int size = (axis.Length + 1) / 4;
 
-                stacks = new Dictionary<int, Stack<char>>();
+                stacks = [];
                 for (int i = 1; i <= size; i++)
                 {
                     stacks[i] = new Stack<char>();

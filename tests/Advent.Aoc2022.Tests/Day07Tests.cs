@@ -25,8 +25,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(24933642, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "$ cd /",
             "$ ls",
             "dir a",
@@ -50,6 +50,6 @@ namespace Advent.Aoc2022.Tests
             "8033020 d.log",
             "5626152 d.ext",
             "7214296 k",
-        };
+        ];
     }
 }

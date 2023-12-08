@@ -1,20 +1,13 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day24
+    public class Day24(IInput input)
     {
-        private readonly IInput input;
-
-        public Day24(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             long[] packages = input.GetLongs().ToArray();
             var groups = EnumerateThirdGroups(packages, packages.Sum() / 3).ToList();
             int minSize = groups.Min(g => g.Length);
-            long solution = groups.Where(g => g.Length == minSize).Min(g => QuantumEntanglement(g));
+            long solution = groups.Where(g => g.Length == minSize).Min(QuantumEntanglement);
             Console.WriteLine(solution);
         }
 
@@ -23,7 +16,7 @@
             long[] packages = input.GetLongs().ToArray();
             var groups = EnumerateQuarterGroups(packages, packages.Sum() / 4).ToList();
             int minSize = groups.Min(g => g.Length);
-            long solution = groups.Where(g => g.Length == minSize).Min(g => QuantumEntanglement(g));
+            long solution = groups.Where(g => g.Length == minSize).Min(QuantumEntanglement);
             Console.WriteLine(solution);
         }
 

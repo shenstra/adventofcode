@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day21
+    public class Day21(IInput input)
     {
-        private readonly IInput input;
-        private readonly Dictionary<(int, int, int, int), (long, long)> cachedSimulations = new();
-
-        public Day21(IInput input)
-        {
-            this.input = input;
-        }
+        private readonly Dictionary<(int, int, int, int), (long, long)> cachedSimulations = [];
 
         public void Part1()
         {

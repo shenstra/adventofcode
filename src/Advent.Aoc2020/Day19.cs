@@ -1,18 +1,11 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day19
+    public class Day19(IInput input)
     {
-        private readonly IInput input;
-
-        public Day19(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             (var rules, var lines) = ParseInput(input.GetLines().ToList());
-            var matches = lines.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
+            var matches = lines.Where(line => MatchesRules([0], line, rules));
             Console.WriteLine(matches.Count());
         }
 
@@ -21,13 +14,13 @@
             (var rules, var lines) = ParseInput(input.GetLines().ToList());
             rules[8] = "42 | 42 8";
             rules[11] = "42 31 | 42 11 31";
-            var matches = lines.Where(line => MatchesRules(new List<int> { 0 }, line, rules));
+            var matches = lines.Where(line => MatchesRules([0], line, rules));
             Console.WriteLine(matches.Count());
         }
 
         private bool MatchesRules(List<int> toMatch, string input, Dictionary<int, string> rules)
         {
-            if (!toMatch.Any())
+            if (toMatch.Count == 0)
             {
                 return input == string.Empty;
             }
@@ -45,7 +38,7 @@
 
             foreach (string option in rule.Split(" | "))
             {
-                var newToMatch = option.Split().Select(s => int.Parse(s)).Concat(toMatch.Skip(1)).ToList();
+                var newToMatch = option.Split().Select(int.Parse).Concat(toMatch.Skip(1)).ToList();
                 if (MatchesRules(newToMatch, input, rules))
                 {
                     return true;

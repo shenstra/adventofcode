@@ -1,37 +1,30 @@
 ﻿namespace Advent.Aoc2016
 {
-    public class Day07
+    public class Day07(IInput input)
     {
-        private readonly IInput input;
-
-        public Day07(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var ips = input.GetLines();
-            Console.WriteLine(ips.Count(l => SupportsTls(l)));
+            Console.WriteLine(ips.Count(SupportsTls));
         }
 
         public void Part2()
         {
             var ips = input.GetLines();
-            Console.WriteLine(ips.Count(l => SupportsSsl(l)));
+            Console.WriteLine(ips.Count(SupportsSsl));
         }
 
         private static bool SupportsTls(string ip)
         {
             var (snets, hnets) = ChunkIp(ip);
-            return snets.Any(net => ContainsAbba(net))
-                && !hnets.Any(net => ContainsAbba(net));
+            return snets.Any(ContainsAbba)
+                && !hnets.Any(ContainsAbba);
         }
 
         private bool SupportsSsl(string ip)
         {
             var (snets, hnets) = ChunkIp(ip);
-            var abas = snets.SelectMany(net => EnumerateAbas(net));
+            var abas = snets.SelectMany(EnumerateAbas);
             return abas.Select(InvertAba).Any(bab => hnets.Any(net => net.Contains(bab)));
         }
 

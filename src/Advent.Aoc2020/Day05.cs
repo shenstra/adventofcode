@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day05
+    public class Day05(IInput input)
     {
-        private readonly IInput input;
-
-        public Day05(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var seatIds = input.GetLines().Select(GetSeatId);

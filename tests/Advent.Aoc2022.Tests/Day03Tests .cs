@@ -25,14 +25,14 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(70, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "vJrwpWtwJgWrhcsFMMfFFhFp",
             "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
             "PmmdzqPrVvPwwTWBwg",
             "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
             "ttgJtRGJQctTZtZT",
             "CrZsJsPPZsGzwwsLwLmpwMDw",
-        };
+        ];
     }
 }

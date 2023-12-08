@@ -1,8 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day10
+    public class Day10(IInput input)
     {
-        private readonly IInput input;
         private readonly Dictionary<char, char> openingMatch =
             new()
             {
@@ -30,11 +29,6 @@
                 ['<'] = 4
             };
 
-        public Day10(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var lines = input.GetLines();
@@ -44,10 +38,13 @@
         public void Part2()
         {
             var lines = input.GetLines();
-            long[] scores = lines.Select(DetermineCompletionScore)
-                .Where(s => s >= 0)
-                .OrderBy(s => s)
-                .ToArray();
+            long[] scores =
+            [
+                .. lines.Select(DetermineCompletionScore)
+                                .Where(s => s >= 0)
+                                .OrderBy(s => s)
+,
+            ];
             Console.WriteLine(scores[scores.Length / 2]);
         }
 
@@ -91,7 +88,7 @@
             }
 
             long score = 0;
-            while (stack.Any())
+            while (stack.Count != 0)
             {
                 score = (score * 5) + completionValue[stack.Pop()];
             }

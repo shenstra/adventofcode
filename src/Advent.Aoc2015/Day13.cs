@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day13
+    public class Day13(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex seatingRegex = new(@"^(.+) would (gain|lose) (\d+) happiness units by sitting next to (.+)\.$");
-
-        public Day13(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {
@@ -48,7 +42,7 @@
 
             foreach (string name in names)
             {
-                string[] thisSeat = new string[] { name };
+                string[] thisSeat = [name];
                 foreach (var partialSeating in EnumeratePossibleSeatingsRecursively(names.Except(thisSeat).ToArray()))
                 {
                     yield return thisSeat.Concat(partialSeating);

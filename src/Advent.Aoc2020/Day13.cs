@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day13
+    public class Day13(IInput input)
     {
-        private readonly IInput input;
-
-        public Day13(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var lines = input.GetLines().ToList();
@@ -30,7 +23,7 @@
         private static (List<string>, List<ulong>) GetBusEntriesAndIds(string line)
         {
             var entries = line.Split(",").ToList();
-            var busIds = entries.Where(s => s != "x").Select(s => ulong.Parse(s)).ToList();
+            var busIds = entries.Where(s => s != "x").Select(ulong.Parse).ToList();
             return (entries, busIds);
         }
 

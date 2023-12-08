@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day04
+    public class Day04(IInput input)
     {
-        private readonly IInput input;
-
-        public Day04(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var lines = input.GetLines().ToList();
@@ -23,16 +16,10 @@
             Console.WriteLine(loser.Score);
         }
 
-        private class BingoGame
+        private class BingoGame(List<string> input)
         {
-            private readonly int[] randomNumbers;
-            private readonly List<BingoBoard> boards;
-
-            public BingoGame(List<string> input)
-            {
-                randomNumbers = input.First().SplitToInts();
-                boards = input.Skip(2).Chunk(6).Select(l => new BingoBoard(l.ToList())).ToList();
-            }
+            private readonly int[] randomNumbers = input.First().SplitToInts();
+            private readonly List<BingoBoard> boards = input.Skip(2).Chunk(6).Select(l => new BingoBoard([.. l])).ToList();
 
             public BingoBoard Play()
             {
@@ -84,7 +71,7 @@
             {
                 for (int row = 0; row < 5; row++)
                 {
-                    string[] rowParts = whitespaceRegex.Split(input[row].Trim()).ToArray();
+                    string[] rowParts = [.. whitespaceRegex.Split(input[row].Trim())];
                     for (int col = 0; col < 5; col++)
                     {
                         numbers[row, col] = int.Parse(rowParts[col]);

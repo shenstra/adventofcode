@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day09
+    public class Day09(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex legRegex = new(@"^(?<location1>.*) to (?<location2>.*) = (?<distance>\d+)$");
-
-        public Day09(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {
@@ -27,7 +21,7 @@
             var locations = distances.Select(kvp => kvp.Key.Item1).Distinct().ToList();
             foreach (string location in locations)
             {
-                foreach (var route in EnumerateRoutesRecursively(new Route { Locations = new List<string> { location } }, distances, locations))
+                foreach (var route in EnumerateRoutesRecursively(new Route { Locations = [location] }, distances, locations))
                 {
                     yield return route;
                 }
@@ -40,7 +34,7 @@
             {
                 var newRoute = new Route
                 {
-                    Locations = route.Locations.Append(location).ToList(),
+                    Locations = [.. route.Locations, location],
                     Distance = route.Distance + distances[(route.Locations.Last(), location)]
                 };
 

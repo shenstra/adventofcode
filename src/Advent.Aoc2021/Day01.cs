@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day01
+    public class Day01(IInput input)
     {
-        private readonly IInput input;
-
-        public Day01(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var numbers = input.GetInts().ToList();

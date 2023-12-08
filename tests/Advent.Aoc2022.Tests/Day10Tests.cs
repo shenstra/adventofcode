@@ -25,8 +25,8 @@ namespace Advent.Aoc2022.Tests
             CollectionAssert.AreEqual(expectedOutput, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "addx 15",
             "addx -11",
             "addx 6",
@@ -173,16 +173,16 @@ namespace Advent.Aoc2022.Tests
             "noop",
             "noop",
             "noop",
-        };
+        ];
 
         private readonly string[] expectedOutput =
-        {
+        [
             "##..##..##..##..##..##..##..##..##..##..",
             "###...###...###...###...###...###...###.",
             "####....####....####....####....####....",
             "#####.....#####.....#####.....#####.....",
             "######......######......######......####",
             "#######.......#######.......#######.....",
-        };
+        ];
     }
 }

@@ -1,32 +1,26 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day22
+    public class Day22(IInput input)
     {
-        private readonly IInput input;
-        private readonly Dictionary<string, int> knownGameWinners = new();
-
-        public Day22(IInput input)
-        {
-            this.input = input;
-        }
+        private readonly Dictionary<string, int> knownGameWinners = [];
 
         public void Part1()
         {
             var (player1, player2) = GetHands(input.GetLines());
             PlayCombat(player1, player2);
-            Console.WriteLine(CalculateScore(player1.Any() ? player1 : player2));
+            Console.WriteLine(CalculateScore(player1.Count != 0 ? player1 : player2));
         }
 
         public void Part2()
         {
             var (player1, player2) = GetHands(input.GetLines());
             PlayRecursiveCombat(player1, player2);
-            Console.WriteLine(CalculateScore(player1.Any() ? player1 : player2));
+            Console.WriteLine(CalculateScore(player1.Count != 0 ? player1 : player2));
         }
 
         private static void PlayCombat(Queue<int> player1, Queue<int> player2)
         {
-            while (player1.Any() && player2.Any())
+            while (player1.Count != 0 && player2.Count != 0)
             {
                 var (card1, card2) = (player1.Dequeue(), player2.Dequeue());
                 if (card1 > card2)
@@ -42,17 +36,16 @@
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3358:Ternary operators should not be nested", Justification = "Nested ternary operator is the cleanest solution in this case")]
         private int PlayRecursiveCombat(Queue<int> player1, Queue<int> player2)
         {
             string gameId = string.Join(",", player1) + "~" + string.Join(",", player2);
-            if (knownGameWinners.ContainsKey(gameId))
+            if (knownGameWinners.TryGetValue(gameId, out int value))
             {
-                return knownGameWinners[gameId];
+                return value;
             }
 
             var playedRounds = new List<string>();
-            while (player1.Any() && player2.Any())
+            while (player1.Count != 0 && player2.Count != 0)
             {
                 string roundId = string.Join(",", player1) + "~" + string.Join(",", player2);
                 if (playedRounds.Contains(roundId))
@@ -79,7 +72,7 @@
                 playedRounds.Add(roundId);
             }
 
-            knownGameWinners[gameId] = player1.Any() ? 1 : 2;
+            knownGameWinners[gameId] = player1.Count != 0 ? 1 : 2;
             return knownGameWinners[gameId];
         }
 
@@ -87,7 +80,7 @@
         {
             int score = 0;
             int multiplier = winningHand.Count;
-            while (winningHand.Any())
+            while (winningHand.Count != 0)
             {
                 score += winningHand.Dequeue() * multiplier--;
             }
@@ -97,8 +90,8 @@
 
         private static (Queue<int>, Queue<int>) GetHands(IEnumerable<string> lines)
         {
-            var player1 = new Queue<int>(lines.Skip(1).TakeWhile(s => s != string.Empty).Select(s => int.Parse(s)));
-            var player2 = new Queue<int>(lines.Skip(player1.Count + 3).Select(s => int.Parse(s)));
+            var player1 = new Queue<int>(lines.Skip(1).TakeWhile(s => s != string.Empty).Select(int.Parse));
+            var player2 = new Queue<int>(lines.Skip(player1.Count + 3).Select(int.Parse));
             return (player1, player2);
         }
     }

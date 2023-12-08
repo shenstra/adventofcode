@@ -25,8 +25,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(2713310158UL, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "Monkey 0:",
             "  Starting items: 79, 98",
             "  Operation: new = old * 19",
@@ -54,6 +54,6 @@ namespace Advent.Aoc2022.Tests
             "  Test: divisible by 17",
             "    If true: throw to monkey 0",
             "    If false: throw to monkey 1",
-        };
+        ];
     }
 }

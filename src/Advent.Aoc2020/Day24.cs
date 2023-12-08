@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day24
+    public class Day24(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex instructionRegex = new(@"(ne|nw|se|sw|e|w)");
-
-        public Day24(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

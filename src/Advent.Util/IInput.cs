@@ -6,10 +6,10 @@
 
         public string GetSingleLine() => GetLines().Single();
 
-        public IEnumerable<int> GetInts() => GetLines().Select(s => int.Parse(s));
+        public IEnumerable<int> GetInts() => GetLines().Select(int.Parse);
 
         public int GetSingleInt() => GetInts().Single();
 
-        public IEnumerable<long> GetLongs() => GetLines().Select(s => long.Parse(s));
+        public IEnumerable<long> GetLongs() => GetLines().Select(long.Parse);
     }
 }

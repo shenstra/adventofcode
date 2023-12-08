@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day16
+    public class Day16(IInput input)
     {
-        private readonly IInput input;
-
-        public Day16(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             int[] bits = ConvertToBits(input.GetSingleLine()).ToArray();
@@ -40,7 +33,7 @@
             public int Version { get; set; }
             public PacketType TypeId { get; set; }
             public long LiteralValue { get; set; }
-            public List<Packet> SubPackets { get; set; } = new List<Packet>();
+            public List<Packet> SubPackets { get; set; } = [];
 
             public long VersionSum => Version + SubPackets.Sum(p => p.VersionSum);
 

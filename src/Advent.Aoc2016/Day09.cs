@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2016
 {
-    public class Day09
+    public class Day09(IInput input)
     {
-        private readonly IInput input;
-
-        public Day09(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             long decompressedSizes = input.GetLines().Sum(s => DecompressedSize(s, recurse: false));

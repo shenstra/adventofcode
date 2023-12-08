@@ -1,30 +1,23 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day02
+    public class Day02(IInput input)
     {
-        private readonly IInput input;
-
-        public Day02(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var dimensions = input.GetLines().Select(ConvertToDimensions);
-            int neededPaper = dimensions.Select(d => NeededPaper(d)).Sum();
+            int neededPaper = dimensions.Select(NeededPaper).Sum();
             Console.WriteLine(neededPaper);
         }
         public void Part2()
         {
             var dimensions = input.GetLines().Select(ConvertToDimensions);
-            int neededRibbon = dimensions.Select(d => NeededRibbon(d)).Sum();
+            int neededRibbon = dimensions.Select(NeededRibbon).Sum();
             Console.WriteLine(neededRibbon);
         }
 
         private List<int> ConvertToDimensions(string l)
         {
-            return l.Split('x').Select(s => int.Parse(s)).ToList();
+            return l.Split('x').Select(int.Parse).ToList();
         }
 
         private static int NeededRibbon(List<int> dimensions)

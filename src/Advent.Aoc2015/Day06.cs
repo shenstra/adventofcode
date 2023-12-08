@@ -1,15 +1,9 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day06
+    public class Day06(IInput input)
     {
-        private readonly IInput input;
         private const int size = 1000;
         private readonly Regex instructionRegex = new(@"^(turn on|turn off|toggle) (\d+),(\d+) through (\d+),(\d+)$");
-
-        public Day06(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

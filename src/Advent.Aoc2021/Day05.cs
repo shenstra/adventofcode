@@ -1,15 +1,9 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day05
+    public class Day05(IInput input)
     {
-        private readonly IInput input;
         private const int mapSize = 1000;
         private readonly Regex lineRegex = new(@"^(\d+),(\d+) -> (\d+),(\d+)$");
-
-        public Day05(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

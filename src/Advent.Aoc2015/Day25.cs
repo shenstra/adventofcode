@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day25
+    public class Day25(IInput input)
     {
-        private readonly IInput input;
-
-        public Day25(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var (row, col) = ParseInput(input.GetSingleLine());

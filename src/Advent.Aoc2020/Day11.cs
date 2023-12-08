@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day11
+    public class Day11(IInput input)
     {
-        private readonly IInput input;
-
-        public Day11(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var seats = GetSeats(input.GetLines());
@@ -35,7 +28,7 @@
         private static bool ApplyRound(Dictionary<(int row, int col), SeatState> seats, out Dictionary<(int, int), SeatState> newSeats, Algorithm algorithm)
         {
             bool changed = false;
-            newSeats = new Dictionary<(int, int), SeatState>();
+            newSeats = [];
             foreach (var seat in seats)
             {
                 var newSeatState = seat.Value;
@@ -102,9 +95,9 @@
                             nextSeatKey = (row + (stepSize * rowDirection), col + (stepSize * colDirection));
                         }
 
-                        if (seats.ContainsKey(nextSeatKey))
+                        if (seats.TryGetValue(nextSeatKey, out var value))
                         {
-                            yield return seats[nextSeatKey];
+                            yield return value;
                         }
                     }
                 }

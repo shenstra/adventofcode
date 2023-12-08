@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day14
+    public class Day14(IInput input)
     {
-        private readonly IInput input;
-        private readonly Dictionary<(string, int), Dictionary<char, long>> cache = new();
-
-        public Day14(IInput input)
-        {
-            this.input = input;
-        }
+        private readonly Dictionary<(string, int), Dictionary<char, long>> cache = [];
 
         public void Part1()
         {
@@ -49,14 +43,14 @@
 
         private Dictionary<char, long> CharactersCountsBetween(string pair, Dictionary<string, char> insertionRules, int folds)
         {
-            if (folds == 0 || !insertionRules.ContainsKey(pair))
+            if (folds == 0 || !insertionRules.TryGetValue(pair, out char value))
             {
-                return new();
+                return [];
             }
 
             if (!cache.ContainsKey((pair, folds)))
             {
-                char newCharacter = insertionRules[pair];
+                char newCharacter = value;
                 var counts = new Dictionary<char, long> { [newCharacter] = 1 };
                 AddCounts(counts, CharactersCountsBetween($"{pair[0]}{newCharacter}", insertionRules, folds - 1));
                 AddCounts(counts, CharactersCountsBetween($"{newCharacter}{pair[1]}", insertionRules, folds - 1));

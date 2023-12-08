@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day07
+    public class Day07(IInput input)
     {
-        private readonly IInput input;
-
-        public Day07(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             int[] crabPositions = input.GetSingleLine().SplitToInts();

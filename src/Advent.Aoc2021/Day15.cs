@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day15
+    public class Day15(IInput input)
     {
-        private readonly IInput input;
-
-        public Day15(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             int[,] riskLevels = ParseRiskLevels(input.GetLines().ToList());

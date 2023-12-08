@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day21
+    public class Day21(IInput input)
     {
-        private readonly IInput input;
-
-        public Day21(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var entries = input.GetLines().Select(ToEntry).ToList();
@@ -27,7 +20,7 @@
         {
             var ingredientAllergenes = new Dictionary<string, string>();
 
-            while (entries.Any(e => e.Allergens.Any()))
+            while (entries.Any(e => e.Allergens.Count != 0))
             {
                 (string ingredient, string allergen) = FindUniqueIngredientAllergen(entries);
                 ingredientAllergenes[ingredient] = allergen;
@@ -64,8 +57,8 @@
             string[] parts = input.TrimEnd(')').Split(" (contains ");
             return new Entry
             {
-                Ingredients = parts[0].Split(" ").ToList(),
-                Allergens = parts.Length > 1 ? parts[1].Split(", ").ToList() : new List<string>()
+                Ingredients = [.. parts[0].Split(" ")],
+                Allergens = parts.Length > 1 ? [.. parts[1].Split(", ")] : []
             };
         }
 

@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2016
 {
-    public partial class Day05
+    public partial class Day05(IInput input)
     {
-        private readonly IInput input;
-
-        public Day05(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             string doorCode = input.GetSingleLine();

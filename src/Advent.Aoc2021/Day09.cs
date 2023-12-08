@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day09
+    public class Day09(IInput input)
     {
-        private readonly IInput input;
-
-        public Day09(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var lines = input.GetLines().ToList();
@@ -48,7 +41,7 @@
             var basinPositions = new List<(int x, int y)>();
             var positionsToCheck = new Stack<(int x, int y)>();
             positionsToCheck.Push((x, y));
-            while (positionsToCheck.Any())
+            while (positionsToCheck.Count != 0)
             {
                 var pos = positionsToCheck.Pop();
                 if (!basinPositions.Contains(pos))

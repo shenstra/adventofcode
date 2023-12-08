@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day16
+    public class Day16(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex sueRegex = new(@"^Sue (\d+): (.+)$");
-
-        public Day16(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

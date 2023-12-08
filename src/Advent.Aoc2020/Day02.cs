@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day02
+    public class Day02(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex passwordRegex = new(@"^(\d+)-(\d+) ([a-z]): ([a-z]*)$");
-
-        public Day02(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

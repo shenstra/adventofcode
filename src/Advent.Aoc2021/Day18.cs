@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day18
+    public class Day18(IInput input)
     {
-        private readonly IInput input;
-
-        public Day18(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var snailfishNumbers = input.GetLines().Select(ParseElements);
@@ -39,9 +32,9 @@
         {
             var result = new List<Element>
             {
-                new Element('['),
-                new Element(','),
-                new Element(']'),
+                new('['),
+                new(','),
+                new(']'),
             };
             result.InsertRange(2, b);
             result.InsertRange(1, a);
@@ -127,11 +120,11 @@
             int number = elements[index].Number;
             var splitElements = new List<Element>
             {
-                new Element('['),
-                new Element(number / 2),
-                new Element(','),
-                new Element((number + 1) / 2),
-                new Element(']'),
+                new('['),
+                new(number / 2),
+                new(','),
+                new((number + 1) / 2),
+                new(']'),
             };
             elements.RemoveAt(index);
             elements.InsertRange(index, splitElements);

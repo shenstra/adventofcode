@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day12
+    public class Day12(IInput input)
     {
-        private readonly IInput input;
-
-        public Day12(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             string[] map = input.GetLines().ToArray();

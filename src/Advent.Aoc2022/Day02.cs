@@ -1,24 +1,17 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day02
+    public class Day02(IInput input)
     {
-        private readonly IInput input;
-
-        public Day02(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             var rounds = input.GetLines().Select(MapRound).ToList();
-            return rounds.Sum(r => ScoreRound1(r));
+            return rounds.Sum(ScoreRound1);
         }
 
         public int Part2()
         {
             var rounds = input.GetLines().Select(MapRound).ToList();
-            return rounds.Sum(r => ScoreRound2(r));
+            return rounds.Sum(ScoreRound2);
         }
 
         private int ScoreRound1((char opponent, char player) round)

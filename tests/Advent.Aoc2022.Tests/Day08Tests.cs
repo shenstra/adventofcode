@@ -25,13 +25,13 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(8, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "30373",
             "25512",
             "65332",
             "33549",
             "35390",
-        };
+        ];
     }
 }

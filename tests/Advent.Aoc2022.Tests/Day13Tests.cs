@@ -46,8 +46,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(140, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "[1,1,3,1,1]",
             "[1,1,5,1,1]",
             "",
@@ -71,6 +71,6 @@ namespace Advent.Aoc2022.Tests
             "",
             "[1,[2,[3,[4,[5,6,7]]]],8,9]",
             "[1,[2,[3,[4,[5,6,0]]]],8,9]",
-        };
+        ];
     }
 }

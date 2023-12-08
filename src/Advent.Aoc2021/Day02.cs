@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day02
+    public class Day02(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex instructionRegex = new(@"^(forward|down|up) (\d+)$");
-
-        public Day02(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

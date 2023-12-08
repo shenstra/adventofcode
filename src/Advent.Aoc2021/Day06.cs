@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day06
+    public class Day06(IInput input)
     {
-        private readonly IInput input;
         private const int initialTimer = 8;
-
-        public Day06(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

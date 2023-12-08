@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day11
+    public class Day11(IInput input)
     {
-        private readonly IInput input;
         private const int Size = 10;
-
-        public Day11(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {
@@ -62,7 +56,7 @@
         private static int ApplyFlashes(int[,] energyLevels, Stack<(int, int)> flashing)
         {
             int flashes = 0;
-            while (flashing.Any())
+            while (flashing.Count != 0)
             {
                 (int i, int j) = flashing.Pop();
                 flashes++;

@@ -1,15 +1,9 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day07
+    public class Day07(IInput input)
     {
         private const string root = "/";
         private const string pathSeparator = "/";
-        private readonly IInput input;
-
-        public Day07(IInput input)
-        {
-            this.input = input;
-        }
 
         public int Part1()
         {
@@ -74,28 +68,17 @@
             int Size { get; }
         }
 
-        private class Directory : IGetSize
+        private class Directory(string name) : IGetSize
         {
-            public string Name { get; }
-            public List<IGetSize> Items { get; set; } = new List<IGetSize>();
+            public string Name { get; } = name;
+            public List<IGetSize> Items { get; set; } = [];
             public int Size => Items.Sum(i => i.Size);
-
-            public Directory(string name)
-            {
-                Name = name;
-            }
         }
 
-        private class File : IGetSize
+        private class File(string name, int size) : IGetSize
         {
-            public string Name { get; }
-            public int Size { get; }
-
-            public File(string name, int size)
-            {
-                Name = name;
-                Size = size;
-            }
+            public string Name { get; } = name;
+            public int Size { get; } = size;
         }
     }
 }

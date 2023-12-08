@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day13
+    public class Day13(IInput input)
     {
-        private readonly IInput input;
-
-        public Day13(IInput input)
-        {
-            this.input = input;
-        }
-
         public int Part1()
         {
             var packetPairs = input.GetLines().Chunk(3).ToList();
@@ -45,12 +38,11 @@
             return left.CompareTo(right) == -1;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S1210:\"Equals\" and the comparison operators should be overridden when implementing \"IComparable\"", Justification = "Only using CompareTo directly and through Sort")]
         private class Data : IComparable<Data>
         {
             public bool IsInteger { get; init; }
             public int Value { get; init; }
-            public List<Data> Values { get; init; } = new();
+            public List<Data> Values { get; init; } = [];
 
             public Data(string input)
             {
@@ -89,7 +81,7 @@
 
             public Data(Data data)
             {
-                Values = new List<Data> { data };
+                Values = [data];
             }
 
             public int CompareTo(Data? other)

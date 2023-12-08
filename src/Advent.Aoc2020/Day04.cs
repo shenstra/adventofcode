@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day04
+    public class Day04(IInput input)
     {
-        private readonly IInput input;
-
-        public Day04(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var entries = GetEntries(input.GetLines());
@@ -43,7 +36,7 @@
 
         private class Entry
         {
-            private readonly Dictionary<string, string> fields = new();
+            private readonly Dictionary<string, string> fields = [];
             private readonly Regex hgtRegex = new(@"^(\d+)(cm|in)$");
             private readonly Regex hclRegex = new(@"^#([0-9a-f]{6})$");
             private readonly Regex eclRegex = new(@"^(amb|blu|brn|gry|grn|hzl|oth)$");

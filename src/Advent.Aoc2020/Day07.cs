@@ -1,18 +1,11 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day07
+    public class Day07(IInput input)
     {
-        private readonly IInput input;
-
-        public Day07(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var rules = BuildBagRules(input.GetLines());
-            var bagOptions = FindBagsThatCanHoldCertainBags(rules, new List<string> { "shiny gold" }).ToList();
+            var bagOptions = FindBagsThatCanHoldCertainBags(rules, ["shiny gold"]).ToList();
 
             while (true)
             {
@@ -35,7 +28,7 @@
             var requiredBags = new List<string>();
             bagsToCheck.Enqueue("shiny gold");
 
-            while (bagsToCheck.Any())
+            while (bagsToCheck.Count != 0)
             {
                 string bag = bagsToCheck.Dequeue();
                 requiredBags.Add(bag);
@@ -70,7 +63,7 @@
                 string container = containerResult.Groups["container"].Value;
                 string contents = containerResult.Groups["contents"].Value;
 
-                rules.Add(container, new Dictionary<string, int>());
+                rules.Add(container, []);
                 if (contents != "no other bags")
                 {
                     foreach (string content in contents.Split(", "))

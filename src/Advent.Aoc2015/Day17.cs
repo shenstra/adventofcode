@@ -1,24 +1,17 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day17
+    public class Day17(IInput input)
     {
-        private readonly IInput input;
-
-        public Day17(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
-            int[] containers = input.GetInts().OrderByDescending(i => i).ToArray();
+            int[] containers = [.. input.GetInts().OrderByDescending(i => i)];
             var combinations = FindContainerCombinations(containers, 150, Array.Empty<int>());
             Console.WriteLine(combinations.Count());
         }
 
         public void Part2()
         {
-            int[] containers = input.GetInts().OrderByDescending(i => i).ToArray();
+            int[] containers = [.. input.GetInts().OrderByDescending(i => i)];
             var combinations = FindContainerCombinations(containers, 150, Array.Empty<int>()).ToList();
             int minContainerCount = combinations.Min(c => c.Length);
             Console.WriteLine(combinations.Count(c => c.Length == minContainerCount));

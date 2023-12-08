@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day20
+    public class Day20(IInput input)
     {
-        private readonly IInput input;
-
-        public Day20(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             int target = input.GetSingleInt();

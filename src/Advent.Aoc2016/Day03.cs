@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2016
 {
-    public class Day03
+    public class Day03(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex triangleRegex = new(@"(\d+)\s+(\d+)\s+(\d+)");
-
-        public Day03(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

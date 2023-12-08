@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2022
 {
-    public class Day11
+    public class Day11(IInput input)
     {
-        private readonly IInput input;
-
-        public Day11(IInput input)
-        {
-            this.input = input;
-        }
-
         public ulong Part1()
         {
             var monkeys = input.GetLines().Chunk(7).Select(lines => new Monkey(lines)).ToArray();
@@ -60,7 +53,7 @@
 
             private Func<ulong, ulong, ulong> ParseOperation(string input)
             {
-                string[] tokens = input.Split(" = ").Last().Split(" ").ToArray();
+                string[] tokens = [.. input.Split(" = ").Last().Split(" ")];
                 ulong? left = tokens[0] == "old" ? null : ulong.Parse(tokens[0]);
                 char operand = tokens[1][0];
                 ulong? right = tokens[2] == "old" ? null : ulong.Parse(tokens[2]);

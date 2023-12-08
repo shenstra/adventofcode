@@ -25,10 +25,10 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual(93, result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "498,4 -> 498,6 -> 496,6",
             "503,4 -> 502,4 -> 502,9 -> 494,9",
-        };
+        ];
     }
 }

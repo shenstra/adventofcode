@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day17
+    public class Day17(IInput input)
     {
-        private readonly IInput input;
-
-        public Day17(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var activeCubes = GetActiveCubes(input.GetLines().ToList());

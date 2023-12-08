@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day16
+    public class Day16(IInput input)
     {
-        private readonly IInput input;
-
-        public Day16(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var document = Document.Parse(input.GetLines().ToList());
@@ -35,7 +28,7 @@
             var possibleIndexesForField = new Dictionary<string, List<int>>();
             foreach (string field in fieldRules.Keys)
             {
-                possibleIndexesForField[field] = new List<int>();
+                possibleIndexesForField[field] = [];
                 for (int fieldIndex = 0; fieldIndex < validTickets.First().Length; fieldIndex++)
                 {
                     if (validTickets.All(t => fieldRules[field].Contains(t[fieldIndex])))
@@ -51,7 +44,7 @@
         private static Dictionary<string, int> SimpleSudoku(Dictionary<string, List<int>> possibleIndexesForField)
         {
             var fieldIndexes = new Dictionary<string, int>();
-            while (possibleIndexesForField.Any())
+            while (possibleIndexesForField.Count != 0)
             {
                 foreach (string field in possibleIndexesForField.Keys)
                 {
@@ -104,7 +97,7 @@
             private static Dictionary<string, List<int>> GetFieldRules(IEnumerable<string> lines)
             {
                 var fieldRegex = new Regex(@"^(?<field>.+): (?:(?<range>\d+-\d+)(?: or |$))+");
-                return lines.Select(l => fieldRegex.Match(l)).ToDictionary(fm => fm.Groups["field"].Value, fm => GetRangeNumbers(fm));
+                return lines.Select(l => fieldRegex.Match(l)).ToDictionary(fm => fm.Groups["field"].Value, GetRangeNumbers);
             }
 
             private static List<int> GetRangeNumbers(Match fieldMatch)

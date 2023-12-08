@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day07
+    public class Day07(IInput input)
     {
-        private readonly IInput input;
-
-        public Day07(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var rules = new Queue<string>(input.GetLines());
@@ -33,7 +26,7 @@
 
         private static void ApplyRules(Queue<string> rules, Dictionary<string, ushort> wireValues)
         {
-            while (rules.Any())
+            while (rules.Count != 0)
             {
                 string rule = rules.Dequeue();
                 string[] parts = rule.Split(" -> ");
@@ -111,9 +104,9 @@
 
         private static bool TryLookupValue(string token, Dictionary<string, ushort> wireValues, out ushort output)
         {
-            if (wireValues.ContainsKey(token))
+            if (wireValues.TryGetValue(token, out ushort value))
             {
-                output = wireValues[token];
+                output = value;
                 return true;
             }
 

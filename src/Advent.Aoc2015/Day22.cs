@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day22
+    public class Day22(IInput input)
     {
-        private readonly IInput input;
-
-        public Day22(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var boss = new Boss(input.GetLines());
@@ -27,7 +20,7 @@
         {
             int lowestManaCostToWin = int.MaxValue;
             List<(Player player, Boss boss)> saveStates = new List<(Player, Boss)> { (player, boss) };
-            while (saveStates.Any())
+            while (saveStates.Count != 0)
             {
                 var state = saveStates.OrderBy(s => s.boss.HitPoints).First();
                 saveStates.Remove(state);

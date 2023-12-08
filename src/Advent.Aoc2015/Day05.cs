@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day05
+    public class Day05(IInput input)
     {
-        private readonly List<char> vowels = new() { 'a', 'e', 'i', 'o', 'u' };
-        private readonly IInput input;
-
-        public Day05(IInput input)
-        {
-            this.input = input;
-        }
+        private readonly List<char> vowels = ['a', 'e', 'i', 'o', 'u'];
 
         public void Part1()
         {
@@ -39,7 +33,7 @@
 
         private bool HasThreeVowels(string name)
         {
-            return name.Count(c => vowels.Contains(c)) >= 3;
+            return name.Count(vowels.Contains) >= 3;
         }
 
         private static bool HasDoubleLetter(string name)

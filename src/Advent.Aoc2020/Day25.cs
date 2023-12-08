@@ -1,15 +1,9 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day25
+    public class Day25(IInput input)
     {
-        private readonly IInput input;
         private const int initialSubjectNumber = 7;
         private const int divisor = 20201227;
-
-        public Day25(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

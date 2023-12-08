@@ -2,15 +2,8 @@
 
 namespace Advent.TestUtilities
 {
-    public class FixedInput : IInput
+    public class FixedInput(params string[] input) : IInput
     {
-        private readonly string[] input;
-
-        public FixedInput(params string[] input)
-        {
-            this.input = input;
-        }
-
         public IEnumerable<string> GetLines()
         {
             return input;

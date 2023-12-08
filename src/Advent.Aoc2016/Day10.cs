@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2016
 {
-    public class Day10
+    public class Day10(IInput input)
     {
-        private readonly IInput input;
-
-        public Day10(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1And2()
         {
             var lines = input.GetLines();
@@ -59,19 +52,13 @@
             }
         }
 
-        private class Actor
+        private class Actor(string type, int id)
         {
-            public string Type { get; private init; }
-            public int Id { get; private init; }
+            public string Type { get; private init; } = type;
+            public int Id { get; private init; } = id;
             public Actor LowOutput { get; set; }
             public Actor HighOutput { get; set; }
-            public List<int> Values { get; private init; } = new List<int>();
-
-            public Actor(string type, int id)
-            {
-                Type = type;
-                Id = id;
-            }
+            public List<int> Values { get; private init; } = [];
 
             public override string ToString()
             {

@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day20
+    public class Day20(IInput input)
     {
-        private readonly IInput input;
-
-        public Day20(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var tiles = GetTiles(input.GetLines().ToList());
@@ -152,8 +145,8 @@
                 {'#',' ',' ',' ',' ','#','#',' ',' ',' ',' ','#','#',' ',' ',' ',' ','#','#','#'},
                 {' ','#',' ',' ','#',' ',' ','#',' ',' ','#',' ',' ','#',' ',' ','#',' ',' ',' '}
             };
-            return new List<char[,]>
-            {
+            return
+            [
                 image,
                 FlipX(image),
                 FlipY(image),
@@ -162,7 +155,7 @@
                 FlipX(Transpose(image)),
                 FlipY(Transpose(image)),
                 FlipX(FlipY(Transpose(image))),
-            };
+            ];
         }
 
         private static bool SpotNessie(char[,] image, char[,] nessieImage, int row, int col)

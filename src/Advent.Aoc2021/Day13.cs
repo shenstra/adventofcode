@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day13
+    public class Day13(IInput input)
     {
-        private readonly IInput input;
-
-        public Day13(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             (var dots, var instructions) = ParseManual(input.GetLines().ToList());

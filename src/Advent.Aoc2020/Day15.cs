@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day15
+    public class Day15(IInput input)
     {
-        private readonly IInput input;
-
-        public Day15(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             int[] numbers = input.GetSingleLine().SplitToInts();

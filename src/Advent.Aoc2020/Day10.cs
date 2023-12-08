@@ -1,14 +1,8 @@
 ﻿namespace Advent.Aoc2020
 {
-    public class Day10
+    public class Day10(IInput input)
     {
-        private readonly IInput input;
-        private static readonly Dictionary<string, long> memoizedCombinations = new();
-
-        public Day10(IInput input)
-        {
-            this.input = input;
-        }
+        private static readonly Dictionary<string, long> memoizedCombinations = [];
 
         public void Part1()
         {
@@ -42,7 +36,7 @@
             var adapters = input.ToList();
             adapters.Add(0); // outlet
             adapters.Add(adapters.Max() + 3); // device
-            return adapters.OrderBy(a => a).ToList();
+            return [.. adapters.OrderBy(a => a)];
         }
 
         private long FindCombinations(List<int> sortedAdapters)

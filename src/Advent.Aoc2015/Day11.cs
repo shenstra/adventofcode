@@ -1,14 +1,7 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day11
+    public class Day11(IInput input)
     {
-        private readonly IInput input;
-
-        public Day11(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             char[] currentPassword = input.GetSingleLine().ToCharArray();

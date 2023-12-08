@@ -1,18 +1,11 @@
 ﻿namespace Advent.Aoc2015
 {
-    public class Day15
+    public class Day15(IInput input)
     {
-        private readonly IInput input;
-
-        public Day15(IInput input)
-        {
-            this.input = input;
-        }
-
         public void Part1()
         {
             var ingredients = input.GetLines().Select(l => new Ingredient(l)).ToArray();
-            var bestRecipe = EnumerateRecipes(ingredients, 100).OrderByDescending(r => CalculateScore(r)).First();
+            var bestRecipe = EnumerateRecipes(ingredients, 100).OrderByDescending(CalculateScore).First();
             Console.WriteLine(CalculateScore(bestRecipe));
         }
 
@@ -20,7 +13,7 @@
         {
             var ingredients = input.GetLines().Select(l => new Ingredient(l)).ToArray();
             var bestRecipe = EnumerateRecipes(ingredients, 100).Where(r => CalculateCalories(r) == 500)
-                .OrderByDescending(r => CalculateScore(r)).First();
+                .OrderByDescending(CalculateScore).First();
             Console.WriteLine(CalculateScore(bestRecipe));
         }
 

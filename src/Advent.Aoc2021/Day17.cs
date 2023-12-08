@@ -1,15 +1,9 @@
 ﻿namespace Advent.Aoc2021
 {
-    public class Day17
+    public class Day17(IInput input)
     {
-        private readonly IInput input;
         private readonly Regex targetRegex = new(@"target area: x=(-?\d+)..(-?\d+), y=(-?\d+)..(-?\d+)");
         private const int MaxDeltaY = 1000;
-
-        public Day17(IInput input)
-        {
-            this.input = input;
-        }
 
         public void Part1()
         {

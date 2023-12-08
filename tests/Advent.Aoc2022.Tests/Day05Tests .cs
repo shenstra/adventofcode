@@ -25,8 +25,8 @@ namespace Advent.Aoc2022.Tests
             Assert.AreEqual("MCD", result);
         }
 
-        private readonly string[] testInput = new string[]
-        {
+        private readonly string[] testInput =
+        [
             "    [D]    ",
             "[N] [C]    ",
             "[Z] [M] [P]",
@@ -36,6 +36,6 @@ namespace Advent.Aoc2022.Tests
             "move 3 from 1 to 3",
             "move 2 from 2 to 1",
             "move 1 from 1 to 2",
-        };
+        ];
     }
 }
