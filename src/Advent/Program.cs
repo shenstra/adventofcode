@@ -1,4 +1,4 @@
-﻿using Advent.Aoc2022;
+﻿using Advent.Aoc2023;
 using Advent.Util;
 using System.Diagnostics;
 
@@ -7,7 +7,7 @@ var sw = Stopwatch.StartNew();
 
 try
 {
-    var day = new Day14(new Input(2022, 14));
+    var day = new Day01(new Input(2023, 1));
     Console.WriteLine($"Part 1: {day.Part1()}");
     Console.WriteLine($"Part 2: {day.Part2()}");
 }
