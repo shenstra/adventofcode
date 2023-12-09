@@ -5,7 +5,7 @@ namespace Advent.Aoc2023
 {
     public class Day05(IInput input)
     {
-        public long Part1()
+        public uint Part1()
         {
             string[] lines = input.GetLines().ToArray();
             var seeds = ParseSeeds(lines[0]);
@@ -13,25 +13,43 @@ namespace Advent.Aoc2023
             return seeds.Select(almanac.LookUpSeedLocation).Min();
         }
 
-        public long Part2()
+        public uint Part2()
         {
             string[] lines = input.GetLines().ToArray();
             var seedRanges = ParseSeedRanges(lines[0]);
             var almanac = new Almanac(lines);
 
-            for (long location = 0; location < long.MaxValue; location++)
+            const uint parallellism = 12;
+            const uint increments = 1_000_000;
+
+            for (uint start = 0; ; start += increments)
             {
-                long seed = almanac.LookupLocationSeed(location);
+                var jobs = Enumerable.Range(0, (int)parallellism).Select(job =>
+                    Task.Run(() => ReverseSearchJob(seedRanges, almanac, parallellism, start + (uint)job, start + increments))).ToArray();
+                Task.WaitAll(jobs);
+                uint result = jobs.Select(job => job.Result).Min();
+                if (result < uint.MaxValue)
+                {
+                    return result;
+                }
+            }
+        }
+
+        private uint ReverseSearchJob(List<(uint, uint)> seedRanges, Almanac almanac, uint increment, uint start, uint max)
+        {
+            for (uint location = start; location < max; location += increment)
+            {
+                uint seed = almanac.LookupLocationSeed(location);
                 if (IsInRanges(seed, seedRanges))
                 {
                     return location;
                 }
             }
 
-            return -1;
+            return uint.MaxValue;
         }
 
-        private bool IsInRanges(long seed, List<(long, long)> seedRanges)
+        private bool IsInRanges(uint seed, List<(uint, uint)> seedRanges)
         {
             foreach (var (start, length) in seedRanges)
             {
@@ -44,15 +62,15 @@ namespace Advent.Aoc2023
             return false;
         }
 
-        private static List<long> ParseSeeds(string line)
+        private static List<uint> ParseSeeds(string line)
         {
-            return line[7..].Split(" ").Select(long.Parse).ToList();
+            return line[7..].Split(" ").Select(uint.Parse).ToList();
         }
 
-        private static List<(long, long)> ParseSeedRanges(string line)
+        private static List<(uint, uint)> ParseSeedRanges(string line)
         {
-            var seeds = new List<long>();
-            long[] numbers = line[7..].Split(" ").Select(long.Parse).ToArray();
+            var seeds = new List<uint>();
+            uint[] numbers = line[7..].Split(" ").Select(uint.Parse).ToArray();
             return numbers.Chunk(2).Select(numbers => (numbers[0], numbers[1])).ToList();
         }
 
@@ -86,27 +104,27 @@ namespace Advent.Aoc2023
                 HumidityToLocationMap = new Map(lines[(humidityToLocationLineIndex + 1)..]);
             }
 
-            public long LookUpSeedLocation(long seed)
+            public uint LookUpSeedLocation(uint seed)
             {
-                long soil = SeedToSoilMap.Lookup(seed);
-                long fertilizer = SoilToFertilizerMap.Lookup(soil);
-                long water = FertilizerToWaterMap.Lookup(fertilizer);
-                long light = WaterToLightMap.Lookup(water);
-                long temperature = LightToTemperatureMap.Lookup(light);
-                long humidity = TemperatureToHumidityMap.Lookup(temperature);
-                long location = HumidityToLocationMap.Lookup(humidity);
+                uint soil = SeedToSoilMap.Lookup(seed);
+                uint fertilizer = SoilToFertilizerMap.Lookup(soil);
+                uint water = FertilizerToWaterMap.Lookup(fertilizer);
+                uint light = WaterToLightMap.Lookup(water);
+                uint temperature = LightToTemperatureMap.Lookup(light);
+                uint humidity = TemperatureToHumidityMap.Lookup(temperature);
+                uint location = HumidityToLocationMap.Lookup(humidity);
                 return location;
             }
 
-            public long LookupLocationSeed(long location)
+            public uint LookupLocationSeed(uint location)
             {
-                long humidity = HumidityToLocationMap.ReverseLookup(location);
-                long temperature = TemperatureToHumidityMap.ReverseLookup(humidity);
-                long light = LightToTemperatureMap.ReverseLookup(temperature);
-                long water = WaterToLightMap.ReverseLookup(light);
-                long fertilizer = FertilizerToWaterMap.ReverseLookup(water);
-                long soil = SoilToFertilizerMap.ReverseLookup(fertilizer);
-                long seed = SeedToSoilMap.ReverseLookup(soil);
+                uint humidity = HumidityToLocationMap.ReverseLookup(location);
+                uint temperature = TemperatureToHumidityMap.ReverseLookup(humidity);
+                uint light = LightToTemperatureMap.ReverseLookup(temperature);
+                uint water = WaterToLightMap.ReverseLookup(light);
+                uint fertilizer = FertilizerToWaterMap.ReverseLookup(water);
+                uint soil = SoilToFertilizerMap.ReverseLookup(fertilizer);
+                uint seed = SeedToSoilMap.ReverseLookup(soil);
                 return seed;
             }
         }
@@ -115,7 +133,7 @@ namespace Advent.Aoc2023
         {
             public Mapping[] Maps { get; } = input.Select(line => new Mapping(line)).ToArray();
 
-            public long Lookup(long source)
+            public uint Lookup(uint source)
             {
                 foreach (var map in Maps)
                 {
@@ -128,7 +146,7 @@ namespace Advent.Aoc2023
                 return source;
             }
 
-            public long ReverseLookup(long target)
+            public uint ReverseLookup(uint target)
             {
                 foreach (var map in Maps)
                 {
@@ -147,14 +165,14 @@ namespace Advent.Aoc2023
             public Mapping(string input)
             {
                 string[] parts = input.Split(" ");
-                SourceStart = long.Parse(parts[1]);
-                SourceEnd = SourceStart + long.Parse(parts[2]) - 1;
-                Offset = long.Parse(parts[0]) - SourceStart;
+                SourceStart = uint.Parse(parts[1]);
+                SourceEnd = SourceStart + uint.Parse(parts[2]) - 1;
+                Offset = uint.Parse(parts[0]) - SourceStart;
             }
 
-            public long SourceStart { get; }
-            public long SourceEnd { get; }
-            public long Offset { get; }
+            public uint SourceStart { get; }
+            public uint SourceEnd { get; }
+            public uint Offset { get; }
         }
     }
 }

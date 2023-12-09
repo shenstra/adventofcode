@@ -9,9 +9,9 @@ namespace Advent.Aoc2023.Tests
             IInput input = new FixedInput(testInput);
             var day05 = new Day05(input);
 
-            long result = day05.Part1();
+            uint result = day05.Part1();
 
-            Assert.AreEqual(35, result);
+            Assert.AreEqual(35u, result);
         }
 
         [TestMethod]
@@ -20,9 +20,9 @@ namespace Advent.Aoc2023.Tests
             IInput input = new FixedInput(testInput);
             var day05 = new Day05(input);
 
-            long result = day05.Part2();
+            uint result = day05.Part2();
 
-            Assert.AreEqual(46, result);
+            Assert.AreEqual(46u, result);
         }
 
         private readonly string[] testInput =
