@@ -1,5 +1,4 @@
 using Advent.Util;
-using System.Data;
 
 namespace Advent.Aoc2023
 {
