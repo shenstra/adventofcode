@@ -92,7 +92,7 @@ dotnet_diagnostic.S1643.severity = none
 dotnet_diagnostic.S1066.severity = none
 csharp_style_prefer_primary_constructors = true:suggestion
 csharp_style_expression_bodied_local_functions = false:silent
-dotnet_diagnostic.SYSLIB1045.severity = none
+dotnet_diagnostic.SYSLIB1045.severity = silent
 
 [*.vb]
 #### Naming styles ####
@@ -155,3 +155,4 @@ dotnet_style_object_initializer = true:suggestion
 dotnet_style_prefer_collection_expression = true:suggestion
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent

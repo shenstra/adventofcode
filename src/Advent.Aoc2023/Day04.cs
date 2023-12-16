@@ -1,5 +1,4 @@
 using Advent.Util;
-using System.Text.RegularExpressions;
 
 namespace Advent.Aoc2023
 {
@@ -35,8 +34,6 @@ namespace Advent.Aoc2023
 
         private class Card
         {
-            private static readonly Regex whitespaceRegex = new(@"\s+");
-
             public Card(string input)
             {
                 string[] parts = input.Split(": ");
@@ -48,7 +45,7 @@ namespace Advent.Aoc2023
 
             private int[] ParseNumbers(string input)
             {
-                return whitespaceRegex.Split(input.Trim()).Select(int.Parse).ToArray();
+                return CommonRegex.Whitespace().Split(input.Trim()).Select(int.Parse).ToArray();
             }
 
             public int Id { get; set; }

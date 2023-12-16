@@ -57,7 +57,6 @@
 
         private class BingoBoard
         {
-            private readonly Regex whitespaceRegex = new(@"\s+");
             private readonly int[,] numbers = new int[5, 5];
             private readonly int[] rowMarks = new int[5];
             private readonly int[] colMarks = new int[5];
@@ -71,7 +70,7 @@
             {
                 for (int row = 0; row < 5; row++)
                 {
-                    string[] rowParts = [.. whitespaceRegex.Split(input[row].Trim())];
+                    string[] rowParts = [.. CommonRegex.Whitespace().Split(input[row].Trim())];
                     for (int col = 0; col < 5; col++)
                     {
                         numbers[row, col] = int.Parse(rowParts[col]);
