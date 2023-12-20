@@ -7,7 +7,7 @@ var sw = Stopwatch.StartNew();
 
 try
 {
-    var day = new Day12(new Input(2023, 12));
+    var day = new Day13(new Input(2023, 13));
     Console.WriteLine($"Part 1: {day.Part1()}");
     Console.WriteLine($"Part 2: {day.Part2()}");
 }
