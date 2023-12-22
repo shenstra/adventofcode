@@ -1,6 +1,4 @@
-﻿using Advent.Util;
-
-namespace Advent.Aoc2023
+﻿namespace Advent.Aoc2023
 {
     public class Day01(IInput input)
     {
