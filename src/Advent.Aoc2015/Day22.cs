@@ -19,7 +19,7 @@
         private static int CalculateLowestManaToWin(Player player, Boss boss)
         {
             int lowestManaCostToWin = int.MaxValue;
-            List<(Player player, Boss boss)> saveStates = new List<(Player, Boss)> { (player, boss) };
+            List<(Player player, Boss boss)> saveStates = [(player, boss)];
             while (saveStates.Count != 0)
             {
                 var state = saveStates.OrderBy(s => s.boss.HitPoints).First();
